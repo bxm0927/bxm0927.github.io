@@ -4,9 +4,9 @@ It's my personal blog, share with you IT technology, to achieve progress togethe
 
 Welcome to visit it 👉 https://bxm0927.github.io/
 
-博客源码：https://github.com/bxm0927/blog
+部署代码：master
 
-部署代码：https://github.com/bxm0927/bxm0927.github.io
+源码分支：workspace
 
 ## Quick Start
 
