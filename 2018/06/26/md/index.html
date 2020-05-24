@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Markdown 入门详细教程 | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Markdown,有道云笔记">
+    <meta name="description" content="Markdown 简介 Markdown 中文官网：http:&#x2F;&#x2F;www.markdown.cn 【简明版】有道云笔记Markdown指南：http:&#x2F;&#x2F;note.youdao.com&#x2F;iyoudao&#x2F;?p&#x3D;2411 【进阶版】有道云笔记Markdown指南：http:&#x2F;&#x2F;note.youdao.com&#x2F;iyoudao&#x2F;?p&#x3D;2445  Markdown 是一种简单、易读易写的「标记语言」，用来写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown 入门详细教程">
+<meta property="og:url" content="https://bxm0927.github.io/2018/06/26/md/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="Markdown 简介 Markdown 中文官网：http:&#x2F;&#x2F;www.markdown.cn 【简明版】有道云笔记Markdown指南：http:&#x2F;&#x2F;note.youdao.com&#x2F;iyoudao&#x2F;?p&#x3D;2411 【进阶版】有道云笔记Markdown指南：http:&#x2F;&#x2F;note.youdao.com&#x2F;iyoudao&#x2F;?p&#x3D;2445  Markdown 是一种简单、易读易写的「标记语言」，用来写">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-6-26/25081922.jpg">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-0-%E6%A0%87%E9%A2%98.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-3-%E7%B2%97%E4%BD%93%E6%96%9C%E4%BD%93.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-2%E5%BC%95%E7%94%A8.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-4%E9%93%BE%E6%8E%A5%E4%B8%8E%E5%9B%BE%E7%89%87.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-5-%E5%88%86%E5%89%B2%E7%BA%BF.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-1-%E5%88%97%E8%A1%A8.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/1-2%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/1-3%E8%A1%A8%E6%A0%BC.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/1-1%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
+<meta property="og:image" content="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/%E7%94%981.png">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-1-11/163002.jpg">
+<meta property="article:published_time" content="2018-06-26T00:53:05.000Z">
+<meta property="article:modified_time" content="2020-05-24T07:42:35.842Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="有道云笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://oph264zoo.bkt.clouddn.com/18-6-26/25081922.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/works"  >
+                <i class="icon icon-lg icon-hand-peace-o"></i>
+                作品
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/test"  >
+                <i class="icon icon-lg icon-link"></i>
+                404 测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Markdown 入门详细教程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Markdown 入门详细教程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-26T00:53:05.000Z" itemprop="datePublished" class="page-time">
+  2018-06-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Skills/">Skills</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Markdown-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Markdown 简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安利一波-Markdown-工具"><span class="post-toc-number">2.</span> <span class="post-toc-text">安利一波 Markdown 工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Markdown-基本语法"><span class="post-toc-number">3.</span> <span class="post-toc-text">Markdown 基本语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标题"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">标题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#粗体和斜体"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">粗体和斜体</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引用"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链接与图片"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">链接与图片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分割线"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">分割线</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#列表"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">列表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#待办事项"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">待办事项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表格"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">表格</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码高亮："><span class="post-toc-number">3.9.</span> <span class="post-toc-text">代码高亮：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流程图"><span class="post-toc-number">3.10.</span> <span class="post-toc-text">流程图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#甘特图"><span class="post-toc-number">3.11.</span> <span class="post-toc-text">甘特图</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Markdown-使用技巧"><span class="post-toc-number">4.</span> <span class="post-toc-text">Markdown 使用技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表情"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">表情</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#目录"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#控制图片大小和位置"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">控制图片大小和位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图文混排"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">图文混排</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在表格单元格里换行"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">在表格单元格里换行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#老子今天不加班-mp3"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">老子今天不加班.mp3</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-md"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Markdown 入门详细教程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-26 08:53:05" datetime="2018-06-26T00:53:05.000Z"  itemprop="datePublished">2018-06-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Skills/">Skills</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Markdown-简介"><a href="#Markdown-简介" class="headerlink" title="Markdown 简介"></a>Markdown 简介</h2><ul>
+<li>Markdown 中文官网：<a href="http://www.markdown.cn" target="_blank" rel="noopener">http://www.markdown.cn</a></li>
+<li>【简明版】有道云笔记Markdown指南：<a href="http://note.youdao.com/iyoudao/?p=2411" target="_blank" rel="noopener">http://note.youdao.com/iyoudao/?p=2411</a></li>
+<li>【进阶版】有道云笔记Markdown指南：<a href="http://note.youdao.com/iyoudao/?p=2445" target="_blank" rel="noopener">http://note.youdao.com/iyoudao/?p=2445</a></li>
+</ul>
+<p>Markdown 是一种简单、易读易写的「标记语言」，用来写博客、做笔记非常方便，通常为程序员群体所用。</p>
+<a id="more"></a>
+
+<p>Markdown 的语法十分简单，常用的标记符号不超过十个，用于日常写作记录绰绰有余，不到半小时就能完全掌握。用户可以使用一些标记符号以最小的输入代价生成极富表现力的文档（譬如您正在阅读的这份文档就是通过 Markdown 书写的）。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-6-26/25081922.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<h2 id="安利一波-Markdown-工具"><a href="#安利一波-Markdown-工具" class="headerlink" title="安利一波 Markdown 工具"></a>安利一波 Markdown 工具</h2><blockquote>
+<p>注意：不同平台的 Markdown 语法会有些许差别。</p>
+</blockquote>
+<p>Markdown 编辑器（支持实时同步预览）：</p>
+<ul>
+<li>VSCode</li>
+<li>Sublime + Markdown 插件（MarkdownPreview）</li>
+</ul>
+<p>Markdown 在线编辑器：</p>
+<ul>
+<li>CSDN 博客：<a href="https://blog.csdn.net" target="_blank" rel="noopener">https://blog.csdn.net</a></li>
+<li>简书：<a href="https://www.jianshu.com" target="_blank" rel="noopener">https://www.jianshu.com</a></li>
+<li>马克飞象：<a href="https://maxiang.io" target="_blank" rel="noopener">https://maxiang.io</a></li>
+<li>作业部落：<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">https://www.zybuluo.com/mdeditor</a></li>
+</ul>
+<p>笔记工具：</p>
+<ul>
+<li>有道云笔记：<a href="https://note.youdao.com" target="_blank" rel="noopener">https://note.youdao.com</a></li>
+<li>印象笔记：<a href="https://www.yinxiang.com" target="_blank" rel="noopener">https://www.yinxiang.com</a></li>
+<li>为知笔记：<a href="http://www.wiz.cn" target="_blank" rel="noopener">http://www.wiz.cn</a></li>
+<li>OneNote：<a href="https://www.onenote.com" target="_blank" rel="noopener">https://www.onenote.com</a></li>
+</ul>
+<h2 id="Markdown-基本语法"><a href="#Markdown-基本语法" class="headerlink" title="Markdown 基本语法"></a>Markdown 基本语法</h2><p>Markdown 的标记语法非常之多，并且不同平台的 Markdown 语法会有些许差别，但是常用的标记符号不超过十个，且平台间基本通用。</p>
+<p>常用标记：标题、粗体、斜体、删除线、下划线、高亮、引用、分割线、链接与图片</p>
+<p>不常用标记：列表、待办事项、表格、代码高亮、流程图、序列图、甘特图、数学公式</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-0-%E6%A0%87%E9%A2%98.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+<h3 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-3-%E7%B2%97%E4%BD%93%E6%96%9C%E4%BD%93.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-2%E5%BC%95%E7%94%A8.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+<h3 id="链接与图片"><a href="#链接与图片" class="headerlink" title="链接与图片"></a>链接与图片</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-4%E9%93%BE%E6%8E%A5%E4%B8%8E%E5%9B%BE%E7%89%87.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-5-%E5%88%86%E5%89%B2%E7%BA%BF.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/2-1-%E5%88%97%E8%A1%A8.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+<h3 id="待办事项"><a href="#待办事项" class="headerlink" title="待办事项"></a>待办事项</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/1-2%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/1-3%E8%A1%A8%E6%A0%BC.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+<h3 id="代码高亮："><a href="#代码高亮：" class="headerlink" title="代码高亮："></a>代码高亮：</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/1-1%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+
+<h3 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://note.youdao.com/iyoudao/wp-content/uploads/2016/09/%E7%94%981.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+<h2 id="Markdown-使用技巧"><a href="#Markdown-使用技巧" class="headerlink" title="Markdown 使用技巧"></a>Markdown 使用技巧</h2><h3 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h3><p>可以在 HTML、Markdown 中使用下面的表情，微软自带的输入法可以输入这些表情：</p>
+<p>📦 🚀 🐠 ✂️ 🔥 🚨 ✏️ 🛠 💅 👌 ✨ 💯 ⚛️ 📄</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-1-11/163002.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>有道云支持 Markdown 目录，使用 <code>[TOC]</code></p>
+<h3 id="控制图片大小和位置"><a href="#控制图片大小和位置" class="headerlink" title="控制图片大小和位置"></a>控制图片大小和位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align&#x3D;&quot;center&quot;&gt;</span><br><span class="line">  &lt;img width&#x3D;&quot;65&quot; height&#x3D;&quot;75&quot; src&#x3D;&quot;&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="图文混排"><a href="#图文混排" class="headerlink" title="图文混排"></a>图文混排</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;img align&#x3D;&quot;right&quot; src&#x3D;&quot;&quot;&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">这是一个示例图片。</span><br><span class="line"></span><br><span class="line">图片显示在 N 段文字的右边。</span><br><span class="line"></span><br><span class="line">N 与图片高度有关。</span><br><span class="line"></span><br><span class="line">刷屏行。</span><br><span class="line"></span><br><span class="line">刷屏行。</span><br><span class="line"></span><br><span class="line">到这里应该不会受影响了，本行应该延伸到了图片的正下方，所以我要足够长才能确保不同的屏幕下都看到效果。</span><br></pre></td></tr></table></figure>
+
+<h3 id="在表格单元格里换行"><a href="#在表格单元格里换行" class="headerlink" title="在表格单元格里换行"></a>在表格单元格里换行</h3><p>借助于 HTML 里的 <code>&lt;br /&gt;</code> 实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| Header1 | Header2                          |</span><br><span class="line">|---------|----------------------------------|</span><br><span class="line">| item 1  | 1. one&lt;br &#x2F;&gt;2. two&lt;br &#x2F;&gt;3. three |</span><br></pre></td></tr></table></figure>
+
+<h3 id="老子今天不加班-mp3"><a href="#老子今天不加班-mp3" class="headerlink" title="老子今天不加班.mp3"></a>老子今天不加班.mp3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio controls&#x3D;&quot;controls&quot; autoplay&#x3D;&quot;true&quot; src&#x3D;&quot;https:&#x2F;&#x2F;oijmns1ch.qnssl.com&#x2F;antiwork_today.mp3&quot;&gt;&lt;&#x2F;audio&gt;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-24T07:42:35.842Z" itemprop="dateUpdated">2020-05-24 15:42:35</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2018/06/26/md/" target="_blank" rel="external">https://bxm0927.github.io/2018/06/26/md/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.gif" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0/" rel="tag">有道云笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2018/06/26/md/&title=《Markdown 入门详细教程》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2018/06/26/md/&title=《Markdown 入门详细教程》 — Xiaoming's Blog&source=Markdown 简介
+Markdown 中文官网：http://www.markdown.cn
+【简明版】有道云笔记Markdown指南：http://..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2018/06/26/md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Markdown 入门详细教程》 — Xiaoming's Blog&url=https://bxm0927.github.io/2018/06/26/md/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2018/06/26/md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/10/Java-Exception/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Java 异常处理详细解读</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/24/hexo-github-blog/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2018/06/26/md/&title=《Markdown 入门详细教程》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2018/06/26/md/&title=《Markdown 入门详细教程》 — Xiaoming's Blog&source=Markdown 简介
+Markdown 中文官网：http://www.markdown.cn
+【简明版】有道云笔记Markdown指南：http://..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2018/06/26/md/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Markdown 入门详细教程》 — Xiaoming's Blog&url=https://bxm0927.github.io/2018/06/26/md/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2018/06/26/md/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3ay47CMAwFUP7/pzvbkYBwHRNPNTpZoULaUxaWH3k84nX9Wu+uPF9//na992sLFxe3zb2WK8e9u/P6KbkBFxd3nps8LHnJ6t7cgIuLe2duksTkmQkuLu5/4iZF0fplcHFx78+tBpr+b47Xari4uA1unqCc+3ykv4uLi7vFvYqrGrA6TdIXu3BxcUe4eUAp3K44pq3uwsXFneGu2xn9kLSXNn24Ay4u7gh3b7CaH7RaI/KDGri4uDPcpK1ZpewVOdEfh4uLe5ibjzqSQJYnKHtPxMXFneFWm54zxy/KtRouLu5XuevEYn19L2BV26Yv4i4uLu5hbqf9kadH1dD24ZVwcXHHuUmrot9AqTZScXFx/4qbJzedgxrVdCpqiODi4o5wq4GsWjJ12i64uLjz3ASUDD/2mrCF4gcXF3eE2096qslQXiAV6idcXNw29yquzt7OOBYXF3eSu9fsqIa/zfZH3ITFxcU9wc2DTnWsklPycgsXF3eSmwea/JhFHtRatRouLu4NuNWjGHmTpVCx4eLi3pKbF0h74ezt73FxcQe53x21Vkenhfvj4uKOcPtz2qSNkox1k9fAxcU9zP0BdzQBLylCKpUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

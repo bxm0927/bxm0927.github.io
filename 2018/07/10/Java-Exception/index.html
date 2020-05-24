@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Java 异常处理详细解读 | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Java,Exception,异常处理">
+    <meta name="description" content="异常概述异常（Exception）指的是所有可能造成计算机无法正常处理的情况。发生异常时，将阻止程序的运行，若不妥善处理异常，可能造成计算机死机。经过异常处理，可以保证程序的正常运行，我们把针对不同的异常做妥善的处理的方式叫做“异常处理机制”。 异常处理的目的：加强程序的健壮性、安全性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 异常处理详细解读">
+<meta property="og:url" content="https://bxm0927.github.io/2018/07/10/Java-Exception/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="异常概述异常（Exception）指的是所有可能造成计算机无法正常处理的情况。发生异常时，将阻止程序的运行，若不妥善处理异常，可能造成计算机死机。经过异常处理，可以保证程序的正常运行，我们把针对不同的异常做妥善的处理的方式叫做“异常处理机制”。 异常处理的目的：加强程序的健壮性、安全性。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-7-10/17076115.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-7-10/42397762.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-7-10/87466879.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-10-15/60958506.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-10-3/75135977.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-7-10/67665230.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-7-10/14424309.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-7-10/32735647.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-7-10/75648718.jpg">
+<meta property="article:published_time" content="2018-07-10T02:35:58.000Z">
+<meta property="article:modified_time" content="2020-05-24T07:42:35.842Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Exception">
+<meta property="article:tag" content="异常处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://oph264zoo.bkt.clouddn.com/18-7-10/17076115.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/works"  >
+                <i class="icon icon-lg icon-hand-peace-o"></i>
+                作品
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/test"  >
+                <i class="icon icon-lg icon-link"></i>
+                404 测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Java 异常处理详细解读</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Java 异常处理详细解读</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-10T02:35:58.000Z" itemprop="datePublished" class="page-time">
+  2018-07-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异常概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">异常概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异常类-Throwable"><span class="post-toc-number">2.</span> <span class="post-toc-text">异常类 Throwable</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取异常信息的方法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">获取异常信息的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java-中常见的异常类"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Java 中常见的异常类</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异常处理-try-catch-finally"><span class="post-toc-number">3.</span> <span class="post-toc-text">异常处理 try-catch-finally</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#finally-语句块不会被执行的情况"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">finally 语句块不会被执行的情况</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常处理的几种形式"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">异常处理的几种形式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#try…catch"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">try…catch</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#try…catch…finally"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">try…catch…finally</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#try…finally"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">try…finally</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#向上抛出异常-throws"><span class="post-toc-number">4.</span> <span class="post-toc-text">向上抛出异常 throws</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自行抛出异常-throw"><span class="post-toc-number">5.</span> <span class="post-toc-text">自行抛出异常 throw</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义异常类"><span class="post-toc-number">6.</span> <span class="post-toc-text">自定义异常类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异常处理的经验之谈"><span class="post-toc-number">7.</span> <span class="post-toc-text">异常处理的经验之谈</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Java-Exception"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Java 异常处理详细解读</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-10 10:35:58" datetime="2018-07-10T02:35:58.000Z"  itemprop="datePublished">2018-07-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Java/">Java</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="异常概述"><a href="#异常概述" class="headerlink" title="异常概述"></a>异常概述</h2><p>异常（Exception）指的是所有可能造成计算机无法正常处理的情况。发生异常时，将阻止程序的运行，若不妥善处理异常，可能造成计算机死机。经过异常处理，可以保证程序的正常运行，我们把针对不同的异常做妥善的处理的方式叫做“异常处理机制”。</p>
+<p>异常处理的目的：加强程序的健壮性、安全性。</p>
+<a id="more"></a>
+
+<p>Java 中，所有的异常都被封装到相应的类中，同时，用户也可以自定义异常类和自定义抛出异常。</p>
+<ul>
+<li>抛出异常（throw）：是指将异常提交给运行时系统的过程。</li>
+<li>捕获异常（catch）：是指运行时系统找到发生异常的方法的过程。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-7-10/17076115.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<h2 id="异常类-Throwable"><a href="#异常类-Throwable" class="headerlink" title="异常类 Throwable"></a>异常类 <code>Throwable</code></h2><p>异常类是指由程序抛出的异常对象所属的类。</p>
+<p>异常可以分为两大类：<code>java.lang.Exception</code>类和<code>java.lang.Error</code>类。这两个类均继承自 <code>java.lang.Throwable</code> 类</p>
+<ul>
+<li>Error 类通常指的是 JVM 出错和线程死锁，用户无法在程序中处理（无法捕获）</li>
+<li>Exception 类通常指的是可以处理的异常，分为编译时异常和运行时异常（RuntimeException），编译时异常是 Exception 下除了运行时异常以外的所有异常<ul>
+<li>对于编译时异常，不解决编译就不会通过</li>
+<li>对于运行时异常，可以选择性地来进行处理，如果不处理则出现异常时将交给 JVM 默认处理</li>
+</ul>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-7-10/42397762.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<h3 id="获取异常信息的方法"><a href="#获取异常信息的方法" class="headerlink" title="获取异常信息的方法"></a>获取异常信息的方法</h3><p><img src="http://oph264zoo.bkt.clouddn.com/18-7-10/87466879.jpg" alt=""></p>
+<h3 id="Java-中常见的异常类"><a href="#Java-中常见的异常类" class="headerlink" title="Java 中常见的异常类"></a>Java 中常见的异常类</h3><table>
+<thead>
+<tr>
+<th>异常</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NullPointerException</td>
+<td>空指向异常（空指针异常）。指的是使用了一个未初始化的对象（未开辟内存空间的对象）。</td>
+</tr>
+<tr>
+<td>ArithmeticException</td>
+<td>算术异常。如：除以零</td>
+</tr>
+<tr>
+<td>ArrayIndexOutOfBoundsException</td>
+<td>数组下标越界异常。数组的索引超过了上界或下界</td>
+</tr>
+<tr>
+<td>FileNotFoundException</td>
+<td>文件未找到异常</td>
+</tr>
+<tr>
+<td>OutOfMemoryExceptin</td>
+<td>内存溢出异常（内存不足异常）。可用内存不足以分配给一个对象时抛出</td>
+</tr>
+<tr>
+<td>NoSuchElementExceptin</td>
+<td>调用了类集中不存在的元素</td>
+</tr>
+<tr>
+<td>ClassCastExceptin</td>
+<td>对象与类集中的元素不兼容</td>
+</tr>
+<tr>
+<td>UnsupportedOperationExceptin</td>
+<td>修改一个不允许修改的对象</td>
+</tr>
+</tbody></table>
+<h2 id="异常处理-try-catch-finally"><a href="#异常处理-try-catch-finally" class="headerlink" title="异常处理 try-catch-finally"></a>异常处理 <code>try-catch-finally</code></h2><blockquote>
+<p>死了都要 try，不 try 到 catch 不痛快</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-10-15/60958506.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<p>当发生异常时，通常有两种处理方法：</p>
+<ol>
+<li>交给 Java 默认的异常处理机制做处理。这种情况 Java 会输出异常信息，然后中断程序的运行</li>
+<li>自己编写 <code>try-catch-finally</code> 来捕获异常。这种情况可以灵活的控制程序，而且程序不会中断运行。</li>
+</ol>
+<p>异常处理的语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    &#x2F;&#x2F; 要检查的语句</span><br><span class="line">&#125; catch (异常类 e) &#123;</span><br><span class="line">    &#x2F;&#x2F; 异常发生时的处理语句</span><br><span class="line">    e.printStackTrace(); &#x2F;&#x2F; 打印异常信息</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">    &#x2F;&#x2F; 一定会运行到的语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>try 语句块不可以独立存在，必须与 catch 或 finally 同存，finally 语句块可以省略</li>
+<li>catch 区块可以有多个，此时异常类型必须子类在前，父类在后</li>
+<li>当 try 区块捕获到异常时，不执行接下来的语句，立即进入 catch 区块</li>
+</ul>
+<p><img src="http://oph264zoo.bkt.clouddn.com/17-10-3/75135977.jpg" alt=""></p>
+<h3 id="finally-语句块不会被执行的情况"><a href="#finally-语句块不会被执行的情况" class="headerlink" title="finally 语句块不会被执行的情况"></a>finally 语句块不会被执行的情况</h3><ol>
+<li>在 finally 语句块中发生了异常</li>
+<li>在前面的代码中使用了 System.exit() 退出程序</li>
+<li>程序所在的线程死亡</li>
+<li>CPU 关闭</li>
+</ol>
+<h3 id="异常处理的几种形式"><a href="#异常处理的几种形式" class="headerlink" title="异常处理的几种形式"></a>异常处理的几种形式</h3><h4 id="try…catch"><a href="#try…catch" class="headerlink" title="try…catch"></a>try…catch</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-7-10/67665230.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h4 id="try…catch…finally"><a href="#try…catch…finally" class="headerlink" title="try…catch…finally"></a>try…catch…finally</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-7-10/14424309.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h4 id="try…finally"><a href="#try…finally" class="headerlink" title="try…finally"></a>try…finally</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-7-10/32735647.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<h2 id="向上抛出异常-throws"><a href="#向上抛出异常-throws" class="headerlink" title="向上抛出异常 throws"></a>向上抛出异常 <code>throws</code></h2><p>方法头中使用 <code>throws</code> 关键字可以表明这个方法可能存在的异常类型，此方法不处理异常，而是将该异常提交给调用这个方法的方法。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-7-10/75648718.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] arr &#x3D; new int[5];</span><br><span class="line">        try &#123;</span><br><span class="line">            setZero(arr, 10);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;end&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void setZero(int[] arr, int index) throws ArrayIndexOutOfBoundsException &#123;</span><br><span class="line">        arr[index] &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="自行抛出异常-throw"><a href="#自行抛出异常-throw" class="headerlink" title="自行抛出异常 throw"></a>自行抛出异常 <code>throw</code></h2><p><code>throws</code>用于方法声明中，声明一个方法会抛出哪些异常，而<code>throw</code>是方法体中实际执行抛出异常的动作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">throw 异常类型的实例</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    throw new ArrayIndexOutOfBoundsException(&quot;我是异常信息&quot;);</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义异常类"><a href="#自定义异常类" class="headerlink" title="自定义异常类"></a>自定义异常类</h2><p>当系统提供的异常类不足以满足业务需求时，我们可以自定义异常类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class 自定义异常类 extends 异常类型 &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            throw new MyException(&quot;我是自定义异常类&quot;);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyException extends Exception &#123;</span><br><span class="line">    private String msg;</span><br><span class="line"></span><br><span class="line">    public MyException(String msg) &#123;</span><br><span class="line">        this.msg &#x3D; msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;MyException [msg&#x3D;&quot; + msg + &quot;]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="异常处理的经验之谈"><a href="#异常处理的经验之谈" class="headerlink" title="异常处理的经验之谈"></a>异常处理的经验之谈</h2><ul>
+<li>不要忽略异常</li>
+<li>只针对异常的情况才使用异常</li>
+<li>优先使用标准异常，而不是直接在方法上 throws Exception 或 Throwable</li>
+<li>每个方法抛出的异常都应该有文档</li>
+<li>处理运行时异常时，采用逻辑规避同时辅助try-catch处理</li>
+<li>在多重catch块后面，可以加上一个<code>catch(Exception)</code>来处理被遗漏的异常</li>
+<li>对于不确定的代码，也可以加上<code>try-catch</code>，处理潜在的异常</li>
+<li>尽量去处理异常，切忌只是简单的调用<code>printStackTrace()</code>去打印输出</li>
+<li>尽量添加<code>finally</code>去释放占用的资源</li>
+<li>具体如何处理异常，要根据不同的业务需求和异常类型去决定</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-24T07:42:35.842Z" itemprop="dateUpdated">2020-05-24 15:42:35</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2018/07/10/Java-Exception/" target="_blank" rel="external">https://bxm0927.github.io/2018/07/10/Java-Exception/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.gif" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Exception/" rel="tag">Exception</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="tag">异常处理</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2018/07/10/Java-Exception/&title=《Java 异常处理详细解读》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2018/07/10/Java-Exception/&title=《Java 异常处理详细解读》 — Xiaoming's Blog&source=异常概述异常（Exception）指的是所有可能造成计算机无法正常处理的情况。发生异常时，将阻止程序的运行，若不妥善处理异常，可能造成计算机死机。经过异常..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2018/07/10/Java-Exception/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java 异常处理详细解读》 — Xiaoming's Blog&url=https://bxm0927.github.io/2018/07/10/Java-Exception/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2018/07/10/Java-Exception/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/11/Java-Collection/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Java 类集框架详细解读</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/26/md/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Markdown 入门详细教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2018/07/10/Java-Exception/&title=《Java 异常处理详细解读》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2018/07/10/Java-Exception/&title=《Java 异常处理详细解读》 — Xiaoming's Blog&source=异常概述异常（Exception）指的是所有可能造成计算机无法正常处理的情况。发生异常时，将阻止程序的运行，若不妥善处理异常，可能造成计算机死机。经过异常..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2018/07/10/Java-Exception/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java 异常处理详细解读》 — Xiaoming's Blog&url=https://bxm0927.github.io/2018/07/10/Java-Exception/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2018/07/10/Java-Exception/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3aQY7DIBAEwPz/09kHZBd3g71SoDjlYGOXI7WYgdcrHu+PkV//KsfcXRgYGHsz3sPx12u1LzqeIXnuxafEwMA4gDEOvvE1f135eVf7rOR6DAwMjOT3OHyL0MTAwMC4ldEi83sxMDAwVorYccgmZW0+z4O1OAYGxhcy2mb9f/5+ZH8DAwPjqxjvcuSN/jaC85D95a0wMDC2ZuQBly/L7trUrA9zYGBgbMqYa82Pw3e94MyfuLQHi4GB8VWMG9pYy4vFlTYcBgbGyYx26dYGcX7vZLsNAwNjC0ZboOavm8Tr+jGLiwUiBgbGFoz2kW1o5oVxHrsX59owMDC2Y+QFZL4BkITv+pbARe8QAwPjAEZyWx6+kzurcaJiYGDszWibX/li8YkZLv4HDAyMTRltyLbhuNK8y8tjDAyMExhzDbK2AZcXt21kY2Bg7M1Yebl2qbfyOS4CHQMD4wBGuzGQx2KLnGzzYWBgbM1Yb9avFJ/3LhwxMDD2ZuTBOvdVxtF5VyhjYGCcwMg3ANZbbHkRm7AxMDDOYaxvEty7cKzfBAMDY1PGuxxt7M4dy6iXoRgYGFsz2pibm/TpohcDA+MERhKySQmal7LtgbP6S2NgYGzKmCtc8yNiT8Q3BgYGRv6Y9jBZu/0QUTEwMDDKOngcxO2cyWwYGBgnMJJSM988WFkstnNiYGCcwFgqHePAbZd9j2xqYmBgfB/jB3jv5PNzELUNAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

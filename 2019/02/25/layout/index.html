@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>聊聊布局 | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTML,CSS,JavaScript,Layout">
+    <meta name="description" content="image               布局方法过时的布局方法  表格布局（table）  传统的布局方法  定位（position） 浮动（float）  前沿的布局方法  弹性盒子布局（Flexible Box">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊聊布局">
+<meta property="og:url" content="https://bxm0927.github.io/2019/02/25/layout/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="image               布局方法过时的布局方法  表格布局（table）  传统的布局方法  定位（position） 浮动（float）  前沿的布局方法  弹性盒子布局（Flexible Box">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/bxm0927/picture-link/master/markdown-note/2019-2-24005.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/bxm0927/picture-link/master/markdown-note/2019-2-24001.png">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/8/20/00913c0a5f49e94f13dd4a0bf5eea826?imageView2/0/w/1280/h/960">
+<meta property="og:image" content="https://raw.githubusercontent.com/bxm0927/picture-link/master/markdown-note/2019-2-24003.png">
+<meta property="article:published_time" content="2019-02-25T14:57:15.000Z">
+<meta property="article:modified_time" content="2020-05-24T07:42:35.842Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Layout">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/bxm0927/picture-link/master/markdown-note/2019-2-24005.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/works"  >
+                <i class="icon icon-lg icon-hand-peace-o"></i>
+                作品
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/test"  >
+                <i class="icon icon-lg icon-link"></i>
+                404 测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">聊聊布局</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">聊聊布局</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-25T14:57:15.000Z" itemprop="datePublished" class="page-time">
+  2019-02-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布局方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">布局方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#经验之谈"><span class="post-toc-number">2.</span> <span class="post-toc-text">经验之谈</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#居中布局"><span class="post-toc-number">3.</span> <span class="post-toc-text">居中布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#水平居中"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">水平居中</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#垂直居中"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">垂直居中</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#水平垂直居中"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">水平垂直居中</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#两列布局"><span class="post-toc-number">4.</span> <span class="post-toc-text">两列布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#左列定宽，右列自适应"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">左列定宽，右列自适应</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#左列自适应，右列定宽"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">左列自适应，右列定宽</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一列不定，一列自适应"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">一列不定，一列自适应</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三列布局"><span class="post-toc-number">5.</span> <span class="post-toc-text">三列布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#两列定宽，一列自适应"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">两列定宽，一列自适应</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#左右定宽，中间自适应"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">左右定宽，中间自适应</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#利用-Flexbox-实现"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">利用 Flexbox 实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#利用-absolute-绝对定位实现"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">利用 absolute 绝对定位实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#圣杯布局"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">圣杯布局</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#双飞翼布局"><span class="post-toc-number">5.2.4.</span> <span class="post-toc-text">双飞翼布局</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多列布局"><span class="post-toc-number">6.</span> <span class="post-toc-text">多列布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等宽布局"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">等宽布局</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#九宫格布局"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">九宫格布局</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#栅格系统"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">栅格系统</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#滚动场景"><span class="post-toc-number">7.</span> <span class="post-toc-text">滚动场景</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-layout"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">聊聊布局</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-25 22:57:15" datetime="2019-02-25T14:57:15.000Z"  itemprop="datePublished">2019-02-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/bxm0927/picture-link/master/markdown-note/2019-2-24005.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+<h2 id="布局方法"><a href="#布局方法" class="headerlink" title="布局方法"></a>布局方法</h2><p>过时的布局方法</p>
+<ul>
+<li>表格布局（table）</li>
+</ul>
+<p>传统的布局方法</p>
+<ul>
+<li>定位（position）</li>
+<li>浮动（float）</li>
+</ul>
+<p>前沿的布局方法</p>
+<ul>
+<li>弹性盒子布局（Flexible Box Layout）</li>
+<li>网格布局（Grid Layout）</li>
+</ul>
+<h2 id="经验之谈"><a href="#经验之谈" class="headerlink" title="经验之谈"></a>经验之谈</h2><p>布局可以从以下几个方面思考：</p>
+<ol>
+<li>利用 <code>float</code> + <code>margin</code> 实现</li>
+<li>利用 <code>absolute</code> 绝对定位实现</li>
+<li>利用 BFC 实现</li>
+<li>利用 Flexbox 实现</li>
+<li>利用 Grid 实现</li>
+</ol>
+<p>几个注意点：</p>
+<ul>
+<li>移动端能用 <code>Flex</code> 就用 <code>Flex</code>，灵活方便并且功能强大，无愧为网页布局的一大利器！</li>
+<li>使用 <code>float</code> 时，注意要清除浮动，避免高度塌陷</li>
+<li>避免使用老旧的 <code>table</code> 布局（如 <code>display: table;</code>、<code>display: table-row;</code>、<code>display: table-cell;</code>）。表格布局会使 <code>margin</code> 失效，设置间隔比较麻烦。</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="居中布局"><a href="#居中布局" class="headerlink" title="居中布局"></a>居中布局</h2><h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><p>行内元素水平居中：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 利用 text-align: center 可以将块级元素内部的行内元素水平居中。</span></span><br><span class="line"><span class="comment">// 此方法对 inline、inline-block、inline-table 和 inline-flex 元素水平居中都有效。</span></span><br><span class="line"><span class="comment">// 也可以将 block 元素设置成 inline-block，再用这种方式实现块级元素的水平居中</span></span><br><span class="line"><span class="selector-class">.inline-x-center</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>单个块级元素水平居中：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可通过将左和右外边距设置为 auto 来实现块级元素水平居中。</span></span><br><span class="line"><span class="comment">// 此时需要设置宽度，如果宽度是 100%，则对齐没有效果。</span></span><br><span class="line"><span class="keyword">@mixin</span> margin-auto-center(<span class="variable">$width</span>: <span class="number">80%</span>) &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: auto;</span><br><span class="line">    <span class="attribute">margin-right</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>多个块级元素水平居中：</p>
+<blockquote>
+<p>注意多个 <code>inline-block</code> 元素间空白字符 <code>font-size</code> 不为 0 的问题</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="comment">/* font-size: 0; */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><p>行内元素垂直居中：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.inline-y-center</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>垂直对齐一幅图像、字体图标：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vertical-align 属性设置元素的垂直对齐方式，默认情况下，元素放置在父元素的基线(baseline)上。</span></span><br><span class="line"><span class="selector-class">.img-y-center</span> &#123;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h3><blockquote>
+<p>总结：一般情况下，水平垂直居中，我们最常用的就是绝对定位加负边距，缺点就是需要知道宽高，使用 <code>transform</code> 倒是可以不需要知道宽高，但是兼容性不好（IE9+）</p>
+</blockquote>
+<p>高度宽度已知：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Negative margin</span></span><br><span class="line"><span class="keyword">@mixin</span> margin-center(<span class="variable">$width</span>, <span class="variable">$height</span>) &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="variable">$height</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -(<span class="variable">$width</span> / <span class="number">2</span>);</span><br><span class="line">    <span class="attribute">margin-top</span>: -(<span class="variable">$height</span> / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>高度宽度未知：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Transform centering</span></span><br><span class="line"><span class="comment">// Horizontally and vertically centers a child element within a parent element using `position: absolute` and `transform: translate()`.</span></span><br><span class="line"><span class="comment">// Similar to `flexbox`, this method does not require you to know the height or width of your parent or child so it is ideal for responsive applications.</span></span><br><span class="line"><span class="selector-class">.transform-center</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: translate(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Flexbox centering</span></span><br><span class="line"><span class="comment">// Horizontally and vertically centers a child element within a parent element using `flexbox`.</span></span><br><span class="line"><span class="selector-class">.flexbox-center</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;           <span class="comment">// enables flexbox.</span></span><br><span class="line">    <span class="attribute">align-items</span>: center;     <span class="comment">// centers the child vertically.</span></span><br><span class="line">    <span class="attribute">justify-content</span>: center; <span class="comment">// centers the child horizontally.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Grid centering</span></span><br><span class="line"><span class="comment">// Horizontally and vertically centers a child element within a parent element using `grid`.</span></span><br><span class="line"><span class="selector-class">.grid-center</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;           <span class="comment">// enables grid.</span></span><br><span class="line">    <span class="attribute">align-items</span>: center;     <span class="comment">// centers the child vertically.</span></span><br><span class="line">    <span class="attribute">justify-content</span>: center; <span class="comment">// centers the child horizontally.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="两列布局"><a href="#两列布局" class="headerlink" title="两列布局"></a>两列布局</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/bxm0927/picture-link/master/markdown-note/2019-2-24001.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+<h3 id="左列定宽，右列自适应"><a href="#左列定宽，右列自适应" class="headerlink" title="左列定宽，右列自适应"></a>左列定宽，右列自适应</h3><ol>
+<li>利用 <code>float</code> + <code>margin</code> 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">	<span class="attribute">margin-left</span>: <span class="number">120px</span>; <span class="comment">/* 大于等于 `.left` 的宽度 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>利用 BFC 实现：</li>
+</ol>
+<blockquote>
+<p>BFC（Block fomatting context）：块级元素格式化上下文，它决定了其子元素将如何定位，以及和其他元素的相互关系。</p>
+</blockquote>
+<blockquote>
+<p>BFC 在页面上是一个独立的容器，与其他元素互不影响</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">	<span class="attribute">overflow</span>: hidden; <span class="comment">/* 触发 BFC 达到自适应 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>利用 <code>absolute</code> 绝对定位实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">100px</span>; <span class="comment">/* 大于等于 `.left` 的宽度 */</span></span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>利用 Flexbox 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 均分了父元素剩余空间 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>利用 Grid 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">100px</span> auto; <span class="comment">/* 设定 2 列就 ok 了, auto 换成 1fr 也行 */</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="左列自适应，右列定宽"><a href="#左列自适应，右列定宽" class="headerlink" title="左列自适应，右列定宽"></a>左列自适应，右列定宽</h3><ol>
+<li>利用 <code>float</code> + <code>margin</code> 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">100px</span>; <span class="comment">/* 抵消 left 的 margin-left 以达到 parent 水平居中 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">100px</span>; <span class="comment">/* 正值等于 right 的宽度 */</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>利用 BFC 实现：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">    <span class="selector-class">.left</span> &#123;</span><br><span class="line">        <span class="attribute">overflow</span>: hidden; <span class="comment">/* 触发 BFC 达到自适应 */</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.right</span> &#123;</span><br><span class="line">        <span class="attribute">float</span>: right;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">10px</span>; <span class="comment">/* margin 需要定义在 right 上 */</span></span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;!<span class="selector-tag">--</span> <span class="selector-tag">right</span> 先渲染 <span class="selector-tag">--</span>&gt;</span><br><span class="line">&lt;div id="right"&gt;右列定宽&lt;/div&gt;</span><br><span class="line">&lt;div id="left"&gt;左列自适应&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>利用 <code>absolute</code> 绝对定位实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">100px</span>; <span class="comment">/* 大于等于 `.right` 的宽度 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li>利用 Flexbox 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 均分了父元素剩余空间 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>利用 Grid 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: auto <span class="number">100px</span>; <span class="comment">/* 设定 2 列就 ok 了, auto 换成 1fr 也行 */</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="一列不定，一列自适应"><a href="#一列不定，一列自适应" class="headerlink" title="一列不定，一列自适应"></a>一列不定，一列自适应</h3><blockquote>
+<p>盒子宽度随着内容增加或减少发生变化，另一个盒子自适应</p>
+</blockquote>
+<blockquote>
+<p>这里演示左列不定宽，右列自适应。左列自适应，右列不定宽同理。</p>
+</blockquote>
+<ol>
+<li>利用 BFC 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left; <span class="comment">/* 只设置浮动，不设宽度 */</span></span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden; <span class="comment">/* 触发 BFC */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>利用 Flexbox 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="comment">/* 不设宽度 */</span></span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>; <span class="comment">/* 均分 parent 剩余的部分 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>利用 Grid 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: auto <span class="number">1</span>fr; <span class="comment">/* auto 和 1fr 换一下顺序就是“左列自适应，右列不定宽”了 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三列布局"><a href="#三列布局" class="headerlink" title="三列布局"></a>三列布局</h2><h3 id="两列定宽，一列自适应"><a href="#两列定宽，一列自适应" class="headerlink" title="两列定宽，一列自适应"></a>两列定宽，一列自适应</h3><ol>
+<li>利用 <code>float</code> + <code>margin</code> 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">min-width</span>: <span class="number">310px</span>; <span class="comment">/* 100 + 10 + 200，防止宽度不够，子元素换行*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>; <span class="comment">/* left 和 center 间隔 */</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">320px</span>; <span class="comment">/* 等于 left 和 center 的宽度之和加上间隔，多出来的就是 right 和 center 的间隔 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>利用 BFC 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">min-width</span>: <span class="number">320px</span>; <span class="comment">/* 防止宽度不够，子元素换行 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>; <span class="comment">/* 在此定义和 right 的间隔 */</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li>利用 Flexbox 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>利用 Grid 实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">100px</span> <span class="number">200px</span> auto; <span class="comment">/* 设置3列，固定第一第二列的宽度，第三列 auto 或者 1fr */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="左右定宽，中间自适应"><a href="#左右定宽，中间自适应" class="headerlink" title="左右定宽，中间自适应"></a>左右定宽，中间自适应</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2017/8/20/00913c0a5f49e94f13dd4a0bf5eea826?imageView2/0/w/1280/h/960" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+
+<h4 id="利用-Flexbox-实现"><a href="#利用-Flexbox-实现" class="headerlink" title="利用 Flexbox 实现"></a>利用 Flexbox 实现</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="利用-absolute-绝对定位实现"><a href="#利用-absolute-绝对定位实现" class="headerlink" title="利用 absolute 绝对定位实现"></a>利用 absolute 绝对定位实现</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.center</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">100px</span>; <span class="comment">/* 大于等于 left 的宽度，或者给 parent 添加同样大小的 padding-left */</span></span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">200px</span>; <span class="comment">/* 大于等于 right 的宽度，或者给 parent 添加同样大小的 padding-right */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.right</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h4><p>圣杯布局又叫做固比固布局，即两边固定宽度，中间自适应的三栏布局。</p>
+<p>具体操作是三栏全部浮动，左右两栏负 margin 让其跟中间栏并排。</p>
+<p>注意：中间栏要在放在文档流前面以优先渲染。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grail"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 中间盒子优先渲染 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"middle"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, ut.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.grail</span> &#123;</span></span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        width: 100%;</span><br><span class="line">        min-width: 1024px;</span><br><span class="line">        height: 400px;</span><br><span class="line"><span class="css">        <span class="comment">/* 让中间自适应的盒子安全显示 */</span></span></span><br><span class="line">        padding: 0 300px;</span><br><span class="line">        background-color: darkseagreen;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.middle</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 300px;</span><br><span class="line">        background-color: deepskyblue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.left</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        position: relative;</span><br><span class="line">        left: -300px;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 300px;</span><br><span class="line"><span class="css">        <span class="comment">/* 左侧盒子上浮; */</span></span></span><br><span class="line">        margin-left: -100%;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.right</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        position: relative;</span><br><span class="line">        right: -300px;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 300px;</span><br><span class="line"><span class="css">        <span class="comment">/* 右侧盒子上浮 */</span></span></span><br><span class="line">        margin-left: -300px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h4><p>事实上，圣杯布局和双飞翼布局是一回事，它们实现的都是三栏布局，但是双飞翼布局可以更好地解决中栏内容超出的情景。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grail"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"middle-wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"middle"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, ut.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.grail</span> &#123;</span></span><br><span class="line">        width: 100%;</span><br><span class="line">        min-width: 1024px;</span><br><span class="line">        height: 400px;</span><br><span class="line">        background-color: darkseagreen;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.middle-wrapper</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 300px;</span><br><span class="line">        background-color: deepskyblue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.middle</span> &#123;</span></span><br><span class="line">        height: 300px;</span><br><span class="line">        margin-left: 300px;</span><br><span class="line">        margin-right: 300px;</span><br><span class="line">        background-color: yellowgreen;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.left</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 300px;</span><br><span class="line">        margin-left: -100%;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.right</span> &#123;</span></span><br><span class="line">        float: left;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 300px;</span><br><span class="line">        margin-left: -300px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h2><h3 id="等宽布局"><a href="#等宽布局" class="headerlink" title="等宽布局"></a>等宽布局</h3><ol>
+<li>浮动等宽布局：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.column</span> &#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">25%</span>; <span class="comment">/* 100 ÷ 列数，得出百分比 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>弹性盒子等宽布局：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.column</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li>网格等宽布局：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">6</span>, <span class="number">1</span>fr);  <span class="comment">/* 6 就是列数 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="九宫格布局"><a href="#九宫格布局" class="headerlink" title="九宫格布局"></a>九宫格布局</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/bxm0927/picture-link/master/markdown-note/2019-2-24003.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+<p>DOM结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用 table 表格布局实现：</li>
+</ol>
+<blockquote>
+<p>display:table       相当于 table 标签</p>
+</blockquote>
+<blockquote>
+<p>display:table-row   相当于 tr 标签</p>
+</blockquote>
+<blockquote>
+<p>display:table-cell  相当于 td 标签</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table-row;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table-cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用 Flex 弹性盒子布局实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用 Grid 网格布局实现：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">1</span>fr); <span class="comment">/* 等同于 1fr 1fr 1fr，此为重复的合并写法 */</span></span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">1</span>fr);  <span class="comment">/* 等同于 1fr 1fr 1fr，此为重复的合并写法 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.column-xs-1</span> &#123;  <span class="attribute">width</span>: <span class="number">8.33333333%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-2</span> &#123;  <span class="attribute">width</span>: <span class="number">16.66666667%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-3</span> &#123;  <span class="attribute">width</span>: <span class="number">25%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-4</span> &#123;  <span class="attribute">width</span>: <span class="number">33.33333333%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-5</span> &#123;  <span class="attribute">width</span>: <span class="number">41.66666667%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-6</span> &#123;  <span class="attribute">width</span>: <span class="number">50%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-7</span> &#123;  <span class="attribute">width</span>: <span class="number">58.33333333%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-8</span> &#123;  <span class="attribute">width</span>: <span class="number">66.66666667%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-9</span> &#123;  <span class="attribute">width</span>: <span class="number">75%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-10</span> &#123;  <span class="attribute">width</span>: <span class="number">83.33333333%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-11</span> &#123;  <span class="attribute">width</span>: <span class="number">91.66666667%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-xs-12</span> &#123;  <span class="attribute">width</span>: <span class="number">100%</span>;  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.column-sm-1</span> &#123;  <span class="attribute">width</span>: <span class="number">8.33333333%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-2</span> &#123;  <span class="attribute">width</span>: <span class="number">16.66666667%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-3</span> &#123;  <span class="attribute">width</span>: <span class="number">25%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-4</span> &#123;  <span class="attribute">width</span>: <span class="number">33.33333333%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-5</span> &#123;  <span class="attribute">width</span>: <span class="number">41.66666667%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-6</span> &#123;  <span class="attribute">width</span>: <span class="number">50%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-7</span> &#123;  <span class="attribute">width</span>: <span class="number">58.33333333%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-8</span> &#123;  <span class="attribute">width</span>: <span class="number">66.66666667%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-9</span> &#123;  <span class="attribute">width</span>: <span class="number">75%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-10</span> &#123;  <span class="attribute">width</span>: <span class="number">83.33333333%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-11</span> &#123;  <span class="attribute">width</span>: <span class="number">91.66666667%</span>;  &#125;</span><br><span class="line">  <span class="selector-class">.column-sm-12</span> &#123;  <span class="attribute">width</span>: <span class="number">100%</span>;  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[class^=<span class="string">"column-xs-"</span>]</span>&#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-attr">[class^=<span class="string">"column-sm-"</span>]</span>&#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="滚动场景"><a href="#滚动场景" class="headerlink" title="滚动场景"></a>滚动场景</h2><p>横向滚动：<code>overflow-x: auto;</code></p>
+<p>纵向滚动：<code>overflow-y: auto;</code></p>
+<p>横向、纵向滚动：<code>overflow: auto;</code></p>
+<blockquote>
+<p>更复杂的滚动场景可以借助第三方库实现，如 better-scroll</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-24T07:42:35.842Z" itemprop="dateUpdated">2020-05-24 15:42:35</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2019/02/25/layout/" target="_blank" rel="external">https://bxm0927.github.io/2019/02/25/layout/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.gif" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Layout/" rel="tag">Layout</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2019/02/25/layout/&title=《聊聊布局》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2019/02/25/layout/&title=《聊聊布局》 — Xiaoming's Blog&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2019/02/25/layout/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《聊聊布局》 — Xiaoming's Blog&url=https://bxm0927.github.io/2019/02/25/layout/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2019/02/25/layout/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/28/test/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">test post</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/11/Java-io/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java 文件 I/O 流详细解读</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2019/02/25/layout/&title=《聊聊布局》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2019/02/25/layout/&title=《聊聊布局》 — Xiaoming's Blog&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2019/02/25/layout/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《聊聊布局》 — Xiaoming's Blog&url=https://bxm0927.github.io/2019/02/25/layout/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2019/02/25/layout/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aQW7DMAwEwP7/0+kDCqu7lFvA8vgUOKqtyYElKX59xdfnx5WvX6/J799wYWBgPJbxWV5X22pftn5C8t5ffkoMDIwXMNaB7+ea9YvXf7XzhMv7GBgYGOXn/bQSAwMD4z8D7uwOBgYGxqyITT7nLba2eL6tFsfAwHggI2+W/f/nPznfwMDAeBTjU155UriTCNa7wsDAOJqRB7gdTJIa5snl5UoMDIyjGes2VrvF/YJzvYfop8fAwDiOMTtW3Bkmy+8UrT0MDIxDGbNiMilH2xCcFMCX6zEwMI5m5GNbLXi9lXZNtFsMDIyjGe3jiiCYN8jKNl/dh8PAwHg4o22Q5eEyr6TbN17muRgYGMcxZilaXuLuHJHmKSkGBsYbGLPA145czNp5xbQIBgbGoYzZwETe6J+VtfWECAYGxtGMtinftttmRwj54cRlaoiBgXEQY5bwzYa6ZrAixmJgYBzKmDXu27bazpFD9DQMDIyjGbOJhaTQbQ8V2vA9bLdhYGA8lrHflN+f+GjbfL/MjGBgYLyAkZesedE7O2bIk1cMDIz3MNqA2B4btAVw/nwMDIxTGZ/yyl/Ztti26m8MDIyjGbNxsXaEa72VfH2SpGJgYJzKaIPsXaXsfrAu/ntgYGAcwZiNPtw7HHZDLY6BgYGxsYm2SVc39TAwMDDKYNomlzcgMTAwXsCYjUTsFL35dm9ut2FgYDyQMSsd27I2/3Y2DoKBgXEo4xvG27JQvjPwnAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

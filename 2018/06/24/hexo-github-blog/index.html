@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程 | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="hexo,github,blog,搭建个人博客">
+    <meta name="description" content="前言 个人博客地址：www.lovebxm.com如果您在搭建的过程中遇到无法解决的问题，可与我交流探讨，QQ：80583600  我们为什么要写博客？一方面写博客可以用来监督自己，阶段性总结归纳所学的知识点，进而达到学以致用的目的；另一方面在于分享精神，在分享与交流的过程中，你的语言表达能力会逐渐变得简洁清晰，而且带有很强的逻辑性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程">
+<meta property="og:url" content="https://bxm0927.github.io/2018/06/24/hexo-github-blog/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="前言 个人博客地址：www.lovebxm.com如果您在搭建的过程中遇到无法解决的问题，可与我交流探讨，QQ：80583600  我们为什么要写博客？一方面写博客可以用来监督自己，阶段性总结归纳所学的知识点，进而达到学以致用的目的；另一方面在于分享精神，在分享与交流的过程中，你的语言表达能力会逐渐变得简洁清晰，而且带有很强的逻辑性。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://img.imooc.com/568b80410001975704500260.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-28/25738843.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-28/62582265.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-28/13485948.jpg">
+<meta property="og:image" content="http://img.mukewang.com/57eea87a0001c62213450582.png">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-28/42622869.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-28/49821520.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-28/41219383.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-29/81453389.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/18-6-24/88056415.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-28/34921926.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-29/79989003.jpg">
+<meta property="og:image" content="http://oph264zoo.bkt.clouddn.com/17-5-29/38118493.jpg">
+<meta property="article:published_time" content="2018-06-24T14:00:37.000Z">
+<meta property="article:modified_time" content="2020-05-24T07:42:35.842Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="搭建个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.imooc.com/568b80410001975704500260.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/works"  >
+                <i class="icon icon-lg icon-hand-peace-o"></i>
+                作品
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/test"  >
+                <i class="icon icon-lg icon-link"></i>
+                404 测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-24T14:00:37.000Z" itemprop="datePublished" class="page-time">
+  2018-06-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Skills/">Skills</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建-Node-js-环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">搭建 Node.js 环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建-Git-环境"><span class="post-toc-number">3.</span> <span class="post-toc-text">搭建 Git 环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GitHub-注册和配置"><span class="post-toc-number">4.</span> <span class="post-toc-text">GitHub 注册和配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo-安装"><span class="post-toc-number">5.</span> <span class="post-toc-text">Hexo 安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo-配置"><span class="post-toc-number">6.</span> <span class="post-toc-text">Hexo 配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关联-Hexo-与-GitHub"><span class="post-toc-number">7.</span> <span class="post-toc-text">关联 Hexo 与 GitHub</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置-SSH"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">配置 SSH</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置-Git-个人信息"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">配置 Git 个人信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置-Deployment"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">配置 Deployment</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将本地文件提交到-GitHub-Pages"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">将本地文件提交到 GitHub Pages</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">常见问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#将-GitHub-Pages-地址解析到个人域名"><span class="post-toc-number">8.</span> <span class="post-toc-text">将 GitHub Pages 地址解析到个人域名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo-常规操作"><span class="post-toc-number">9.</span> <span class="post-toc-text">Hexo 常规操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发表一篇文章"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">发表一篇文章</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#显示部分文章内容"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">显示部分文章内容</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更改主题"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">更改主题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加插件"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">添加插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加404-页面"><span class="post-toc-number">9.5.</span> <span class="post-toc-text">添加404 页面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多PC同步管理博客"><span class="post-toc-number">9.6.</span> <span class="post-toc-text">多PC同步管理博客</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中文乱码问题"><span class="post-toc-number">9.7.</span> <span class="post-toc-text">中文乱码问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结束语"><span class="post-toc-number">10.</span> <span class="post-toc-text">结束语</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-hexo-github-blog"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-24 22:00:37" datetime="2018-06-24T14:00:37.000Z"  itemprop="datePublished">2018-06-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Skills/">Skills</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>个人博客地址：<a href="http://www.lovebxm.com" target="_blank" rel="noopener">www.lovebxm.com</a><br>如果您在搭建的过程中遇到无法解决的问题，可与我交流探讨，QQ：80583600</p>
+</blockquote>
+<p>我们为什么要写博客？一方面写博客可以用来监督自己，阶段性总结归纳所学的知识点，进而达到学以致用的目的；另一方面在于分享精神，在分享与交流的过程中，你的语言表达能力会逐渐变得简洁清晰，而且带有很强的逻辑性。</p>
+<a id="more"></a>
+
+<p>所以说，写博客是一个好习惯，希望大家能够坚持下来。最近刚好有空，就把自己个人博客搭建的全过程记录下来，希望能够帮助到一些朋友。当然了，搭建个人博客的方式有很多，比如自己写前后端、WordPress、Jekyll等等，这里我是用的是免费开源、简洁高效的“Hexo + GitHub Pages”来搭建。</p>
+<p>大概流程如下：</p>
+<ol>
+<li>搭建 Node.js 环境</li>
+<li>搭建 Git 环境</li>
+<li>GitHub 注册和配置</li>
+<li>Hexo 安装</li>
+<li>Hexo 配置</li>
+<li>关联 Hexo 与 GitHub</li>
+<li>将 GitHub Pages 地址解析到个人域名</li>
+<li>Hexo 常规操作</li>
+<li>结束语</li>
+</ol>
+<p><img src="http://img.imooc.com/568b80410001975704500260.jpg" alt="image"></p>
+<h2 id="搭建-Node-js-环境"><a href="#搭建-Node-js-环境" class="headerlink" title="搭建 Node.js 环境"></a>搭建 Node.js 环境</h2><blockquote>
+<p>为什么要搭建 Node.js 环境？ —- 因为 Hexo 博客系统是基于 Node.js 编写的，要运行在 Node.js 环境之上。</p>
+</blockquote>
+<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，可以在非浏览器环境下，解释运行 JS 代码。</p>
+<p>Node.js 的包管理器 npm（node package manager），是全球最大的开源库生态系统，安装 Node.js 时会自动安装 npm。我们之后要通过 npm 来安装 Hexo。</p>
+<p>在 Node.js 官网：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> 下载最新稳定版，安装时保持默认设置即可，一路Next，安装很快就结束了。</p>
+<p>最后，打开命令提示符，输入 <code>node -v</code>、<code>npm -v</code>，出现版本号则说明 Node.js 环境配置成功，第一步完成！！！</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-28/25738843.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<h2 id="搭建-Git-环境"><a href="#搭建-Git-环境" class="headerlink" title="搭建 Git 环境"></a>搭建 Git 环境</h2><blockquote>
+<p>为什么要搭建 Git 环境？ —- 因为需要把本地的网页和文章等资源提交到远程Git仓库（GitHub）上。</p>
+</blockquote>
+<p>Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
+<p>在 Git 官网：<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a> 下载安装包，安装过程如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-28/62582265.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>桌面右键，打开 <code>Git Bush Here</code>，输入 <code>git --version</code>，出现版本号则说明 Git 环境配置成功，第二步完成！！！</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-28/13485948.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<h2 id="GitHub-注册和配置"><a href="#GitHub-注册和配置" class="headerlink" title="GitHub 注册和配置"></a>GitHub 注册和配置</h2><p>GitHub 是什么？GitHub 又名 GayHub，全球最大的同性交友网站。</p>
+<p>（哈哈哈，开个玩笑 <code>^_^</code>）实际上，GitHub 是一个代码托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。我们的博客最终是托管在 GitHub 上的。</p>
+<p>Github Pages 是面向用户、组织和项目开放的公共静态页面搭建托管服务，站点可以被免费托管在 Github 上，你可以选择使用 Github Pages 提供的域名 github.io 或者自定义域名来发布站点。</p>
+<p>首先，我们需要在 Github 官网进行注册：<a href="https://github.com" target="_blank" rel="noopener">https://github.com</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.mukewang.com/57eea87a0001c62213450582.png" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+<p>然后，创建仓库：Repository name 使用自己的用户名，每个用户只能建立一个，仓库名规则（注意：yourname 必须是你的用户名）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yourname&#x2F;yourname.github.io</span><br></pre></td></tr></table></figure>
+
+<p>比如我的仓库是这样创建的：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-28/42622869.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<p>最后，访问 <a href="https://yourname.github.io，比如我的是" target="_blank" rel="noopener">https://yourname.github.io，比如我的是</a> <a href="https://bxm0927.github.io，如果可以正常访问，那么" target="_blank" rel="noopener">https://bxm0927.github.io，如果可以正常访问，那么</a> Github 的配置已经结束了，第三步完成！！！</p>
+<p>至此，搭建 Hexo 个人博客的前置环境配置已经完成，下面开始讲解 Hexo 搭建个人博客的核心操作。</p>
+<h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><p>什么是 Hexo？Hexo 是一个快速、简洁且高效的博客框架，默认使用 Markdown 解析文章，在几秒内，即可利用靓丽的主题生成静态网页，只需一条指令即可部署到 GitHub Pages 或其他网站。</p>
+<p>强烈建议读者花20分钟去读一读 Hexo 的官方文档：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-28/49821520.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<p>使用 npm 安装 Hexo（在这之前，请确保你已经成功安装了Node.js和Git）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>然后你将会看到下图所示信息，可能你会看到一个<code>WARN</code>，但是不用担心，这不会影响你的正常使用。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-28/41219383.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<p>查看Hexo的版本，<code>hexo version</code>，正确输出如下信息则代表 Hexo 安装成功。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-29/81453389.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+
+<h2 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h2><p>安装 Hexo 完成后，执行下列命令来初始化 Hexo，用户名改成你自己的（我的是bxm0927），Hexo 将会在指定文件夹中新建博客系统所需要的文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init bxm0927.github.io</span><br><span class="line"></span><br><span class="line">cd bxm0927.github.io</span><br><span class="line"></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>新建完成后，目录如下（不同的版本可能目录有些不一样）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── .deploy         <span class="comment"># 需要部署的文件</span></span><br><span class="line">├── node_modules    <span class="comment"># Hexo依赖</span></span><br><span class="line">├── public          <span class="comment"># 生成的静态网页文件</span></span><br><span class="line">├── scaffolds       <span class="comment"># 模板，当您新建文章时，Hexo 会根据 scaffold 来建立文件。</span></span><br><span class="line">├── <span class="built_in">source</span>          <span class="comment"># 博客正文和其他源文件，404、favicon、CNAME 都应该放在这里</span></span><br><span class="line">| ├── _drafts       <span class="comment">#   草稿</span></span><br><span class="line">| └── _posts        <span class="comment">#   文章</span></span><br><span class="line">├── themes          <span class="comment"># 主题，Hexo 会根据主题来生成各种各样的静态页面。</span></span><br><span class="line">├── _config.yml     <span class="comment"># 全局配置文件，您可以在此配置大部分的参数。</span></span><br><span class="line">└── package.json    <span class="comment"># npm 依赖配置文件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/18-6-24/88056415.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<p>然后，在本地运行 Hexo：<code>hexo server</code>或<code>hexo s</code></p>
+<p>您的网站会在 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 下启动，如果能够正常访问（如下图），则说明 Hexo 博客系统已经搭建起来了，但是目前只是在本地哦，别人是看不到的。</p>
+<p>在下面步骤中，我们要把这个本地博客系统部署到 Github 上，让外网的人能够访问到你的博客。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-28/34921926.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<blockquote>
+<p>常见问题：执行hexo server提示找不到该指令<br>解决办法：在 Hexo 3.0 后server被单独出来了，需要安装server，安装的命令如下：npm install hexo -server –save</p>
+</blockquote>
+<h2 id="关联-Hexo-与-GitHub"><a href="#关联-Hexo-与-GitHub" class="headerlink" title="关联 Hexo 与 GitHub"></a>关联 Hexo 与 GitHub</h2><blockquote>
+<p>这一步对于不熟悉GitHub的朋友来说可能有些繁琐，慢慢来，不要着急~</p>
+</blockquote>
+<h3 id="配置-SSH"><a href="#配置-SSH" class="headerlink" title="配置 SSH"></a>配置 SSH</h3><ol>
+<li>生成 SSH</li>
+</ol>
+<p>首先，使用SSH让本地Git项目与远程的GitHub建立起连接，方便传输文件。执行下面命令生成SSH公私钥，一路回车（记得输入你自己的邮箱地址哦~）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;80583600@qq.com&quot;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>添加 SSH Key 到 GitHub</li>
+</ol>
+<p>用记事本打开 <code>C:\Users\bxm09\.ssh\id_rsa.pub</code>，此文件里面内容为刚才生成的公公钥，准确的复制这个文件的内容，粘贴到 <a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a> 的“new SSH key”中</p>
+<ol start="3">
+<li>测试</li>
+</ol>
+<p>输入下面的命令，看看SSH是否配置成功，<code>git@github.com</code>的部分不要修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>如果是下面的反馈：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &#39;github.com (207.97.227.239)&#39; can&#39;t be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes&#x2F;no)?</span><br></pre></td></tr></table></figure>
+
+
+<p>不要紧张，输入yes就好，然后会看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi aierui! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Git-个人信息"><a href="#配置-Git-个人信息" class="headerlink" title="配置 Git 个人信息"></a>配置 Git 个人信息</h3><p>现在你已经可以通过 SSH 链接到 GitHub 了，还有一些个人信息需要完善的。<br>Git 会根据用户的名字和邮箱来记录提交。GitHub 也是用这些信息来做权限的处理。</p>
+<p>输入下面的代码进行个人信息的设置（把名称和邮箱替换成你自己的）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;bxm0927&quot;</span><br><span class="line">git config --global user.email &quot;80583600@qq.com&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Deployment"><a href="#配置-Deployment" class="headerlink" title="配置 Deployment"></a>配置 Deployment</h3><p>在<code>_config.yml</code>文件中，找到<code>Deployment</code>，然后按照如下修改：</p>
+<blockquote>
+<p>注意：1. 用户名改成你自己的，2. 冒号后面记得空一格</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:bxm0927&#x2F;bxm0927.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h3 id="将本地文件提交到-GitHub-Pages"><a href="#将本地文件提交到-GitHub-Pages" class="headerlink" title="将本地文件提交到 GitHub Pages"></a>将本地文件提交到 GitHub Pages</h3><blockquote>
+<p>来了来了来了~</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地预览</span></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除旧的静态文件，即 public 文件</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成新的静态文件，即 public 文件（或者 hexo g）</span></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署到远程站点，即 GitHub（或者 hexo d）</span></span><br><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当然你也可以执行下面的组合命令</span></span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在浏览器中输入 <a href="https://bxm0927.github.io">https://bxm0927.github.io</a> （用户名改成你自己的），可以正常访问则说明 Hexo 与 GitHub 已经成功关联了，哇哇哇哇哇哇，开心死你了，不要忘了回来给我点赞哟 ~</p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
+<li>若上面操作失败，则需要提前安装一个扩展：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>如果在执行 <code>hexo d</code> 后,出现 <code>error deployer not found:github</code> 的错误（如下），则是因为没有设置好 public key 所致，重新详细设置即可。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li>怎么避免 Markdown 文件（.md）被解析？</li>
+</ol>
+<p>Hexo 原理就是在执行<code>hexo generate</code>时会在本地先把博客生成的一套静态html页面，然后放到public文件夹中，再执行<code>hexo deploy</code>时将其复制到.deploy文件夹中。</p>
+<p>Github 通常建议同时附上README.md项目说明文档，但是 hexo 默认情况下会把所有 Markdown 文件（.md）文件解析成html文件，所以即使你在线生成了 README. md，它也会在你下一次部署时被删去。</p>
+<p>那么怎么解决呢？</p>
+<p>在执行<code>hexo deploy</code>前把在本地写好的README.md文件复制到.deploy文件夹中，再去执行<code>hexo deploy</code>。</p>
+<h2 id="将-GitHub-Pages-地址解析到个人域名"><a href="#将-GitHub-Pages-地址解析到个人域名" class="headerlink" title="将 GitHub Pages 地址解析到个人域名"></a>将 GitHub Pages 地址解析到个人域名</h2><blockquote>
+<p>其实当上一步结束之后，我们的博客也基本上完成了，能发博文，别人也能够通过外网域名访问到你的站点，但是~</p>
+</blockquote>
+<p>看着博客的域名是GitHub的二级域名，总有一种寄人篱下的感觉，为了让这个小窝看起来更加正式，我们可以花几十块钱去买一个自己的域名，然后将其绑定自己的域名上，进行该绑定过程，其实就是一个重定向的过程。这里我使用的是阿里云的万网域名服务：</p>
+<p>在 GitHub 仓库的根目录下建立一个 <code>CNAME</code> 的文本文件(注意：没有扩展名)，文件里面只能输入一个你的域名，不能加<code>http://</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">www.xxx.com</span><br></pre></td></tr></table></figure>
+
+
+<p>注意到时候CNAME一定是在你Github项目的master根目录下，你也可以建立一个CNAME的文本文件，放到Hexo–&gt;public目录下，因为到时候同步上去的是这个public文件夹。</p>
+<p>进入<a href="https://dc.aliyun.com/tcparse/dns.htm" target="_blank" rel="noopener">阿里云域名解析地</a>址，添加解析：</p>
+<ol>
+<li>记录类型选择<code>CNAME</code></li>
+<li>主机记录填<code>www</code></li>
+<li>解析线路选择<code>默认</code></li>
+<li>记录值填<code>yourname.github.io</code></li>
+<li>TTL值为<code>10</code>分钟</li>
+<li>再添加一个解析，记录类型<code>A</code></li>
+<li>主机记录填<code>www</code></li>
+<li>解析线路选择<code>默认</code></li>
+<li>记录值填你GitHub 的ip地址（在cmd中ping：）</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping bxm0927.github.com</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-29/79989003.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<p>点击保存，等 1 分钟，访问下你自己的域名，一切就ok了。</p>
+<p>域名绑定成功，域名解析成功，因此你在浏览中输入 <a href="http://www.lovebxm.com，或" target="_blank" rel="noopener">www.lovebxm.com，或</a> lovebxm.com 就可以访问到博客了，输入 bxm0927.github.io 会重定向到  <a href="http://www.lovebxm.com。过程：www">www.lovebxm.com。过程：www</a> 的方式，会先解析成 <a href="http://xxxx.github.io，然后根据" target="_blank" rel="noopener">http://xxxx.github.io，然后根据</a> CNAME 再变成 www</p>
+<p><strong>注意</strong>：CNAME文件在下次 <code>hexo deploy</code>的时候就消失了，需要重新创建，这样就很繁琐</p>
+<p>方法一：每次 <code>hexo d</code> 之后，就去 GitHub 仓库根目录新建 CNAME文件</p>
+<p>方法二：在 <code>hexo g</code> 之后， <code>hexo d</code> 之前，把CNAME文件复制到 “\public&quot; 目录下面，里面写入你要绑定的域名。</p>
+<p>方法三（推荐）：将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等，这样在 hexo d 之后就不会被删除了。</p>
+<p>方法四：通过安装插件实现永久保留</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-cname --save</span><br></pre></td></tr></table></figure>
+
+<p>之后在_config.yml中添加一条</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plugins:</span><br><span class="line">- hexo-generator-cname</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是：如果是在github上建立的CNAME文件，需要先clone到本地，然后安装插件，在deploy上去即可。CNAME只允许一个域名地址。</p>
+<p><strong>注意1</strong>：每次生成的 CNAME 都是 yoursite.com 怎么解决？</p>
+<p>修改 _config.yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url: http:&#x2F;&#x2F;www.lovebxm.com</span><br><span class="line">root: &#x2F;</span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Hexo-常规操作"><a href="#Hexo-常规操作" class="headerlink" title="Hexo 常规操作"></a>Hexo 常规操作</h2><h3 id="发表一篇文章"><a href="#发表一篇文章" class="headerlink" title="发表一篇文章"></a>发表一篇文章</h3><p>运行下面的命令创建一个新文章文件，然后，会在本地博客文件夹 <code>source\_posts</code> 文件夹下我们可以看到新建的 markdown 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>文章编辑好之后，可以执行本地预览、部署等命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地预览</span></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除旧的静态文件，即 public 文件</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成新的静态文件，即 public 文件（或者 hexo g）</span></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署到远程站点，即 GitHub（或者 hexo d）</span></span><br><span class="line">hexo deploye</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当然你也可以执行下面的组合命令</span></span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="显示部分文章内容"><a href="#显示部分文章内容" class="headerlink" title="显示部分文章内容"></a>显示部分文章内容</h3><p>如果在博客文章列表中不想全文显示，可以在文章中增加 <code>&lt;!-- more --&gt;</code>, 在这后面的内容就不会显示在列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="更改主题"><a href="#更改主题" class="headerlink" title="更改主题"></a>更改主题</h3><ul>
+<li>官方主题库：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li>
+<li>有哪些好看的 Hexo 主题？：<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="noopener">https://www.zhihu.com/question/24422335</a></li>
+</ul>
+<p>Hexo主题非常丰富，hexo3.0使用的默认主题是landscape，我推荐搭建使用 Next 为主题，好看且文档详细。详情请阅读 Next 的官方文档（ <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a> ），5 分钟快速安装。</p>
+<blockquote>
+<p>再提示一点，大家可以修改一步就<code>hexo s</code>在本地看下效果。</p>
+</blockquote>
+<h3 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h3><p>添加 feed 插件和 sitemap 网站地图，有助于 SEO。</p>
+<p>切换到你本地的 hexo 目录 ，输入以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed -save</span><br><span class="line">npm install hexo-generator-sitemap -save</span><br></pre></td></tr></table></figure>
+
+<p>修改 <code>_config.yml</code>，增加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">Plugins:</span><br><span class="line">- hexo-generator-feed</span><br><span class="line">- hexo-generator-sitemap</span><br><span class="line">#Feed Atom</span><br><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">#sitemap</span><br><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br></pre></td></tr></table></figure>
+
+
+<p>再执行以下命令，部署到远端：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<p>配完之后，就可以访问 <a href="https://bxm0927.github.io/atom.xml">https://bxm0927.github.io/atom.xml</a> 和 <a href="https://bxm0927.github.io/sitemap.xml">https://bxm0927.github.io/sitemap.xml</a> ，发现这两个文件已经成功生成了。</p>
+<h3 id="添加404-页面"><a href="#添加404-页面" class="headerlink" title="添加404 页面"></a>添加404 页面</h3><p>GitHub Pages 自定义404页面非常容易，直接在根目录下创建自己的<code>404.html</code>就可以。但是自定义404页面仅对绑定顶级域名的项目才起作用，GitHub默认分配的二级域名是不起作用的，使用<code>hexo s</code>在本机调试也是不起作用的。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://oph264zoo.bkt.clouddn.com/17-5-29/38118493.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>其实，404页面可以做更多有意义的事，来做个404公益项目吧。</p>
+<p>推荐使用腾讯公益404 <a href="http://www.qq.com/404/" target="_blank" rel="noopener">http://www.qq.com/404/</a> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;404&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;br&gt;&lt;!--</span><br><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;公益404 | 不如&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">#404 Not found By Bruce</span><br><span class="line">&lt;h1&gt;404 Page Not Found&lt;&#x2F;h1&gt;</span><br><span class="line">--&gt;&lt;br&gt;&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;http:&#x2F;&#x2F;www.qq.com&#x2F;404&#x2F;search_children.js&quot; charset&#x3D;&quot;utf-8&quot;&gt;&lt;&#x2F;script&gt;&lt;br&gt;&lt;!--</span><br><span class="line">公益404介接入地址</span><br><span class="line">益云公益404 http:&#x2F;&#x2F;yibo.iyiyun.com&#x2F;Index&#x2F;web404</span><br><span class="line">腾讯公益404 http:&#x2F;&#x2F;www.qq.com&#x2F;404</span><br><span class="line">失蹤兒童少年資料管理中心404 http:&#x2F;&#x2F;404page.missingkids.org.tw</span><br><span class="line">--&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>复制上面代码，贴粘到目录下新建的404.html即可！</p>
+<p>我的404页面配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta http-equiv&#x3D;&quot;content-type&quot; content&#x3D;&quot;text&#x2F;html;charset&#x3D;utf-8;&quot;&#x2F;&gt;</span><br><span class="line">  &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge,chrome&#x3D;1&quot; &#x2F;&gt;</span><br><span class="line">  &lt;meta name&#x3D;&quot;robots&quot; content&#x3D;&quot;all&quot; &#x2F;&gt;</span><br><span class="line">  &lt;meta name&#x3D;&quot;robots&quot; content&#x3D;&quot;index,follow&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;https:&#x2F;&#x2F;www.qq.com&#x2F;404&#x2F;search_children.js&quot;</span><br><span class="line">        charset&#x3D;&quot;utf-8&quot; homePageUrl&#x3D;&quot;gdutxiaoxu.github.io&quot;</span><br><span class="line">        homePageName&#x3D;&quot;回到我的主页&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="多PC同步管理博客"><a href="#多PC同步管理博客" class="headerlink" title="多PC同步管理博客"></a>多PC同步管理博客</h3><p>很多人可能家里一台笔记本，公司一个台式机，想两个同时管理博客，同时达到备份的博客主题、文章、配置的目的。下面就介绍一下用github来备份博客并同步博客。</p>
+<ol>
+<li>A电脑备份博客内容到github</li>
+</ol>
+<p>配置.gitignore文件。进入博客目录文件夹下，找到此文件，用sublime text 打开，在最后增加两行内容/.deploy_git和/public</p>
+<ol start="2">
+<li>初始化仓库。</li>
+</ol>
+<p>在博客根目录下，在git bash下依次执行git init和git remote add origin <server> <server>为远程仓库地址。</p>
+<ol start="3">
+<li>同步到远程仓库。</li>
+</ol>
+<p>gitbash下依次执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add . #添加目录下所有文件</span><br><span class="line"></span><br><span class="line">git commit -m &quot;更新说明&quot; #提交并添加更新说明</span><br><span class="line"></span><br><span class="line">git push -u origin master #推送更新到远程仓库</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>B电脑拉下远程仓库文件</li>
+</ol>
+<p>在B电脑上同样先安装好node、git、ssh、hexo，然后建好hexo文件夹，安装好插件，（然后选做：将备份到远程仓库的文件及文件夹删除），然后执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line"></span><br><span class="line">git remote add origin &lt;server&gt;</span><br><span class="line"></span><br><span class="line">git fetch --all</span><br><span class="line"></span><br><span class="line">git reset --hard origin&#x2F;master</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>发布博客后同步</li>
+</ol>
+<p>在B电脑发布完博客之后，记得将博客备份同步到远程仓库<br>执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line"></span><br><span class="line">#可以用git master 查看更改内容</span><br><span class="line"></span><br><span class="line">git commit -m &quot;更新信息&quot;</span><br><span class="line"></span><br><span class="line">git push -u origin master  #以后每次提交可以直接git push</span><br></pre></td></tr></table></figure>
+
+<p>平时同步管理<br>每次想写博客时，先执行：git pull进行同步更新。发布完文章后同样按照上面的 发布博客后同步 同步到远程仓库。</p>
+<h3 id="中文乱码问题"><a href="#中文乱码问题" class="headerlink" title="中文乱码问题"></a>中文乱码问题</h3><p>在 md 文件中写中文内容，发布出来后为乱码，原因是 md 的编码不对，将 md 文件另存为<code>UTF-8</code>编码的文件即可解决问题。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>建站的系统有很多，如：</p>
+<ul>
+<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo + GitHub Pages</a></li>
+<li><a href="http://jekyll.com.cn/" target="_blank" rel="noopener">Jekyll + GitHub Pages</a></li>
+<li><a href="https://cn.wordpress.org/" target="_blank" rel="noopener">WordPress + 服务器 + 域名</a></li>
+<li><a href="http://www.dedecms.com/" target="_blank" rel="noopener">DeDeCMS + 服务器 + 域名</a></li>
+<li>…</li>
+</ul>
+<p>使用 Hexo + GitHub Pages 建站，有优点也有缺点：</p>
+<ul>
+<li>GitHub Pages 不支持数据库管理，所以你只能做静态页面的博客，不能像其他博客（如 WordPress）那样通过数据库管理自己的博客内容。</li>
+<li>但是，GitHub Pages 无需购置服务器，免服务器费的同时还能做负载均衡，github pages有300M免费空间。</li>
+<li>个人博客真的有必要用数据库吗？答案是否定的。博客静态化，评论记录使用第三方的 <a href="https://gentie.163.com/info.html" target="_blank" rel="noopener">网易云跟帖</a> 就可以了。静态的博客更有利于搜索引擎蜘蛛爬取，轻量化的感觉真的很好。</li>
+<li>通过 Hexo 你可以轻松地使用 Markdown 编写文章，非常符合我的口味。Markdown 真的是专门针对程序员开发的语言啊，现在感觉没有 Markdown 什么都不想写。什么富文本编辑器，什么word，太麻烦了！而且样式都好丑！效率太低！</li>
+</ul>
+<p>推荐几个很好用的在线 Markdown 编辑器：</p>
+<ul>
+<li>作业部落：<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">https://www.zybuluo.com/mdeditor</a></li>
+<li>马克飞象：<a href="https://maxiang.io" target="_blank" rel="noopener">https://maxiang.io</a></li>
+</ul>
+<p>推荐一个图床：<a href="https://jiantuku.com/#/" target="_blank" rel="noopener">极简图床 + chrome 插件 + 七牛空间</a>，七牛云储存提供10G的免费空间,以及每月10G的流量，存放个人博客外链图片最好不过了，七牛云储存还有各种图形处理功能、缩略图、视频存放速度也给力（非打广告）。</p>
+<p>以上。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-05-24T07:42:35.842Z" itemprop="dateUpdated">2020-05-24 15:42:35</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2018/06/24/hexo-github-blog/" target="_blank" rel="external">https://bxm0927.github.io/2018/06/24/hexo-github-blog/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.gif" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="tag">搭建个人博客</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2018/06/24/hexo-github-blog/&title=《可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2018/06/24/hexo-github-blog/&title=《可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程》 — Xiaoming's Blog&source=前言
+个人博客地址：www.lovebxm.com如果您在搭建的过程中遇到无法解决的问题，可与我交流探讨，QQ：80583600
+
+我们为什么要写博客？一..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2018/06/24/hexo-github-blog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程》 — Xiaoming's Blog&url=https://bxm0927.github.io/2018/06/24/hexo-github-blog/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2018/06/24/hexo-github-blog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/06/26/md/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Markdown 入门详细教程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2013/07/13/blog/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">blog-hexo</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2018/06/24/hexo-github-blog/&title=《可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2018/06/24/hexo-github-blog/&title=《可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程》 — Xiaoming's Blog&source=前言
+个人博客地址：www.lovebxm.com如果您在搭建的过程中遇到无法解决的问题，可与我交流探讨，QQ：80583600
+
+我们为什么要写博客？一..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2018/06/24/hexo-github-blog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《可能是最详细的 Hexo + GitHub Pages 搭建个人博客的教程》 — Xiaoming's Blog&url=https://bxm0927.github.io/2018/06/24/hexo-github-blog/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2018/06/24/hexo-github-blog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aS3LDIBAFQN//0s4BHEvvgeQqQbNyKYmhtZgwn9crXu+P9fk8+f18r9cdCwMD47GM9+FKGO0uY6/p5NVgYGBswDgOfMefk58mofl4r5MzY2BgYASXvyT4zpAwMDAw5hlJOE52wcDAwJhJYscuf8mhf5qLY2BgPJDRFut/+fmW/gYGBsajGO9yXdXgTBLX4lQYGBhLM/IAN3b5a5uaY2U7DAyMHRhtknlVqyAvpSVPMDAwVmUkDcWxy1zyUo5DZ9FywMDA2ICRb5ME3LGWQ8I4CbgYGBgbMGaaAdcG03oEBAMDYwNGm5rOlNjyRmkxKIaBgbEBo20PJH+bNybbi+DJ/w0MDIwtGW1vISmTjbU/i3IbBgbGoow2dYxK9mVzNH+tJ+U2DAyMhRhtc3HsiGOJa50kY2BgLMpoC/djTxJeW9T7OjOCgYGxNGNmVCIpqOUXviRYY2Bg7MZILmRtytq+jrz09s83YGBgLM2YaTe2Zbi8hZBcKIvJEQwMjEUZU0NacfI51ir4ujsGBsYGjHZ4q203jqW+xdAGBgbGloyxa9zYuFi+6oCLgYHxcMa7XHeMXMyHdQwMjLUZbZhrDzTWVLiqIYGBgbESY2yoIr/25d/cBuu6U4qBgfFwRp71tgExOWh+3JN7LgYGBkY5QNaOebWXUQwMDIz7Brza3Doq+WFgYGzAmBrJCgr67UFvLLdhYGA8kDE24tAW4GYGLy5ramJgYDyP8Qdjn/oIMxZMGQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
