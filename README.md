@@ -1,14 +1,14 @@
-# blog
+# ✨ blog
 
 It's my personal blog, share with you IT technology, to achieve progress together.
 
 Welcome to visit it 👉 https://bxm0927.github.io/
 
-部署代码：master
+Deploy Branch：master
 
-写作分支：workspace
+Writing Branch：workspace
 
-## Quick Start
+## ✂️ Quick Start
 
 ```bash
 # Install Hexo
