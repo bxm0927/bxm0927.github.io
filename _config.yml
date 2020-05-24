@@ -3,17 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
+title: Xiaoming's Blog
+subtitle: Share with you IT technology, to achieve progress together.
+description: 这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究.
+keywords: 白小明,前端,大前端,白小明个人博客,Hexo搭建个人博客
+author: 白小明
+language: zh-CN
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+# url: http://yoursite.com/blog
+# root: /blog/
+url: https://bxm0927.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -92,8 +94,38 @@ ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+# https://github.com/hexojs/hexo-generator-feed
+# https://github.com/alexbruno/hexo-generator-json-content
+feed:
+  type: atom
+  path: atom.xml
+  limit: 0
+
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
+
 ## Themes: https://hexo.io/themes/
-theme: landscape
+# https://github.com/hexojs/hexo-theme-landscape
+# https://github.com/next-theme/hexo-theme-next
+# https://github.com/yscoder/hexo-theme-indigo
+# https://github.com/fluid-dev/hexo-theme-fluid
+theme: indigo
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
