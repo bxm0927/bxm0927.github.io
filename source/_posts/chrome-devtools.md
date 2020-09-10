@@ -4,9 +4,6 @@ title: Chrome DevTools 调试技巧
 
 ## 前言
 
-- https://developers.google.com/web/tools/chrome-devtools/
-- https://juejin.im/book/5c526902e51d4543805ef35e/section/5c5269026fb9a049f1549e4a
-
 工欲善其事必先利其器。
 
 有些时候一个技巧可以节省我们很多的时间，也会让调试的过程变得更加简单直接。本次分享从不同的情景来说明应该如何搭配使用 Chrome DevTools 中的小技巧，让大家熟练掌握 Chrome 调试技巧，直接提升工作效率。
