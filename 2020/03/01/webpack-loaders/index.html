@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>webpack 常用 loader 收集整理 | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTML,CSS,JS,webpack">
+    <meta name="description" content="webpack loader 简介webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。你可以使用 Node.js 来很简单地编写自己的 loader。 webpack 提供许多开箱可用的 loader：  https:&#x2F;&#x2F;webpack.docschina.org&#x2F;loaders&#x2F; 更多第三方 loader：https:&#x2F;&#x2F;github.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack 常用 loader 收集整理">
+<meta property="og:url" content="https://bxm0927.github.io/2020/03/01/webpack-loaders/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="webpack loader 简介webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。你可以使用 Node.js 来很简单地编写自己的 loader。 webpack 提供许多开箱可用的 loader：  https:&#x2F;&#x2F;webpack.docschina.org&#x2F;loaders&#x2F; 更多第三方 loader：https:&#x2F;&#x2F;github.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-01T05:02:20.000Z">
+<meta property="article:modified_time" content="2020-03-03T09:20:52.000Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="webpack">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">webpack 常用 loader 收集整理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">webpack 常用 loader 收集整理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-01T05:02:20.000Z" itemprop="datePublished" class="page-time">
+  2020-03-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#webpack-loader-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">webpack loader 简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#样式"><span class="post-toc-number">2.</span> <span class="post-toc-text">样式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#style-loader、css-loader、postcss-loader"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">style-loader、css-loader、postcss-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sass-loader"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">sass-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#less-loader"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">less-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#stylus-loader"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">stylus-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PostCSS"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">PostCSS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sass-resources-loader-style-resources-loader"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">sass-resources-loader &#x2F; style-resources-loader</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#转译"><span class="post-toc-number">3.</span> <span class="post-toc-text">转译</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#babel-loader"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">babel-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ts-loader"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">ts-loader</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#框架"><span class="post-toc-number">4.</span> <span class="post-toc-text">框架</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vue-loader"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">vue-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#支持-react"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">支持 react</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件"><span class="post-toc-number">5.</span> <span class="post-toc-text">文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#file-loader"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">file-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#url-loader"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">url-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#image-webpack-loader"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">image-webpack-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#csv-loader"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">csv-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#xml-loader"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">xml-loader</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模板"><span class="post-toc-number">6.</span> <span class="post-toc-text">模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ejs-loader"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">ejs-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jade-loader"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">jade-loader</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pug-plain-loader"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">pug-plain-loader</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码检查和测试"><span class="post-toc-number">7.</span> <span class="post-toc-text">代码检查和测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#eslint-loader"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">eslint-loader</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-webpack-loaders"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">webpack 常用 loader 收集整理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-01 13:02:20" datetime="2020-03-01T05:02:20.000Z"  itemprop="datePublished">2020-03-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+
+
+
+            <!-- 
+ -->
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="webpack-loader-简介"><a href="#webpack-loader-简介" class="headerlink" title="webpack loader 简介"></a>webpack loader 简介</h2><p>webpack 可以使用 loader 来预处理文件。这允许你打包除 JavaScript 之外的任何静态资源。你可以使用 Node.js 来很简单地编写自己的 loader。</p>
+<p>webpack 提供许多开箱可用的 loader：</p>
+<ul>
+<li><a href="https://webpack.docschina.org/loaders/" target="_blank" rel="noopener">https://webpack.docschina.org/loaders/</a></li>
+<li>更多第三方 loader：<a href="https://github.com/webpack-contrib/awesome-webpack#loaders" target="_blank" rel="noopener">https://github.com/webpack-contrib/awesome-webpack#loaders</a></li>
+</ul>
+<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><h3 id="style-loader、css-loader、postcss-loader"><a href="#style-loader、css-loader、postcss-loader" class="headerlink" title="style-loader、css-loader、postcss-loader"></a>style-loader、css-loader、postcss-loader</h3><ul>
+<li><a href="https://github.com/webpack-contrib/css-loader" target="_blank" rel="noopener">https://github.com/webpack-contrib/css-loader</a></li>
+</ul>
+<p>处理 CSS 文件</p>
+<ul>
+<li>style-loader 把 CSS 文件转换成 <code>&lt;style&gt;</code> 标签，插入到 <code>&lt;head&gt;</code> 中</li>
+<li>css-loader 用来处理 CSS 中的 URL 路径</li>
+<li>postcss-loader 用于 CSS 后处理，添加浏览器前缀等</li>
+</ul>
+<blockquote>
+<p>注意：打包顺序是从后往前依次执行的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D style-loader css-loader postcss-loader autoprefixer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MiniCssExtractPlugin = <span class="built_in">require</span>(<span class="string">'mini-css-extract-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> devMode = process.env.NODE_ENV !== <span class="string">'production'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack.config.js -&gt; module.rules</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// test: /\.css$/,</span></span><br><span class="line">  <span class="comment">// use: ['style-loader', 'css-loader', 'postcss-loader'], // 不再需要 style-loader</span></span><br><span class="line">  test: <span class="regexp">/\.(sa|sc|c)ss$/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    &#123;</span><br><span class="line">      loader: MiniCssExtractPlugin.loader,</span><br><span class="line">      options: &#123;</span><br><span class="line">        <span class="comment">// you can specify a publicPath here</span></span><br><span class="line">        <span class="comment">// by default it uses publicPath in webpackOptions.output</span></span><br><span class="line">        hmr: process.env.NODE_ENV === <span class="string">'development'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'css-loader'</span>,</span><br><span class="line">    <span class="string">'postcss-loader'</span>,</span><br><span class="line">    <span class="string">'sass-loader'</span>,</span><br><span class="line">  ],</span><br><span class="line">  include: path.resolve(__dirname, <span class="string">'src'</span>),</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack.config.js -&gt; module.plugins</span></span><br><span class="line"><span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">  <span class="comment">// Options similar to the same options in webpackOptions.output</span></span><br><span class="line">  <span class="comment">// both options are optional</span></span><br><span class="line">  filename: devMode ? <span class="string">'[name].css'</span> : <span class="string">'[name].[hash].css'</span>,</span><br><span class="line">  chunkFilename: devMode ? <span class="string">'[id].css'</span> : <span class="string">'[id].[hash].css'</span>,</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
+
+<p>postcss.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [<span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)], <span class="comment">// 添加浏览器前缀</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="sass-loader"><a href="#sass-loader" class="headerlink" title="sass-loader"></a>sass-loader</h3><p>转换 sass/scss 文件为 css 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --D sass-loader node-sass</span><br></pre></td></tr></table></figure>
+
+<p>注意 sass-loader 会默认处理不基于缩进的 scss 语法。为了使用基于缩进的 sass 语法，你需要向这个 loader 传递选项：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js -&gt; module.rules</span></span><br><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.sass$/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    <span class="string">'vue-style-loader'</span>,</span><br><span class="line">    <span class="string">'css-loader'</span>,</span><br><span class="line">    &#123;</span><br><span class="line">      loader: <span class="string">'sass-loader'</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        indentedSyntax: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="less-loader"><a href="#less-loader" class="headerlink" title="less-loader"></a>less-loader</h3><p>转换 less 文件为 css 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D less less-loader</span><br></pre></td></tr></table></figure>
+
+<h3 id="stylus-loader"><a href="#stylus-loader" class="headerlink" title="stylus-loader"></a>stylus-loader</h3><p>转换 stylus 文件为 css 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D stylus stylus-loader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js -&gt; module.rules</span><br><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.styl(us)?$&#x2F;,</span><br><span class="line">  use: [</span><br><span class="line">    &#39;vue-style-loader&#39;,</span><br><span class="line">    &#39;css-loader&#39;,</span><br><span class="line">    &#39;stylus-loader&#39;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="PostCSS"><a href="#PostCSS" class="headerlink" title="PostCSS"></a>PostCSS</h3><ul>
+<li><a href="https://github.com/postcss/postcss-loader" target="_blank" rel="noopener">https://github.com/postcss/postcss-loader</a></li>
+<li><a href="https://github.com/postcss/autoprefixer" target="_blank" rel="noopener">https://github.com/postcss/autoprefixer</a></li>
+</ul>
+<p>PostCSS 的配置可以通过 postcss.config.js 或 postcss-loader 选项来完成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D postcss-loader</span><br></pre></td></tr></table></figure>
+
+<h3 id="sass-resources-loader-style-resources-loader"><a href="#sass-resources-loader-style-resources-loader" class="headerlink" title="sass-resources-loader / style-resources-loader"></a>sass-resources-loader / style-resources-loader</h3><ul>
+<li><a href="https://github.com/shakacode/sass-resources-loader" target="_blank" rel="noopener">https://github.com/shakacode/sass-resources-loader</a></li>
+<li><a href="https://github.com/yenshih/style-resources-loader" target="_blank" rel="noopener">https://github.com/yenshih/style-resources-loader</a></li>
+<li>Nuxt 配置：<a href="https://nuxtjs.org/api/configuration-build#styleresources" target="_blank" rel="noopener">https://nuxtjs.org/api/configuration-build#styleresources</a></li>
+</ul>
+<p>在所有样式中共享变量（variables）和混合（mixins），而无需在每个文件中手动导入它们。</p>
+<h2 id="转译"><a href="#转译" class="headerlink" title="转译"></a>转译</h2><h3 id="babel-loader"><a href="#babel-loader" class="headerlink" title="babel-loader"></a>babel-loader</h3><ul>
+<li><a href="https://babel.docschina.org/" target="_blank" rel="noopener">https://babel.docschina.org/</a></li>
+<li><a href="https://github.com/babel/babel-loader" target="_blank" rel="noopener">https://github.com/babel/babel-loader</a></li>
+<li><a href="https://webpack.docschina.org/loaders/babel-loader" target="_blank" rel="noopener">https://webpack.docschina.org/loaders/babel-loader</a></li>
+</ul>
+<p>ES6 转 ES5</p>
+<blockquote>
+<p>babel-loader@8 requires Babel 7.x (the package ‘@babel/core’). If you’d like to use Babel 6.x (‘babel-core’), you should install ‘babel-loader@7’.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># webpack 4.x | babel-loader 8.x | babel 7.x</span></span><br><span class="line">npm install -D babel-loader @babel/core @babel/preset-env webpack</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.js$&#x2F;,</span><br><span class="line">  loader: &#39;babel-loader&#39;,</span><br><span class="line">  exclude: &#x2F;node_modules&#x2F;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>Babel 的配置可以通过 <code>.babelrc</code> 文件或 babel-loader 的 <code>options</code> 选项来完成，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [&quot;@babel&#x2F;preset-env&quot;],</span><br><span class="line">  &quot;plugins&quot;: [&quot;@babel&#x2F;plugin-transform-runtime&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ts-loader"><a href="#ts-loader" class="headerlink" title="ts-loader"></a>ts-loader</h3><p><a href="https://github.com/TypeStrong/ts-loader" target="_blank" rel="noopener">https://github.com/TypeStrong/ts-loader</a></p>
+<p>解析 TypeScript 文件（<code>.ts</code>）</p>
+<p>TypeScript 的配置可以通过 <code>tsconfig.json</code> 来完成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D typescript ts-loader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    extensions: [ &#39;.tsx&#39;, &#39;.ts&#39;, &#39;.js&#39; ]</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.tsx?$&#x2F;,</span><br><span class="line">        loader: &#39;ts-loader&#39;,</span><br><span class="line">        exclude: &#x2F;node_modules&#x2F;</span><br><span class="line">        options: &#123;</span><br><span class="line">          appendTsSuffixTo: [&#x2F;\.vue$&#x2F;]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>tsconfig.json：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;compilerOptions&quot;: &#123;</span><br><span class="line">    &quot;outDir&quot;: &quot;.&#x2F;dist&#x2F;&quot;,</span><br><span class="line">    &quot;noImplicitAny&quot;: true,</span><br><span class="line">    &quot;module&quot;: &quot;es6&quot;,</span><br><span class="line">    &quot;target&quot;: &quot;es5&quot;,</span><br><span class="line">    &quot;jsx&quot;: &quot;react&quot;,</span><br><span class="line">    &quot;allowJs&quot;: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h3 id="vue-loader"><a href="#vue-loader" class="headerlink" title="vue-loader"></a>vue-loader</h3><ul>
+<li><a href="https://github.com/vuejs/vue-loader" target="_blank" rel="noopener">https://github.com/vuejs/vue-loader</a></li>
+<li><a href="https://vue-loader.vuejs.org/zh/" target="_blank" rel="noopener">https://vue-loader.vuejs.org/zh/</a></li>
+</ul>
+<p>vue-loader 用于加载和转译 Vue 单文件组件（SFC，Single-File Components）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --D vue-loader vue-template-compiler</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const &#123; VueLoaderPlugin &#125; &#x3D; require(&#39;vue-loader&#39;)</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#x2F;&#x2F; ... 其它规则</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.vue$&#x2F;,</span><br><span class="line">        loader: &#39;vue-loader&#39;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    &#x2F;&#x2F; 这个插件是必须的！</span><br><span class="line">    &#x2F;&#x2F; 它的职责是将你定义过的其它规则复制并应用到 .vue 文件里相应语言的块。</span><br><span class="line">    &#x2F;&#x2F; 例如，如果你有一条匹配 &#x2F;\.js$&#x2F; 的规则，那么它会应用到 .vue 文件里的 &lt;script&gt; 块。</span><br><span class="line">    new VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="支持-react"><a href="#支持-react" class="headerlink" title="支持 react"></a>支持 react</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --D @babel&#x2F;preset-react</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; module.rules</span><br><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.jsx?$&#x2F;,</span><br><span class="line">  exclude: &#x2F;node_modules&#x2F;,</span><br><span class="line">  use: [&quot;babel-loader&quot;]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>.babelrc：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    [</span><br><span class="line">      &quot;@babel&#x2F;preset-react&quot;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;pragma&quot;: &quot;dom&quot;, &#x2F;&#x2F; default pragma is React.createElement</span><br><span class="line">        &quot;pragmaFrag&quot;: &quot;DomFrag&quot;, &#x2F;&#x2F; default is React.Fragment</span><br><span class="line">        &quot;throwIfNamespace&quot;: false &#x2F;&#x2F; defaults to true</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>index.js：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &#39;react&#39;</span><br><span class="line">import ReactDOM from &#39;react-dom&#39;</span><br><span class="line"></span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;div&gt;react frame content.&lt;&#x2F;div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;App &#x2F;&gt;, document.getElementById(&#39;root&#39;))</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="file-loader"><a href="#file-loader" class="headerlink" title="file-loader"></a>file-loader</h3><p>==file-loader 将文件发送到输出文件夹，并返回（相对）URL==</p>
+<p><code>file-loader</code> 可以指定要复制和放置资源文件的位置，以及如何使用版本哈希命名以获得更好的缓存。此外，这意味着你可以就近管理图片文件，可以使用相对路径而不用担心部署时 URL 的问题。使用正确的配置，webpack 将会在打包输出中自动重写文件路径为正确的 URL。</p>
+<h3 id="url-loader"><a href="#url-loader" class="headerlink" title="url-loader"></a>url-loader</h3><p>==url-loader 像 file loader 一样工作，但如果文件小于限制，可以返回 data URL==</p>
+<p><code>url-loader</code> 允许你有条件地将文件转换为内联的 base-64 URL (当文件小于给定的阈值)，这会减少小文件的 HTTP 请求数。如果文件大于该阈值，会自动的交给 <code>file-loader</code> 处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --D file-loader url-loader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; images</span><br><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.(png|jpe?g|gif|webp)(\?.*)?$&#x2F;,</span><br><span class="line">  use: [</span><br><span class="line">    &#123;</span><br><span class="line">      loader: &#39;url-loader&#39;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        limit: 8 * 1024, &#x2F;&#x2F; 8K</span><br><span class="line">        outputPath: &#39;img&#x2F;&#39;,</span><br><span class="line">        name: devMode ? &#39;[name].[ext]&#39; : &#39;[name].[hash:8].[ext]&#39;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#39;image-webpack-loader&#39;,</span><br><span class="line">  ],</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; svg</span><br><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.(svg)(\?.*)?$&#x2F;,</span><br><span class="line">  use: &#123;</span><br><span class="line">    loader: &#39;file-loader&#39;,</span><br><span class="line">    options: &#123;</span><br><span class="line">      outputPath: &#39;img&#x2F;&#39;,</span><br><span class="line">      name: devMode ? &#39;[name].[ext]&#39; : &#39;[name].[hash:8].[ext]&#39;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; fonts</span><br><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.(woff2?|eot|ttf|otf)(\?.*)?$&#x2F;i,</span><br><span class="line">  use: &#123;</span><br><span class="line">    loader: &#39;url-loader&#39;,</span><br><span class="line">    options: &#123;</span><br><span class="line">      limit: 8 * 1024, &#x2F;&#x2F; 8K</span><br><span class="line">      outputPath: &#39;fonts&#x2F;&#39;,</span><br><span class="line">      name: devMode ? &#39;[name].[ext]&#39; : &#39;[name].[hash:8].[ext]&#39;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; media</span><br><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$&#x2F;,</span><br><span class="line">  use: &#123;</span><br><span class="line">    loader: &#39;url-loader&#39;,</span><br><span class="line">    options: &#123;</span><br><span class="line">      limit: 8 * 1024, &#x2F;&#x2F; 8K</span><br><span class="line">      outputPath: &#39;media&#x2F;&#39;,</span><br><span class="line">      name: devMode ? &#39;[name].[ext]&#39; : &#39;[name].[hash:8].[ext]&#39;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="image-webpack-loader"><a href="#image-webpack-loader" class="headerlink" title="image-webpack-loader"></a>image-webpack-loader</h3><p><a href="https://github.com/tcoopman/image-webpack-loader" target="_blank" rel="noopener">https://github.com/tcoopman/image-webpack-loader</a></p>
+<p>压缩图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.(png|jpe?g|gif|svg)$&#x2F;,</span><br><span class="line">  use: [</span><br><span class="line">    &#123;</span><br><span class="line">      loader: &#39;url-loader&#39;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        limit: 8 * 1024, &#x2F;&#x2F; 8K</span><br><span class="line">        outputPath: &#39;assets&#x2F;&#39;,</span><br><span class="line">        name: &#39;images&#x2F;[name].[hash].[ext]&#39;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#39;image-webpack-loader&#39;,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="csv-loader"><a href="#csv-loader" class="headerlink" title="csv-loader"></a>csv-loader</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.(csv|tsv)$&#x2F;,</span><br><span class="line">  use: [&#39;csv-loader&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="xml-loader"><a href="#xml-loader" class="headerlink" title="xml-loader"></a>xml-loader</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.xml$&#x2F;,</span><br><span class="line">  use: [&#39;xml-loader&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="ejs-loader"><a href="#ejs-loader" class="headerlink" title="ejs-loader"></a>ejs-loader</h3><p>处理 ejs 模版引擎文件</p>
+<h3 id="jade-loader"><a href="#jade-loader" class="headerlink" title="jade-loader"></a>jade-loader</h3><p>对 <code>.jade</code> 文件使用 jade-loader</p>
+<h3 id="pug-plain-loader"><a href="#pug-plain-loader" class="headerlink" title="pug-plain-loader"></a>pug-plain-loader</h3><p><a href="https://vue-loader.vuejs.org/zh/guide/pre-processors.html#pug" target="_blank" rel="noopener">https://vue-loader.vuejs.org/zh/guide/pre-processors.html#pug</a></p>
+<p>处理 pug 模版引擎文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D pug pug-plain-loader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js -&gt; module.rules</span><br><span class="line">&#123;</span><br><span class="line">  test: &#x2F;\.pug$&#x2F;,</span><br><span class="line">  loader: &#39;pug-plain-loader&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码检查和测试"><a href="#代码检查和测试" class="headerlink" title="代码检查和测试"></a>代码检查和测试</h2><h3 id="eslint-loader"><a href="#eslint-loader" class="headerlink" title="eslint-loader"></a>eslint-loader</h3><p>你的 <code>*.vue</code> 文件在开发过程中每次保存的时候就会自动进行代码校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D eslint eslint-loader</span><br></pre></td></tr></table></figure>
+
+<p>请确保它是作为一个 pre-loader 运用的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  &#x2F;&#x2F; ... 其它选项</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        enforce: &#39;pre&#39;,</span><br><span class="line">        test: &#x2F;\.(js|vue)$&#x2F;,</span><br><span class="line">        loader: &#39;eslint-loader&#39;,</span><br><span class="line">        exclude: &#x2F;node_modules&#x2F;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-03-03T09:20:52.000Z" itemprop="dateUpdated">2020-03-03 17:20:52</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2020/03/01/webpack-loaders/" target="_blank" rel="external">https://bxm0927.github.io/2020/03/01/webpack-loaders/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.png" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2020/03/01/webpack-loaders/&title=《webpack 常用 loader 收集整理》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2020/03/01/webpack-loaders/&title=《webpack 常用 loader 收集整理》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2020/03/01/webpack-loaders/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《webpack 常用 loader 收集整理》 — Xiaoming's Blog&url=https://bxm0927.github.io/2020/03/01/webpack-loaders/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2020/03/01/webpack-loaders/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/03/02/webpack-plugins/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">webpack 常用 plugin 收集整理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/10/babel-import/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Babel 配置按需加载</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <!-- <div class="bottom">
+        <p><span>白小明 &copy; 2017 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div> -->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2020/03/01/webpack-loaders/&title=《webpack 常用 loader 收集整理》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2020/03/01/webpack-loaders/&title=《webpack 常用 loader 收集整理》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2020/03/01/webpack-loaders/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《webpack 常用 loader 收集整理》 — Xiaoming's Blog&url=https://bxm0927.github.io/2020/03/01/webpack-loaders/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2020/03/01/webpack-loaders/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3aQZLDIAwF0dz/0p4DZOzpL+GpQjSrlJMYPRYqJPh88Li+Bn/+/E7+fMGQIUPGtozrcaSM728JLH3/L++RIUPGAYznxMdJ8fRgLpSUZciQIQP/hj9ZNa8MGTJkkN/wsMibZciQIaNTxPI0egdL//VKLS5DhowNGbzr/v+fXznfkCFDxlaMKxydpJluDYOoZMiQMZrBE9yqaxZpe47HI0OGjNmM5y946uQNuLSVRp7IkCHjHEYtBafpNV0OkqxlyJBxAqNPSgtUkuhbHUQZMmSMYPBClJev7206b2eXIUPGaEZtMh5QLVnzBW3V4jJkyNiEkZaF/ArXqv+iJZMhQ8ZoBi9o08upaXD9+lSGDBmzGfzQsdbiJ8vRL4llyJAxlUECSktWkpo728HiusqQIWNzRufokcP4Vi9u/MmQIWM0g5eLaVu/k3zT7akMGTJOYPCDw+cgyGTpAj2nfhkyZMjol6npsQEPGl0IkyFDxjgGT3OdtNhZoD/acDJkyDiYUTt6JC22TiNPhgwZZzL4USVvuq0qaFFUMmTIGMq4wvHBo9Pij48oZMiQMZpRC6uWmsl/O9c4ZMiQMZuRtrrISqSYzsULGTJknMMIqt7SBQvypBOtDBkyZKQMHlytPSdDhgwZtaPEdMPXuSB7W8TKkCFjNINPw1MhP2BYUEjLkCFjNKNWOvILFmkr7cVDTRkyZOzH+AFWGWqYlAQjygAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

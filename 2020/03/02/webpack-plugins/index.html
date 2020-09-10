@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>webpack 常用 plugin 收集整理 | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTML,CSS,JS,webpack">
+    <meta name="description" content="前言webpack 附带了各种内置插件，可以通过 webpack.[plugin-name] 访问这些插件。但请注意这只是其中一部分，社区中还有许多插件。  https:&#x2F;&#x2F;webpack.docschina.org&#x2F;plugins 更多第三方 plugin：https:&#x2F;&#x2F;github.com&#x2F;webpack-contrib&#x2F;awesome-webpack#webpack-plugins  ht">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack 常用 plugin 收集整理">
+<meta property="og:url" content="https://bxm0927.github.io/2020/03/02/webpack-plugins/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="前言webpack 附带了各种内置插件，可以通过 webpack.[plugin-name] 访问这些插件。但请注意这只是其中一部分，社区中还有许多插件。  https:&#x2F;&#x2F;webpack.docschina.org&#x2F;plugins 更多第三方 plugin：https:&#x2F;&#x2F;github.com&#x2F;webpack-contrib&#x2F;awesome-webpack#webpack-plugins  ht">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note.youdao.com/yws/res/127326/679DFFE53F144CE3AFD68761F0B28049">
+<meta property="article:published_time" content="2020-03-02T04:03:22.000Z">
+<meta property="article:modified_time" content="2020-03-04T09:29:50.000Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="webpack">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/res/127326/679DFFE53F144CE3AFD68761F0B28049">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">webpack 常用 plugin 收集整理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">webpack 常用 plugin 收集整理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-02T04:03:22.000Z" itemprop="datePublished" class="page-time">
+  2020-03-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#html-webpack-plugin"><span class="post-toc-number">2.</span> <span class="post-toc-text">html-webpack-plugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#optimize-css-assets-webpack-plugin"><span class="post-toc-number">3.</span> <span class="post-toc-text">optimize-css-assets-webpack-plugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#extract-text-webpack-plugin、mini-css-extract-plugin"><span class="post-toc-number">4.</span> <span class="post-toc-text">extract-text-webpack-plugin、mini-css-extract-plugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#webpack-optimize-UglifyJsPlugin、UglifyJsPlugin"><span class="post-toc-number">5.</span> <span class="post-toc-text">webpack.optimize.UglifyJsPlugin、UglifyJsPlugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#webpack-optimize-CommonsChunkPlugin、SplitChunksPlugin"><span class="post-toc-number">6.</span> <span class="post-toc-text">webpack.optimize.CommonsChunkPlugin、SplitChunksPlugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#clean-webpack-plugin"><span class="post-toc-number">7.</span> <span class="post-toc-text">clean-webpack-plugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#copy-webpack-plugin"><span class="post-toc-number">8.</span> <span class="post-toc-text">copy-webpack-plugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#webpack-DefinePlugin"><span class="post-toc-number">9.</span> <span class="post-toc-text">webpack.DefinePlugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#webpack-ProvidePlugin"><span class="post-toc-number">10.</span> <span class="post-toc-text">webpack.ProvidePlugin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#workbox-webpack-plugin"><span class="post-toc-number">11.</span> <span class="post-toc-text">workbox-webpack-plugin</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-webpack-plugins"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">webpack 常用 plugin 收集整理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-02 12:03:22" datetime="2020-03-02T04:03:22.000Z"  itemprop="datePublished">2020-03-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webpack/">webpack</a></li></ul>
+
+
+
+            <!-- 
+ -->
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>webpack 附带了各种内置插件，可以通过 <code>webpack.[plugin-name]</code> 访问这些插件。但请注意这只是其中一部分，社区中还有许多插件。</p>
+<ul>
+<li><a href="https://webpack.docschina.org/plugins" target="_blank" rel="noopener">https://webpack.docschina.org/plugins</a></li>
+<li>更多第三方 plugin：<a href="https://github.com/webpack-contrib/awesome-webpack#webpack-plugins" target="_blank" rel="noopener">https://github.com/webpack-contrib/awesome-webpack#webpack-plugins</a></li>
+</ul>
+<h2 id="html-webpack-plugin"><a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a>html-webpack-plugin</h2><ul>
+<li><a href="https://github.com/jantimon/html-webpack-plugin" target="_blank" rel="noopener">https://github.com/jantimon/html-webpack-plugin</a></li>
+<li><a href="https://webpack.docschina.org/plugins/html-webpack-plugin" target="_blank" rel="noopener">https://webpack.docschina.org/plugins/html-webpack-plugin</a></li>
+</ul>
+<p>产出 HTML，处理 HTML 模版，自动更新 HTML 文件中的引入文件的 hash 值等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const HtmlWebpackPlugin &#x3D; require(&#39;html-webpack-plugin&#39;)</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line">  new HtmlWebpackPlugin(&#123;</span><br><span class="line">    template: path.resolve(__dirname, &#39;index.html&#39;),</span><br><span class="line">  &#125;),</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h2 id="optimize-css-assets-webpack-plugin"><a href="#optimize-css-assets-webpack-plugin" class="headerlink" title="optimize-css-assets-webpack-plugin"></a>optimize-css-assets-webpack-plugin</h2><p>CSS 代码压缩</p>
+<p><a href="https://webpack.docschina.org/plugins/mini-css-extract-plugin/#minimizing-for-production" target="_blank" rel="noopener">https://webpack.docschina.org/plugins/mini-css-extract-plugin/#minimizing-for-production</a></p>
+<h2 id="extract-text-webpack-plugin、mini-css-extract-plugin"><a href="#extract-text-webpack-plugin、mini-css-extract-plugin" class="headerlink" title="extract-text-webpack-plugin、mini-css-extract-plugin"></a>extract-text-webpack-plugin、mini-css-extract-plugin</h2><ul>
+<li><a href="https://github.com/webpack-contrib/extract-text-webpack-plugin" target="_blank" rel="noopener">https://github.com/webpack-contrib/extract-text-webpack-plugin</a></li>
+<li><a href="https://github.com/webpack-contrib/mini-css-extract-plugin" target="_blank" rel="noopener">https://github.com/webpack-contrib/mini-css-extract-plugin</a></li>
+<li><a href="https://vue-loader.vuejs.org/zh/guide/extract-css.html#webpack-4" target="_blank" rel="noopener">https://vue-loader.vuejs.org/zh/guide/extract-css.html#webpack-4</a></li>
+</ul>
+<p>将 JS 文件中的 CSS 提取到单独的文件中，它为每个包含 CSS 的 JS 文件创建一个 CSS 文件。建议：</p>
+<ul>
+<li>请只在生产环境下使用 CSS 提取，这将便于你在开发环境下进行热重载；</li>
+<li>而在线上环境，使样式依赖 JS 执行环境并不是一个好的实践。渲染会被推迟，甚至会出现 FOUC，因此在最终线上环境构建时，最好还是能够将 CSS 放在单独的文件中。</li>
+</ul>
+<p>webpack v4 推荐使用 <code>mini-css-extract-plugin</code> 代替之。如果你一定要使用 <code>extract-text-webpack-plugin</code>，请安装<code>@next</code>版本</p>
+<blockquote>
+<p>npm WARN deprecated <a href="mailto:extract-text-webpack-plugin@3.0.2">extract-text-webpack-plugin@3.0.2</a>: Deprecated. Please use <a href="https://github.com/webpack-contrib/mini-css-extract-plugin" target="_blank" rel="noopener">https://github.com/webpack-contrib/mini-css-extract-plugin</a></p>
+</blockquote>
+<blockquote>
+<p>npm WARN <a href="mailto:extract-text-webpack-plugin@3.0.2">extract-text-webpack-plugin@3.0.2</a> requires a peer of webpack@^3.1.0 but none is installed. You must install peer dependencies yourself.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># webpack 3</span><br><span class="line">npm install --D extract-text-webpack-plugin</span><br><span class="line"></span><br><span class="line"># webpack 4（不推荐）</span><br><span class="line">npm install --D extract-text-webpack-plugin@next</span><br><span class="line"></span><br><span class="line"># webpack 4（推荐）</span><br><span class="line">npm install --D mini-css-extract-plugin</span><br></pre></td></tr></table></figure>
+
+<h2 id="webpack-optimize-UglifyJsPlugin、UglifyJsPlugin"><a href="#webpack-optimize-UglifyJsPlugin、UglifyJsPlugin" class="headerlink" title="webpack.optimize.UglifyJsPlugin、UglifyJsPlugin"></a>webpack.optimize.UglifyJsPlugin、UglifyJsPlugin</h2><p>JS 文件合并压缩等处理</p>
+<p>在 webpack4.x 下，只需要配置 <code>mode</code> 为 <code>production</code> 即可。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://note.youdao.com/yws/res/127326/679DFFE53F144CE3AFD68761F0B28049" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+<h2 id="webpack-optimize-CommonsChunkPlugin、SplitChunksPlugin"><a href="#webpack-optimize-CommonsChunkPlugin、SplitChunksPlugin" class="headerlink" title="webpack.optimize.CommonsChunkPlugin、SplitChunksPlugin"></a>webpack.optimize.CommonsChunkPlugin、SplitChunksPlugin</h2><p><a href="https://webpack.docschina.org/plugins/split-chunks-plugin/" target="_blank" rel="noopener">https://webpack.docschina.org/plugins/split-chunks-plugin/</a></p>
+<blockquote>
+<p>CommonsChunkPlugin 已经从 webpack v4 中移除。想要了解最新版本是如何处理 chunk，请查看 SplitChunksPlugin。</p>
+</blockquote>
+<p>SplitChunksPlugin 插件可以将公共的依赖模块提取到已有的 entry chunk 中，或者提取到一个新生成的 chunk。</p>
+<h2 id="clean-webpack-plugin"><a href="#clean-webpack-plugin" class="headerlink" title="clean-webpack-plugin"></a>clean-webpack-plugin</h2><p><a href="https://github.com/johnagan/clean-webpack-plugin" target="_blank" rel="noopener">https://github.com/johnagan/clean-webpack-plugin</a></p>
+<p>用于在构建之前删除构建文件夹(<code>/dist</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev clean-webpack-plugin</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123; CleanWebpackPlugin &#125; &#x3D; require(&#39;clean-webpack-plugin&#39;)</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line">  new CleanWebpackPlugin(),</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h2 id="copy-webpack-plugin"><a href="#copy-webpack-plugin" class="headerlink" title="copy-webpack-plugin"></a>copy-webpack-plugin</h2><p><a href="https://github.com/webpack-contrib/copy-webpack-plugin" target="_blank" rel="noopener">https://github.com/webpack-contrib/copy-webpack-plugin</a></p>
+<p>将单个文件或整个目录复制到构建目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Copy custom static assets</span><br><span class="line">new CopyWebpackPlugin([</span><br><span class="line">  &#123;</span><br><span class="line">    from: path.resolve(__dirname, &#39;..&#x2F;static&#39;),</span><br><span class="line">    to: &#39;static&#39;,</span><br><span class="line">  &#125;,</span><br><span class="line">]),</span><br></pre></td></tr></table></figure>
+
+<h2 id="webpack-DefinePlugin"><a href="#webpack-DefinePlugin" class="headerlink" title="webpack.DefinePlugin"></a>webpack.DefinePlugin</h2><p>允许在编译时(compile time)配置的全局常量，通常用来设置环境变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">    <span class="string">'process.env'</span>: &#123;</span><br><span class="line">      NODE_ENV: <span class="built_in">JSON</span>.stringify(process.env.NODE_ENV),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;),</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"cross-env NODE_ENV=production webpack"</span>,</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"cross-env NODE_ENV=development webpack-dev-server"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h2 id="webpack-ProvidePlugin"><a href="#webpack-ProvidePlugin" class="headerlink" title="webpack.ProvidePlugin"></a>webpack.ProvidePlugin</h2><p>处理引用的第三方库，暴露全局变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new webpack.ProvidePlugin(&#123;</span><br><span class="line">  _: &#39;lodash&#39;,</span><br><span class="line">  $: &#39;jquery&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="workbox-webpack-plugin"><a href="#workbox-webpack-plugin" class="headerlink" title="workbox-webpack-plugin"></a>workbox-webpack-plugin</h2><p>PWA 支持</p>
+<p>简言之：在你第一次访问一个网站的时候，如果成功，做一个缓存，当服务器挂了之后，你依然能够访问这个网页 ，这就是 PWA。那相信你也已经知道了，这个只需要在生产环境，才需要做 PWA 的处理，以防不测。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i workbox-webpack-plugin -D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const WorkboxPlugin &#x3D; require(&#39;workbox-webpack-plugin&#39;)</span><br><span class="line"></span><br><span class="line">const prodConfig &#x3D; &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    new WorkboxPlugin.GenerateSW(&#123;</span><br><span class="line">      clientsClaim: true,</span><br><span class="line">      skipWaiting: true</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 在入口文件加上</span><br><span class="line">&#x2F;&#x2F; 判断该浏览器支不支持 serviceWorker</span><br><span class="line">if (&#39;serviceWorker&#39; in navigator) &#123;</span><br><span class="line">  window.addEventListener(&#39;load&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">    navigator.serviceWorker</span><br><span class="line">      .register(&#39;&#x2F;service-worker.js&#39;)</span><br><span class="line">      .then(registration &#x3D;&gt; &#123;</span><br><span class="line">        console.log(&#39;service-worker registed&#39;)</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(error &#x3D;&gt; &#123;</span><br><span class="line">        console.log(&#39;service-worker registed error&#39;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-03-04T09:29:50.000Z" itemprop="dateUpdated">2020-03-04 17:29:50</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2020/03/02/webpack-plugins/" target="_blank" rel="external">https://bxm0927.github.io/2020/03/02/webpack-plugins/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.png" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2020/03/02/webpack-plugins/&title=《webpack 常用 plugin 收集整理》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2020/03/02/webpack-plugins/&title=《webpack 常用 plugin 收集整理》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2020/03/02/webpack-plugins/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《webpack 常用 plugin 收集整理》 — Xiaoming's Blog&url=https://bxm0927.github.io/2020/03/02/webpack-plugins/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2020/03/02/webpack-plugins/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/03/07/webpack-entry/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">webpack 多页应用动态入口配置</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/03/01/webpack-loaders/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">webpack 常用 loader 收集整理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <!-- <div class="bottom">
+        <p><span>白小明 &copy; 2017 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div> -->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2020/03/02/webpack-plugins/&title=《webpack 常用 plugin 收集整理》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2020/03/02/webpack-plugins/&title=《webpack 常用 plugin 收集整理》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2020/03/02/webpack-plugins/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《webpack 常用 plugin 收集整理》 — Xiaoming's Blog&url=https://bxm0927.github.io/2020/03/02/webpack-plugins/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2020/03/02/webpack-plugins/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQXKEMAwEwPz/08kDNvHOyGyqMO1TigB2c9Basr6+4vH9MvLr63fm1y8YGBgYt2V8L0dyz/qpBDabFwMD42mMdeB7vSdf9Jvpl3MVQRkDAwOjDL5r6oyEgYGBcW3AXb8/T24xMDAw2iR2J6GdbR8/kotjYGDckJFX3f//74+cb2BgYNyKsV/uX78n2Rrmb/tzFgwMjKMZeYBLNov5UWVSjGvXg4GBcTZj/Y9k4qRtYrYNrQt2GBgYxzHyzVy+EcyLa8nni8I6BgbG0YxZkrnT1LXD2IrTGBgYt2Ukh4VXNVvMim5JuMfAwDib0T7WprWzYN2mzRgYGGczdsphSYLaHnO2hbZffjcwMDCOY8wS2nbKnW61lo2BgXEqY6fE324x18F3JyXGwMA4lZGEs3xzFrWZlmW4Iv/GwMA4lNEWuWYLag8sZw1qGBgYpzJm4bLdwCVvSwL0nx8IAwPjYYx2Czi7M1luzsbAwDibkQTHfORNFe2VouUCAwPjaMas4NWGxZ1S3ZtVYWBgPIaRPzwrseWlvSRhxsDAeCajPThsS/9t2S5p2sDAwDib8bk0dVjibxPXWRaOgYFxK0Y+2vQyT3fzX4bZZ8LAwDiDMSt1JdQZpg30GBgYz2G0ga89DGiLeu1qMTAwMJIQeVXBbkjFwMDAGB0x5svKN5RvGlgxMDCOZuQtEbOif5u41mwMDIyjGbPUcafBoi3JXXaoiYGBcT/GDxZiapjbC0c0AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
