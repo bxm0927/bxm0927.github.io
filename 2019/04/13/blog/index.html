@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ES6 学习笔记（中） | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTML,CSS,JS,ES6">
+    <meta name="description" content="ECMAScript 简介ECMAScript 是一种由 ECMA 国际的组织（European Computer Manufacturers Association，欧洲计算机制造商协会），通过 ECMA-262 标准化的脚本程序设计语言。而 JavaScript 是 ECMA-262 标准的实现和扩展。浏览器为 JavaScript 增加了 DOM 和 BOM 功能。 ECMAScript 和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6 学习笔记（中）">
+<meta property="og:url" content="https://bxm0927.github.io/2019/04/13/blog/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="ECMAScript 简介ECMAScript 是一种由 ECMA 国际的组织（European Computer Manufacturers Association，欧洲计算机制造商协会），通过 ECMA-262 标准化的脚本程序设计语言。而 JavaScript 是 ECMA-262 标准的实现和扩展。浏览器为 JavaScript 增加了 DOM 和 BOM 功能。 ECMAScript 和">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note.youdao.com/yws/res/129431/FFF77AE770D2451F87A1D8EAA7F5D649">
+<meta property="og:image" content="http://user-gold-cdn.xitu.io/2020/6/30/17305e482e2b7f3b?w=3486&h=810&f=png&s=199122">
+<meta property="og:image" content="http://user-gold-cdn.xitu.io/2020/6/30/17305e4b914e68af?w=3486&h=1260&f=png&s=343038">
+<meta property="og:image" content="https://note.youdao.com/yws/res/114198/5C9920E955714BAFA562BC14D2859429">
+<meta property="og:image" content="https://note.youdao.com/yws/res/114200/E564D24DB7794322A0A126A22544D8BB">
+<meta property="article:published_time" content="2019-04-13T15:46:21.000Z">
+<meta property="article:modified_time" content="2019-06-22T02:28:51.000Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="ES6">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/res/129431/FFF77AE770D2451F87A1D8EAA7F5D649">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/test"  >
+                <i class="icon icon-lg icon-link"></i>
+                404 测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ES6 学习笔记（中）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ES6 学习笔记（中）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-13T15:46:21.000Z" itemprop="datePublished" class="page-time">
+  2019-04-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JS/">JS</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ECMAScript-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">ECMAScript 简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ECMAScript-版本"><span class="post-toc-number">2.</span> <span class="post-toc-text">ECMAScript 版本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ES6-与-ECMAScript-2015-的关系"><span class="post-toc-number">3.</span> <span class="post-toc-text">ES6 与 ECMAScript 2015 的关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TC39"><span class="post-toc-number">4.</span> <span class="post-toc-text">TC39</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ECMAScript-6-简介"><span class="post-toc-number">5.</span> <span class="post-toc-text">ECMAScript 6 简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用的-ES6-新特性"><span class="post-toc-number">6.</span> <span class="post-toc-text">常用的 ES6 新特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ES6-部署"><span class="post-toc-number">7.</span> <span class="post-toc-text">ES6 部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Babel"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">Babel</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#let-和-const-命令"><span class="post-toc-number">8.</span> <span class="post-toc-text">let 和 const 命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#块级作用域"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">块级作用域</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#let"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">let</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#const"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">const</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#暂时性死区"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">暂时性死区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ES6-声明变量的六种方法"><span class="post-toc-number">8.5.</span> <span class="post-toc-text">ES6 声明变量的六种方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量的解构赋值"><span class="post-toc-number">9.</span> <span class="post-toc-text">变量的解构赋值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组的解构赋值"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">数组的解构赋值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象的解构赋值"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">对象的解构赋值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解构赋值允许指定默认值"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">解构赋值允许指定默认值</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解构赋值用途"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">解构赋值用途</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最佳实践"><span class="post-toc-number">9.5.</span> <span class="post-toc-text">最佳实践</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-blog"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ES6 学习笔记（中）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-13 23:46:21" datetime="2019-04-13T15:46:21.000Z"  itemprop="datePublished">2019-04-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JS/">JS</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="ECMAScript-简介"><a href="#ECMAScript-简介" class="headerlink" title="ECMAScript 简介"></a>ECMAScript 简介</h2><p>ECMAScript 是一种由 ECMA 国际的组织（European Computer Manufacturers Association，欧洲计算机制造商协会），通过 ECMA-262 标准化的脚本程序设计语言。而 JavaScript 是 ECMA-262 标准的实现和扩展。浏览器为 JavaScript 增加了 DOM 和 BOM 功能。</p>
+<p>ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现（另外的 ECMAScript 方言还有 Jscript 和 ActionScript）。</p>
+<p>ECMA-262 规定了 ECMAScript 语言的几个重要组成部分：</p>
+<ol>
+<li>基本语法</li>
+<li>数据类型</li>
+<li>语句</li>
+<li>关键字</li>
+<li>操作符</li>
+<li>内置对象</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://note.youdao.com/yws/res/129431/FFF77AE770D2451F87A1D8EAA7F5D649" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+<h2 id="ECMAScript-版本"><a href="#ECMAScript-版本" class="headerlink" title="ECMAScript 版本"></a>ECMAScript 版本</h2><p>ECMAScript 3 是一个巨大的成功，在业界得到广泛支持，成为通行标准，奠定了 JavaScript 语言的基本语法，以后的版本完全继承。直到今天，初学者一开始学习 JavaScript，其实就是在学 3.0 版的语法。</p>
+<p>ECMAScript 6 从开始制定到最后发布，整整用了 15 年。</p>
+<table>
+<thead>
+<tr>
+<th>版本号</th>
+<th>发布时间</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ECMAScript 1</td>
+<td>1997 年 06 月</td>
+<td>首版</td>
+</tr>
+<tr>
+<td>ECMAScript 2</td>
+<td>1998 年 6 月</td>
+<td>格式修正，以使得其形式与 ISO/IEC16262 国际标准一致</td>
+</tr>
+<tr>
+<td>ECMAScript 3</td>
+<td>1999 年 12 月</td>
+<td>正则表达式，新的控制指令，异常处理，错误定义更加明确及其它改变</td>
+</tr>
+<tr>
+<td>ECMAScript 4</td>
+<td>2007 年 10 月</td>
+<td>由于过于激进，各方对于是否通过这个标准，发生了严重分歧，最终没有发布通过。</td>
+</tr>
+<tr>
+<td>ECMAScript 5</td>
+<td>2009 年 12 月</td>
+<td>和第 3 版标准不大，引进了一些夭折的 ECMAScript 4 的一些功能</td>
+</tr>
+<tr>
+<td>ECMAscript 5.1</td>
+<td>2011 年 6 月</td>
+<td>成为 ISO 国际标准（ISO/IEC 16262:2011）。</td>
+</tr>
+<tr>
+<td>ECMAScript 2015（ES2015、ES6）</td>
+<td>2015 年 6 月 17 日</td>
+<td>ECMAScript 的第六版修订，于 2015 年完成标准化。</td>
+</tr>
+<tr>
+<td>ECMAScript 2016（ES2016）</td>
+<td>2016 年 6 月</td>
+<td>在 ES2015 基础上进行小幅修订</td>
+</tr>
+<tr>
+<td>ECMAScript 2017（ES2017）</td>
+<td>2017 年 6 月</td>
+<td></td>
+</tr>
+<tr>
+<td>ECMAScript 2018（ES2018）</td>
+<td>2018 年 6 月</td>
+<td></td>
+</tr>
+<tr>
+<td>ECMAScript 2019（ES2019）</td>
+<td>2019 年 6 月</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://user-gold-cdn.xitu.io/2020/6/30/17305e482e2b7f3b?w=3486&h=810&f=png&s=199122" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://user-gold-cdn.xitu.io/2020/6/30/17305e4b914e68af?w=3486&h=1260&f=png&s=343038" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="ES6-与-ECMAScript-2015-的关系"><a href="#ES6-与-ECMAScript-2015-的关系" class="headerlink" title="ES6 与 ECMAScript 2015 的关系"></a>ES6 与 ECMAScript 2015 的关系</h2><p>ES6 泛指 ES 5.1 版以后的 JavaScript 的下一代标准，涵盖了 ES2015、ES2016、ES2017 等等。而 ES2015 则是正式名称，特指该年发布的正式版本的语言标准。</p>
+<p><a href="https://github.com/ruanyf/es6tutorial/blob/8240374c621ba0180b381c74c78198bf7107c433/docs/intro.md#es6-%E4%B8%8E-ecmascript-2015-%E7%9A%84%E5%85%B3%E7%B3%BB" target="_blank" rel="noopener">https://github.com/ruanyf/es6tutorial/blob/8240374c621ba0180b381c74c78198bf7107c433/docs/intro.md#es6-%E4%B8%8E-ecmascript-2015-%E7%9A%84%E5%85%B3%E7%B3%BB</a></p>
+<h2 id="TC39"><a href="#TC39" class="headerlink" title="TC39"></a>TC39</h2><p>ECMA 的第 39 号技术专家委员会（Technical Committee 39，简称 TC39）负责制订 ECMAScript 标准，成员包括 Microsoft、Mozilla、Google 等大公司。</p>
+<p>TC39 是一个讨论 JavaScript 标准规范的技术委员会，已决定从 2019 年开始改变其运营结构。TC39 每年召开六次会议，规模已经发展到每次有 40 到 60 人参会的程度。</p>
+<p>这个委员会以前是主席和副主席的运营结构，现在改为由三位联合主席（Aki Braun（PayPal）、Brian Terlson（微软）和 Yulia Startsev（Mozilla））共同负责的架构。他们还在 2019 年 3 月开设了官方网站：</p>
+<ul>
+<li><a href="https://tc39.es/" target="_blank" rel="noopener">https://tc39.es/</a></li>
+<li><a href="https://tc39.github.io" target="_blank" rel="noopener">https://tc39.github.io</a></li>
+<li><a href="https://github.com/tc39" target="_blank" rel="noopener">https://github.com/tc39</a></li>
+</ul>
+<p>每一项新特性最终要进入到 ECMAScript 规范里，需要经历 5 个阶段，这 5 个阶段如下：</p>
+<ul>
+<li>Stage 0: Strawperson：只要是 TC39 成员或者贡献者，都可以提交想法</li>
+<li>Stage 1: Proposal：这个阶段确定一个正式的提案</li>
+<li>Stage 2: draft：规范的第一个版本，进入此阶段的提案大概率会成为标准</li>
+<li>Stage 3: Candidate：进一步完善提案细则</li>
+<li>Stage 4: Finished：表示已准备好将其添加到正式的 ECMAScript 标准</li>
+</ul>
+<h2 id="ECMAScript-6-简介"><a href="#ECMAScript-6-简介" class="headerlink" title="ECMAScript 6 简介"></a>ECMAScript 6 简介</h2><blockquote>
+<p>ES6 相关知识点主要以阮一峰文档为主，此篇笔记只是做一些常用功能提炼、补充说明和自己的理解。另外，有些属性早就被浏览器广泛支持，但是直到 ES6，才将其写入了标准。</p>
+</blockquote>
+<p><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">http://es6.ruanyifeng.com/</a></p>
+<p>ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，泛指 5.1 版以后的 JavaScript，涵盖了 ES2015、ES2016、ES2017 等等。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
+<ul>
+<li>2015 年 6 月正式发布 ECMAScript 2015（简称 ES2015）</li>
+<li>2016 年 6 月，在 ES2015 基础上进行小幅修订的《ECMAScript 2016 标准》（简称 ES2016）如期发布，这个版本可以看作是 ES6.1 版，因为两者的差异非常小（只新增了数组实例的 <code>includes</code> 方法和指数运算符），基本上是同一个标准。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://note.youdao.com/yws/res/114198/5C9920E955714BAFA562BC14D2859429" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+<h2 id="常用的-ES6-新特性"><a href="#常用的-ES6-新特性" class="headerlink" title="常用的 ES6 新特性"></a>常用的 ES6 新特性</h2><ul>
+<li>let、const</li>
+<li>解构赋值</li>
+<li>扩展运算符（展开）</li>
+<li>rest 参数（收缩）</li>
+<li>模版字符串</li>
+<li>函数参数的默认值</li>
+<li>箭头函数</li>
+<li>对象属性的简洁表示法</li>
+<li>Promise</li>
+<li>Class</li>
+<li>ES Module</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://note.youdao.com/yws/res/114200/E564D24DB7794322A0A126A22544D8BB" alt="image" title="">
+                </div>
+                <div class="image-caption">image</div>
+            </figure>
+
+<h2 id="ES6-部署"><a href="#ES6-部署" class="headerlink" title="ES6 部署"></a>ES6 部署</h2><h3 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h3><p>为了环境的兼容性，你可以使用 babel 来将 ES6 代码转为 ES5 代码。</p>
+<blockquote>
+<p>npm WARN deprecated <a href="mailto:babel-preset-es2015@6.24.1">babel-preset-es2015@6.24.1</a>: � Thanks for using Babel: we recommend using babel-preset-env now: please read babeljs.io/env to update!（已弃用 babel-preset-es2015，现在建议使用 babel-preset-env）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; npm install babel-preset-es2015 --save-dev</span><br><span class="line">npm install babel-preset-env --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>.babelrc：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    [&quot;env&quot;, &#123;</span><br><span class="line">        &quot;targets&quot;: &#123;</span><br><span class="line">            &quot;browsers&quot;: [&quot;Android &gt;&#x3D; 4.0&quot;, &quot;ios &gt;&#x3D; 6&quot;]</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;include&quot;: [],</span><br><span class="line">        &quot;useBuiltIns&quot;: true</span><br><span class="line">    &#125;]</span><br><span class="line">  ],</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    [&quot;lodash&quot;],</span><br><span class="line">    [&quot;transform-object-rest-spread&quot;],</span><br><span class="line">    [&quot;component&quot;, &#123; &quot;libraryName&quot;: &quot;mint-ui&quot;, &quot;style&quot;: true &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a>let 和 const 命令</h2><p>ES6 提出了两个新的声明变量的命令：<code>let</code>和<code>const</code>，主要是为了规避使用<code>var</code>定义变量时的副作用（变量提升问题、作用域问题等），减少运行时错误，防止在变量声明前就使用这个变量，从而导致意料之外的行为。这样的设计是为了让大家养成良好的编程习惯 —— 变量一定要在声明之后使用，否则就报错。</p>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>JavaScript 一直是函数作用域，这就是为什么将整个 JavaScript 文件包装在一个空的立即调用函数表达式（IIFE）中变得很普遍的原因。这样做是为了隔离文件中的所有变量，因此没有可变冲突。</p>
+<p>现在，我们有块作用域和两个绑定到块的新变量声明。</p>
+<p>ES6 带来了块级作用域，通过<code>let</code>和<code>const</code>定义的变量属于块级作用域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    var a &#x3D; 1;</span><br><span class="line">    let b &#x3D; 2;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a); &#x2F;&#x2F; 1</span><br><span class="line">console.log(b); &#x2F;&#x2F; Uncaught ReferenceError: b is not defined</span><br></pre></td></tr></table></figure>
+
+<p>注意：<code>let</code>和<code>const</code>不允许重复声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let v &#x3D; 1;</span><br><span class="line">let v &#x3D; 2; &#x2F;&#x2F; Uncaught SyntaxError: Identifier &#39;v&#39; has already been declared</span><br></pre></td></tr></table></figure>
+
+<p>注意：由<code>let</code>和<code>const</code>命令声明的变量不是顶层对象（window、global）的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 1;</span><br><span class="line">window.a &#x3D;&#x3D;&#x3D; undefined; &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>let 完全可以取代 var，因为两者语义相同，而且 let 没有副作用（不存在变量提升问题，并且属于块级作用域）。==建议不再使用 var 命令，而是使用 let 命令取代。==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line">  let x &#x3D; &#39;hello&#39;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let i &#x3D; 0; i &lt; 10; i++) &#123;</span><br><span class="line">  console.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码如果用 var 替代 let，实际上就声明了两个全局变量，这显然不是本意。变量应该只在其声明的代码块内有效，var 命令做不到这一点。</p>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>const 用来声明只读的常量。一旦声明，常量的值就不能改变，否则报错。</p>
+<p>注意: const 定义的数组和对象可以被修改（不变的是指向的内存地址）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const k &#x3D; &#123; a: 1 &#125;;</span><br><span class="line">k.a &#x3D; 2;</span><br><span class="line">k.b &#x3D; 3;</span><br><span class="line">console.log(k); &#x2F;&#x2F; Object &#123;a: 2, b: 3&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最佳实践：</p>
+<ul>
+<li>在 let 和 const 之间，建议优先使用 const，尤其是在全局环境，不应该设置变量，只应设置常量。</li>
+<li>所有的函数都应该设置为常量。</li>
+</ul>
+<h3 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 1;</span><br><span class="line">&#123;</span><br><span class="line">    console.log(a); &#x2F;&#x2F; Uncaught ReferenceError: a is not defined</span><br><span class="line">    let a &#x3D; 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES6-声明变量的六种方法"><a href="#ES6-声明变量的六种方法" class="headerlink" title="ES6 声明变量的六种方法"></a>ES6 声明变量的六种方法</h3><p>ES5 只有两种声明变量的方法：var 命令和 function 命令。</p>
+<p>ES6 添加了 let 和 const 命令、import 命令和 class 命令。所以，ES6 一共有 6 种声明变量的方法。</p>
+<ol>
+<li>var</li>
+<li>function</li>
+<li>let</li>
+<li>const</li>
+<li>import</li>
+<li>class</li>
+</ol>
+<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h2><p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。</p>
+<p>变量的解构赋值简化了数组和对象中信息的提取。ES6 前，我们一个一个获取对象信息；ES6 后，解构能让我们从对象或者数组里取出数据存为变量</p>
+<h3 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var data &#x3D; &#123; name: &#39;dys&#39;, age: 1 &#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ES5</span><br><span class="line">var name &#x3D; data.name;</span><br><span class="line">var age &#x3D; data.age;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ES6</span><br><span class="line">const &#123; name, age &#125; &#x3D; data;</span><br></pre></td></tr></table></figure>
+
+<p>其实，只要某种数据结构具有 Iterator 接口，都可以采用数组形式的解构赋值。</p>
+<h3 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h3><p>对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</p>
+<p>对象的解构赋值是下面形式的简写（参见《对象的扩展》一章）。也就是说，对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let &#123; foo, bar &#125; &#x3D; &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">let &#123; foo: foo, bar: bar &#125; &#x3D; &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; ES5</span><br><span class="line">var people1 &#x3D; &#123;</span><br><span class="line">  name: &#39;bai&#39;,</span><br><span class="line">  age: 20,</span><br><span class="line">  color: [&#39;red&#39;, &#39;blue&#39;]</span><br><span class="line">&#125;;</span><br><span class="line">var myName &#x3D; people1.name;</span><br><span class="line">var myAge &#x3D; people1.age;</span><br><span class="line">var myColor &#x3D; people1.color[0];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; ES6</span><br><span class="line">let people2 &#x3D; &#123;</span><br><span class="line">  name: &#39;ming&#39;,</span><br><span class="line">  age: 20,</span><br><span class="line">  color: [&#39;red&#39;, &#39;blue&#39;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let &#123; name, age &#125; &#x3D; people2;</span><br><span class="line">let [first, second] &#x3D; people2.color;</span><br></pre></td></tr></table></figure>
+
+<h3 id="解构赋值允许指定默认值"><a href="#解构赋值允许指定默认值" class="headerlink" title="解构赋值允许指定默认值"></a>解构赋值允许指定默认值</h3><p>==解构赋值允许指定默认值==。注意，ES6 内部使用严格相等运算符（===），判断一个位置是否有值。所以，只有当一个数组成员严格等于 undefined，默认值才会生效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let [x &#x3D; 1] &#x3D; [undefined]; x &#x2F;&#x2F; 1</span><br><span class="line">let [x &#x3D; 1] &#x3D; [null]; x &#x2F;&#x2F; null</span><br></pre></td></tr></table></figure>
+
+<p>==如果解构不成功，变量的值就等于 undefined==。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let [x, y &#x3D; &#39;b&#39;] &#x3D; [&#39;a&#39;, undefined]; &#x2F;&#x2F; x&#x3D;&#39;a&#39;, y&#x3D;&#39;b&#39;</span><br><span class="line">let [head, ...tail] &#x3D; [1, 2, 3, 4]; &#x2F;&#x2F; head&#x3D;1, tail&#x3D;[2, 3, 4]</span><br><span class="line"></span><br><span class="line">let &#123; foo, bar &#125; &#x3D; &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;; &#x2F;&#x2F; foo&#x3D;&quot;aaa&quot;, bar&#x3D;&quot;bbb&quot;</span><br><span class="line">let &#123; log, sin, cos &#125; &#x3D; Math;</span><br><span class="line"></span><br><span class="line">let [a, b, c, d, e] &#x3D; &#39;hello&#39;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="解构赋值用途"><a href="#解构赋值用途" class="headerlink" title="解构赋值用途"></a>解构赋值用途</h3><ul>
+<li>交换变量的值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 1;</span><br><span class="line">let b &#x3D; 2;</span><br><span class="line">[b, a] &#x3D; [a, b];</span><br><span class="line">console.log(a, b); &#x2F;&#x2F; 2 1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从函数返回多个值，以前需要通过数组索引取值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    return [1, 2, 3, 4, 5, 6];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let a, b, rest;</span><br><span class="line">[a, , , b, ...rest] &#x3D; foo();</span><br><span class="line">console.log(a, b, rest); &#x2F;&#x2F; 1 4 [5, 6]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>提取 JSON 数据</li>
+<li>函数参数的定义</li>
+<li>函数参数的默认值</li>
+<li>输入模块的指定方法</li>
+</ul>
+<h3 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h3><p>使用数组成员对变量赋值时，优先使用解构赋值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [1, 2, 3, 4];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; bad</span><br><span class="line">const first &#x3D; arr[0];</span><br><span class="line">const second &#x3D; arr[1];</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; good</span><br><span class="line">const [first, second] &#x3D; arr;</span><br></pre></td></tr></table></figure>
+
+<p>函数的参数如果是对象的成员，优先使用解构赋值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; bad</span><br><span class="line">function getFullName(user) &#123;</span><br><span class="line">  const firstName &#x3D; user.firstName;</span><br><span class="line">  const lastName &#x3D; user.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; good</span><br><span class="line">function getFullName(obj) &#123;</span><br><span class="line">  const &#123; firstName, lastName &#125; &#x3D; obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; best</span><br><span class="line">function getFullName(&#123; firstName, lastName &#125;) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果函数返回多个值，优先使用对象的解构赋值，而不是数组的解构赋值。这样便于以后添加返回值，以及更改返回值的顺序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; bad</span><br><span class="line">function processInput(input) &#123;</span><br><span class="line">  return [left, right, top, bottom];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; good</span><br><span class="line">function processInput(input) &#123;</span><br><span class="line">  return &#123; left, right, top, bottom &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const &#123; left, right &#125; &#x3D; processInput(input);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-22T02:28:51.000Z" itemprop="dateUpdated">2019-06-22 10:28:51</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2019/04/13/blog/" target="_blank" rel="external">https://bxm0927.github.io/2019/04/13/blog/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.gif" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2019/04/13/blog/&title=《ES6 学习笔记（中）》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2019/04/13/blog/&title=《ES6 学习笔记（中）》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2019/04/13/blog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6 学习笔记（中）》 — Xiaoming's Blog&url=https://bxm0927.github.io/2019/04/13/blog/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2019/04/13/blog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/15/blog/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ES6 学习笔记（上）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/25/layout/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">聊聊布局</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2019/04/13/blog/&title=《ES6 学习笔记（中）》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2019/04/13/blog/&title=《ES6 学习笔记（中）》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2019/04/13/blog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6 学习笔记（中）》 — Xiaoming's Blog&url=https://bxm0927.github.io/2019/04/13/blog/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2019/04/13/blog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aQRLDIAxD0dz/0ukBUogksJN2PqvONCWPLjTYcBzyOC/j+q3y5PWZo2LAhQt3mXtOx67/Q5//ZsFw4cJt5I5eMH9mtBgl+JT54cKF+1tcN9SUIIMLF+4/cY0NihmUcOHCfZabBY3ygtE85bUaXLhw92TL4YbOrs8l/V24cOFG3NMc+mzrTdIvv4ILF24LVw8UvfXpLsZ+L1y4cFu4brPD3Ydk2ybpjXDhwi3jZm0RN5hWrnZ9yV24cOG2cPVAcRudWXE1/CPgwoVbzM1iS7mKMd/i6C3Umy4OXLhwi7luSCmNks3FD1y4cF/QFsmOYPWSxi2Z4MKF28Odv8Ztl+izua0TuHDhdnL7L1dlZRVcuHCf5YZTmPHnbox2rxguXLgeV9+yrMRWdlQDFy7cfu76aa1+RUM/iB0WP3Dhwm3hujGUXc9aab/ChQu3h3uaI9u46OElrQMuXLjFXDdcstgK2x/KmTBcuHDLuNlh6kpRpBdCdvrChQt3K9cNGre1sR58cOHCfTNXCTiFHl7mgAsX7ou5elRlcTZ8Hi5cuI1ct7mZlTd6QRWeCcOFC3cTNzv4nE/hfuu2YODChVvG/QC7m+wLKenUawAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

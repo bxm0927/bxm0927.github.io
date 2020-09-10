@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>ES6 学习笔记（下） | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTML,CSS,JS,ES6">
+    <meta name="description" content="[toc] Symbol&#x3D;&#x3D;ES6 引入了一种新的原始数据类型 Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型。&#x3D;&#x3D; 12let s &#x3D; Symbol();typeof s &#x2F;&#x2F; &quot;symbol&quot;  调用 Symbol() 方法将创建一个新的 Symbol 类型的值，并且该值不与其它任何值相等，每个 Symbol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6 学习笔记（下）">
+<meta property="og:url" content="https://bxm0927.github.io/2019/04/16/blog/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="[toc] Symbol&#x3D;&#x3D;ES6 引入了一种新的原始数据类型 Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型。&#x3D;&#x3D; 12let s &#x3D; Symbol();typeof s &#x2F;&#x2F; &quot;symbol&quot;  调用 Symbol() 方法将创建一个新的 Symbol 类型的值，并且该值不与其它任何值相等，每个 Symbol">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-04-16T13:03:22.000Z">
+<meta property="article:modified_time" content="2019-06-03T09:29:50.000Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
+<meta property="article:tag" content="ES6">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/test"  >
+                <i class="icon icon-lg icon-link"></i>
+                404 测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ES6 学习笔记（下）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ES6 学习笔记（下）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-16T13:03:22.000Z" itemprop="datePublished" class="page-time">
+  2019-04-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JS/">JS</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Symbol"><span class="post-toc-number">1.</span> <span class="post-toc-text">Symbol</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Set-和-Map-数据结构"><span class="post-toc-number">2.</span> <span class="post-toc-text">Set 和 Map 数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Set"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Map"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Map</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Proxy-代理器"><span class="post-toc-number">3.</span> <span class="post-toc-text">Proxy 代理器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reflect-反射器"><span class="post-toc-number">4.</span> <span class="post-toc-text">Reflect 反射器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Decorator-装饰器"><span class="post-toc-number">5.</span> <span class="post-toc-text">Decorator 装饰器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实例：使用-Decorator-函数限制某个属性是只读的"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">实例：使用 Decorator 函数限制某个属性是只读的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实例：使用-Decorator-函数实现前端埋点"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">实例：使用 Decorator 函数实现前端埋点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#core-decorators"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">core-decorators</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Iterator-迭代器"><span class="post-toc-number">6.</span> <span class="post-toc-text">Iterator 迭代器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Promise-对象"><span class="post-toc-number">7.</span> <span class="post-toc-text">Promise 对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Generator-状态机"><span class="post-toc-number">8.</span> <span class="post-toc-text">Generator 状态机</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#async-await"><span class="post-toc-number">9.</span> <span class="post-toc-text">async&#x2F;await</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Class-类"><span class="post-toc-number">10.</span> <span class="post-toc-text">Class 类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Module-模块化"><span class="post-toc-number">11.</span> <span class="post-toc-text">Module 模块化</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-blog"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ES6 学习笔记（下）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-16 21:03:22" datetime="2019-04-16T13:03:22.000Z"  itemprop="datePublished">2019-04-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JS/">JS</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>[toc]</p>
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><p>==ES6 引入了一种新的原始数据类型 Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型。==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let s &#x3D; Symbol();</span><br><span class="line">typeof s &#x2F;&#x2F; &quot;symbol&quot;</span><br></pre></td></tr></table></figure>
+
+<p>调用 Symbol() 方法将创建一个新的 Symbol 类型的值，并且该值不与其它任何值相等，每个 Symbol 都是独一无二的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 没有参数的情况</span><br><span class="line">let s1 &#x3D; Symbol();</span><br><span class="line">let s2 &#x3D; Symbol();</span><br><span class="line">s1 &#x3D;&#x3D;&#x3D; s2 &#x2F;&#x2F; false</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 有参数的情况</span><br><span class="line">let s1 &#x3D; Symbol(&#39;foo&#39;);</span><br><span class="line">let s2 &#x3D; Symbol(&#39;foo&#39;);</span><br><span class="line">s1 &#x3D;&#x3D;&#x3D; s2 &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<p>用途：</p>
+<ul>
+<li>扩展对象属性名：ES5 的对象属性名都是字符串，这容易造成属性名的冲突。</li>
+</ul>
+<h2 id="Set-和-Map-数据结构"><a href="#Set-和-Map-数据结构" class="headerlink" title="Set 和 Map 数据结构"></a>Set 和 Map 数据结构</h2><p>ES6 提供了新的数据结构 Set、Map 来弥补 ES5 在数据结构上的不足，类似 Java 的 Map 和 Set。</p>
+<p>JS 原有的表示“集合”的数据结构，主要是数组（Array）和对象（Object），ES6 又添加了 Map 和 Set，这样就有了四种数据集合。</p>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set 类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<p>==使用建议：若每一个集合中的元素都是唯一的，这时就用 Set 不用 Array。==</p>
+<p>Set 结构的实例有以下属性。</p>
+<ol>
+<li>Set.prototype.constructor：构造函数，默认就是 Set 函数。</li>
+<li>Set.prototype.size：返回 Set 实例的成员总数。</li>
+</ol>
+<p>Set 实例的操作方法:</p>
+<ol>
+<li>add(value)：添加某个值，返回 Set 结构本身。</li>
+<li>delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。</li>
+<li>has(value)：返回一个布尔值，表示该值是否为 Set 的成员。</li>
+<li>clear()：清除所有成员，没有返回值。</li>
+</ol>
+<p>Set 实例的遍历方法:</p>
+<ol>
+<li>keys()：返回键名的遍历器</li>
+<li>values()：返回键值的遍历器</li>
+<li>entries()：返回键值对的遍历器</li>
+<li>forEach()：使用回调函数遍历每个成员</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const s &#x3D; new Set();</span><br><span class="line">[2, 3, 5, 4, 5, 2, 2].forEach(x &#x3D;&gt; s.add(x));</span><br><span class="line">s &#x2F;&#x2F; Set(4) &#123;2, 3, 5, 4&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">let list &#x3D; new Set();</span><br><span class="line">[2, 3, 5, 4, 5, 2, 2].forEach(x &#x3D;&gt; list.add(x));</span><br><span class="line">for (let i of list) &#123;</span><br><span class="line">    console.log(i); &#x2F;&#x2F; 2 3 5 4</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 添加</span><br><span class="line">list.add(x)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取 Set 的长度</span><br><span class="line">list.size</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 判断是否存在某值</span><br><span class="line">list.has(3)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 删除</span><br><span class="line">list.delete(1)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 清空</span><br><span class="line">list.clear()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 遍历</span><br><span class="line">for (let i of list) &#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let [key, value] of list.entries()) &#123;</span><br><span class="line">    console.log(&#96;$&#123;key&#125;,$&#123;value&#125;&#96;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">list.forEach((item) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Set 用途：</p>
+<ul>
+<li>数组去重</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>Map 类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。</p>
+<p>也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。如果你需要“键值对”的数据结构，Map 比 Object 更合适。</p>
+<p>==使用建议：一般的，只有在模拟现实世界的实体对象时，才使用 Object。如果只是需要<code>key: value</code>形式的数据结构，使用 Map 结构。因为 Map 有内建的遍历机制。==</p>
+<p>Map 操作方法：</p>
+<ul>
+<li>size</li>
+<li>set(key, value)</li>
+<li>get(key)</li>
+<li>has(key)</li>
+<li>delete(key)</li>
+<li>clear()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 声明、添加</span><br><span class="line">let list &#x3D; new Map();</span><br><span class="line">list.set(&#39;key&#39;,&#39;value&#39;);</span><br><span class="line">console.log(list); &#x2F;&#x2F; &#123;&quot;key&quot; &#x3D;&gt; &quot;value&quot;&#125;</span><br><span class="line"></span><br><span class="line">let arr &#x3D; [[&#39;k1&#39;, &#39;v1&#39;], [&#39;k2&#39;, &#39;v2&#39;], [&#39;k3&#39;, &#39;v3&#39;]];</span><br><span class="line">let list &#x3D; new Map(arr);</span><br><span class="line">console.log(list); &#x2F;&#x2F; &#123;&quot;k1&quot; &#x3D;&gt; &quot;v1&quot;, &quot;k2&quot; &#x3D;&gt; &quot;v2&quot;, &quot;k3&quot; &#x3D;&gt; &quot;v3&quot;&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取 Map 的长度</span><br><span class="line">list.size</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获取</span><br><span class="line">list.get(&#39;key&#39;); &#x2F;&#x2F; value</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 判断是否存在某值</span><br><span class="line">list.has(&#39;key&#39;); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 删除</span><br><span class="line">list.delete(&#39;key&#39;); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 清空</span><br><span class="line">list.clear();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 遍历</span><br><span class="line">for (let i of list) &#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (let [key, value] of list.entries()) &#123;</span><br><span class="line">    console.log(&#96;$&#123;key&#125;,$&#123;value&#125;&#96;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">list.forEach((item) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Proxy-代理器"><a href="#Proxy-代理器" class="headerlink" title="Proxy 代理器"></a>Proxy 代理器</h2><blockquote>
+<p>代理（Proxy）和反射（Reflect）是 Java 框架的底层原理。</p>
+<ul>
+<li>代理(Proxy)是一种设计模式，提供了对目标对象另外的访问方式，即通过代理对象访问目标对象。<br>这样做的好处是：可以在目标对象实现的基础上，增强额外的功能操作，即扩展目标对象的功能。<br>核心思想：不要随意去修改别人已经写好的代码或者方法，如果需改修改，可以通过代理的方式来扩展该方法</li>
+<li>JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；<br>对于任意一个对象，都能够调用它的任意方法和属性；<br>这种动态获取信息以及动态调用对象方法的功能称为 java 语言的反射机制</li>
+</ul>
+</blockquote>
+<p>Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，即用自己的定义覆盖了语言的原始定义。所以 Proxy 属于一种“元编程”（meta programming），即对编程语言进行编程。</p>
+<p>Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; new Proxy() 表示生成一个Proxy实例</span><br><span class="line">&#x2F;&#x2F; target 参数表示所要拦截的目标对象</span><br><span class="line">&#x2F;&#x2F; handler 参数也是一个对象，用来定制拦截行为。</span><br><span class="line">var proxy &#x3D; new Proxy(target, handler);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var proxy &#x3D; new Proxy(&#123;&#125;, &#123;</span><br><span class="line">  get: function(target, property) &#123;</span><br><span class="line">    return 35;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">proxy.time &#x2F;&#x2F; 35</span><br><span class="line">proxy.name &#x2F;&#x2F; 35</span><br><span class="line">proxy.title &#x2F;&#x2F; 35</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 原始对象</span><br><span class="line">let obj &#x3D; &#123;</span><br><span class="line">    name: &#39;白小明&#39;,</span><br><span class="line">    age: 22</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 新建一个 Proxy 实例</span><br><span class="line">let objProxy &#x3D; new Proxy(obj, &#123;</span><br><span class="line">    &#x2F;&#x2F; 拦截对象属性的读取</span><br><span class="line">    get(target, key) &#123;</span><br><span class="line">        return target[key].replace(&#39;白小明&#39;, &#39;小明&#39;);</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;&#x2F; 拦截对象设置属性</span><br><span class="line">    set(target, key, value) &#123;</span><br><span class="line">        if (key &#x3D;&#x3D;&#x3D; &#39;name&#39;) &#123;</span><br><span class="line">            return (target[key] &#x3D; value);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return target[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(objProxy.name); &#x2F;&#x2F; 小明</span><br><span class="line"></span><br><span class="line">objProxy.name &#x3D; &#39;小白&#39;;</span><br><span class="line">objProxy.age &#x3D; 18;</span><br><span class="line">console.log(objProxy); &#x2F;&#x2F; Proxy &#123;name: &quot;小白&quot;, age: 22&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Reflect-反射器"><a href="#Reflect-反射器" class="headerlink" title="Reflect 反射器"></a>Reflect 反射器</h2><p>Reflect 对象与 Proxy 对象一样，也是 ES6 为了操作对象而提供的新 API。</p>
+<p>Reflect 对象的方法与 Proxy 对象的方法一一对应，只是 Reflect 不用 new</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Reflect.get(target, key) &#123;&#125;</span><br><span class="line">Reflect.set(target, key, value) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Reflect 对象的设计目的有这样几个。</p>
+<ol>
+<li>将 Object 对象的一些明显属于语言内部的方法（比如 Object.defineProperty），放到 Reflect 对象上。现阶段，某些方法同时在 Object 和 Reflect 对象上部署，未来的新方法将只部署在 Reflect 对象上。也就是说，从 Reflect 对象上可以拿到语言内部的方法。</li>
+<li>修改某些 Object 方法的返回结果，让其变得更合理。比如，Object.defineProperty(obj, name, desc)在无法定义属性时，会抛出一个错误，而 Reflect.defineProperty(obj, name, desc)则会返回 false。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 老写法</span><br><span class="line">&#39;assign&#39; in Object &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 新写法</span><br><span class="line">Reflect.has(Object, &#39;assign&#39;) &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<h2 id="Decorator-装饰器"><a href="#Decorator-装饰器" class="headerlink" title="Decorator 装饰器"></a>Decorator 装饰器</h2><p>Decorator 是一个函数，用来修改类的行为。许多面向对象的语言都有修饰器的特性，如 Java 的注解机制。</p>
+<p>目前，该功能还是一个提案。可以使用一个 babel 插件来让 babel 支持 Decorator 函数，并设置 .babelrc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i babel-plugin-transform-decorators-legacy --save-dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [</span><br><span class="line">        &quot;es2015&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;plugins&quot;: [</span><br><span class="line">        &quot;babel-plugin-transform-decorators-legacy&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例：使用-Decorator-函数限制某个属性是只读的"><a href="#实例：使用-Decorator-函数限制某个属性是只读的" class="headerlink" title="实例：使用 Decorator 函数限制某个属性是只读的"></a>实例：使用 Decorator 函数限制某个属性是只读的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 实例：使用 Decorator 函数限制某个属性是只读的</span><br><span class="line"> * @param &#123;*&#125; target 修改的类</span><br><span class="line"> * @param &#123;*&#125; name 修改的类的属性</span><br><span class="line"> * @param &#123;*&#125; descriptor 该属性的描述对象</span><br><span class="line"> *&#x2F;</span><br><span class="line">let readOnly &#x3D; (target, name, descriptor) &#x3D;&gt; &#123;</span><br><span class="line">    descriptor.writable &#x3D; false;</span><br><span class="line">    return descriptor;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Test &#123;</span><br><span class="line">    @readOnly</span><br><span class="line">    say() &#123;</span><br><span class="line">        console.log(&quot;hello&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let t &#x3D; new Test();</span><br><span class="line"></span><br><span class="line">t.say();</span><br><span class="line">&#x2F;&#x2F; hello</span><br><span class="line"></span><br><span class="line">t.say &#x3D; () &#x3D;&gt; &#123; console.log(&quot;hello2&quot;); &#125;</span><br><span class="line">&#x2F;&#x2F; Uncaught TypeError: Cannot assign to read only property &#39;say&#39; of object &#39;#&lt;Test&gt;&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例：使用-Decorator-函数实现前端埋点"><a href="#实例：使用-Decorator-函数实现前端埋点" class="headerlink" title="实例：使用 Decorator 函数实现前端埋点"></a>实例：使用 Decorator 函数实现前端埋点</h3><p>将埋点逻辑与业务逻辑解耦</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 实例：使用 Decorator 函数实现前端日志埋点</span><br><span class="line"> * @param &#123;*&#125; target 修改的类</span><br><span class="line"> * @param &#123;*&#125; name 修改的类的属性</span><br><span class="line"> * @param &#123;*&#125; descriptor 该属性的描述对象</span><br><span class="line"> *&#x2F;</span><br><span class="line">let logBurying &#x3D; (type) &#x3D;&gt; &#123;</span><br><span class="line">    return (target, name, descriptor) &#x3D;&gt; &#123;</span><br><span class="line">        let originMethod &#x3D; descriptor.value; &#x2F;&#x2F; 原始函数体</span><br><span class="line"></span><br><span class="line">        descriptor.value &#x3D; (...args) &#x3D;&gt; &#123;</span><br><span class="line">            originMethod.apply(target, args);</span><br><span class="line">            console.info(&#96;logBurying $&#123;type&#125;&#96;); &#x2F;&#x2F; 模拟埋点</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class AD &#123;</span><br><span class="line">    @logBurying(&quot;show&quot;)</span><br><span class="line">    show() &#123;</span><br><span class="line">        console.log(&quot;show&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @logBurying(&quot;click&quot;)</span><br><span class="line">    click() &#123;</span><br><span class="line">        console.log(&quot;click&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let t &#x3D; new AD();</span><br><span class="line"></span><br><span class="line">t.show(); &#x2F;&#x2F; show, logBurying show</span><br><span class="line">t.click(); &#x2F;&#x2F; click, logBurying click</span><br></pre></td></tr></table></figure>
+
+<h3 id="core-decorators"><a href="#core-decorators" class="headerlink" title="core-decorators"></a>core-decorators</h3><p>core-decorators 是一个第三方库，实现了许多实用的 Decorator 函数。</p>
+<p><a href="https://github.com/jayphelps/core-decorators" target="_blank" rel="noopener">https://github.com/jayphelps/core-decorators</a></p>
+<h2 id="Iterator-迭代器"><a href="#Iterator-迭代器" class="headerlink" title="Iterator 迭代器"></a>Iterator 迭代器</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> ==Iterator（迭代器）的概念==</li>
+</ul>
+<p>JavaScript 原有的表示“集合”的数据结构，主要是数组（Array）和对象（Object），ES6 又添加了 Map 和 Set，这样就有了四种数据集合。</p>
+<p>Iterator（迭代器）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署 Iterator 接口，就可以完成遍历操作（即依次处理该数据结构的所有成员），我们就称这种数据结构是“可遍历的”（iterable）。</p>
+<p>原生具备 Iterator 接口的数据结构如下：Array、Map、Set、String、TypedArray、函数的 arguments 对象、NodeList 对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 字符串</span><br><span class="line">let str &#x3D; &quot;hello&quot;;</span><br><span class="line">for (let s of str) &#123;</span><br><span class="line">  console.log(s); &#x2F;&#x2F; h e l l o</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; DOM NodeList对象</span><br><span class="line">let paras &#x3D; document.querySelectorAll(&quot;p&quot;);</span><br><span class="line">for (let p of paras) &#123;</span><br><span class="line">  p.classList.add(&quot;test&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; arguments对象</span><br><span class="line">function printArgs() &#123;</span><br><span class="line">  for (let x of arguments) &#123;</span><br><span class="line">    console.log(x);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">printArgs(&#39;a&#39;, &#39;b&#39;);</span><br><span class="line">&#x2F;&#x2F; &#39;a&#39;</span><br><span class="line">&#x2F;&#x2F; &#39;b&#39;</span><br></pre></td></tr></table></figure>
+
+<p>扩展运算符会默认调用 Iterator 接口，这提供了一种简便机制，可以将任何部署了 Iterator 接口的数据结构，转为数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 例一</span><br><span class="line">var str &#x3D; &#39;hello&#39;;</span><br><span class="line">[...str] &#x2F;&#x2F;  [&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 例二</span><br><span class="line">let arr &#x3D; [&#39;b&#39;, &#39;c&#39;];</span><br><span class="line">[&#39;a&#39;, ...arr, &#39;d&#39;]</span><br><span class="line">&#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span><br></pre></td></tr></table></figure>
+
+<p>ES6 创造了一种新的遍历命令 for…of 循环，Iterator 接口主要供 for…of 消费。Iterator 接口的目的，就是为所有数据结构，提供了一种统一的访问机制，即 for…of 循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;];</span><br><span class="line"></span><br><span class="line">for(let v of arr) &#123;</span><br><span class="line">  console.log(v); &#x2F;&#x2F; red green blue</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for…of 循环可以代替数组实例的 forEach 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const arr &#x3D; [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;];</span><br><span class="line"></span><br><span class="line">for(let v of arr) &#123;</span><br><span class="line">  console.log(v); &#x2F;&#x2F; red green blue</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">arr.forEach(function (element, index) &#123;</span><br><span class="line">  console.log(element); &#x2F;&#x2F; red green blue</span><br><span class="line">  console.log(index);   &#x2F;&#x2F; 0 1 2</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise-对象"><a href="#Promise-对象" class="headerlink" title="Promise 对象"></a>Promise 对象</h2><blockquote>
+<p>参考《前端通讯——异步编程 · 解决方案》</p>
+</blockquote>
+<h2 id="Generator-状态机"><a href="#Generator-状态机" class="headerlink" title="Generator 状态机"></a>Generator 状态机</h2><blockquote>
+<p>参考《前端通讯——异步编程 · 解决方案》</p>
+</blockquote>
+<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><blockquote>
+<p>参考《前端通讯——异步编程 · 解决方案》</p>
+</blockquote>
+<h2 id="Class-类"><a href="#Class-类" class="headerlink" title="Class 类"></a>Class 类</h2><blockquote>
+<p>参考《JavaScript 面向对象》</p>
+</blockquote>
+<h2 id="Module-模块化"><a href="#Module-模块化" class="headerlink" title="Module 模块化"></a>Module 模块化</h2><blockquote>
+<p>参考前端模块化</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-03T09:29:50.000Z" itemprop="dateUpdated">2019-06-03 17:29:50</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2019/04/16/blog/" target="_blank" rel="external">https://bxm0927.github.io/2019/04/16/blog/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.gif" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2019/04/16/blog/&title=《ES6 学习笔记（下）》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2019/04/16/blog/&title=《ES6 学习笔记（下）》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2019/04/16/blog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6 学习笔记（下）》 — Xiaoming's Blog&url=https://bxm0927.github.io/2019/04/16/blog/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2019/04/16/blog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/05/24/promise/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Promise 对象</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/15/blog/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ES6 学习笔记（上）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2019/04/16/blog/&title=《ES6 学习笔记（下）》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2019/04/16/blog/&title=《ES6 学习笔记（下）》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2019/04/16/blog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ES6 学习笔记（下）》 — Xiaoming's Blog&url=https://bxm0927.github.io/2019/04/16/blog/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2019/04/16/blog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvElEQVR42u3aQW7DMAwEwPz/0ynQa2t3KVKKC4xOQeE4ox4IcanXK17v75X/pfp5eOHi4ra579t19TNXzyRvSN758w24uLjnuffFKy9b1S3lBlxc3Gdyp8pcftzBxcV9PjfZzD06oePi4j6Hm5SqtSfz6GS4V8PFxW1wq4Hpjs8b811cXNwi97201mKRaln85bu4uLhHuFetyO6x61ojhIuLe5LbGYesHVaqb4uyHFxc3CFuXsLy0DPfdnkzuLi4R7id4CMveR305ZO4uLhHuPmoI08yOxvGxcX9LDcPLKpxRnIwKrdPuLi4H+LmF6ryn8xjlD+exMXF3cxdHHMO3YsoR7G4uLhHuFPFKD/o5K1R9M/CxcU9ws0LUxKIrLVY5dYIFxd3MzcPN/MxarWJGhil4OLiDnGT8lSl9EeqhesXuLi4m7lra+BslacfuLi427izgWneSuUHo8sbpri4uNu4ncqXXMPK34mLi/s0bh6Mrl3X6Bc4XFzcT3GrI9XqYLXTn+Hi4v4X7lqpGhjZ4uLiPoy7Nl7tFMFCBoOLi7uBWy0xne9WY1NcXNzz3H5gOhWhdi5w4OLiDnG/AMc2LuW15oSfAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
