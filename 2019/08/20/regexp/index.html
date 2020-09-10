@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JavaScript 正则表达式知识点梳理 | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTML,CSS,JS">
+    <meta name="description" content="正则表达式简介 http:&#x2F;&#x2F;www.w3school.com.cn&#x2F;js&#x2F;js_obj_regexp.asp http:&#x2F;&#x2F;www.w3school.com.cn&#x2F;jsref&#x2F;jsref_obj_regexp.asp JavaScript 正则表达式视频教程-慕课网：http:&#x2F;&#x2F;www.imooc.com&#x2F;learn&#x2F;706 60 分钟正则从入门到深入：https:&#x2F;&#x2F;segmentfault">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 正则表达式知识点梳理">
+<meta property="og:url" content="https://bxm0927.github.io/2019/08/20/regexp/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="正则表达式简介 http:&#x2F;&#x2F;www.w3school.com.cn&#x2F;js&#x2F;js_obj_regexp.asp http:&#x2F;&#x2F;www.w3school.com.cn&#x2F;jsref&#x2F;jsref_obj_regexp.asp JavaScript 正则表达式视频教程-慕课网：http:&#x2F;&#x2F;www.imooc.com&#x2F;learn&#x2F;706 60 分钟正则从入门到深入：https:&#x2F;&#x2F;segmentfault">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-20T12:22:00.000Z">
+<meta property="article:modified_time" content="2019-09-03T06:29:50.000Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JavaScript 正则表达式知识点梳理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JavaScript 正则表达式知识点梳理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-20T12:22:00.000Z" itemprop="datePublished" class="page-time">
+  2019-08-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JS/">JS</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则表达式简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">正则表达式简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JavaScript-RegExp-对象"><span class="post-toc-number">2.</span> <span class="post-toc-text">JavaScript RegExp 对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建-RegExp-对象的两种方式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">创建 RegExp 对象的两种方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RegExp-对象方法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">RegExp 对象方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#String-对象对正则表达式的支持"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">String 对象对正则表达式的支持</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则表达式语法"><span class="post-toc-number">3.</span> <span class="post-toc-text">正则表达式语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修饰符"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">修饰符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#元字符"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">元字符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#量词"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">量词</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方括号（字符簇）"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">方括号（字符簇）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#括号（子表达式）"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">括号（子表达式）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#需求例题"><span class="post-toc-number">4.</span> <span class="post-toc-text">需求例题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工具函数"><span class="post-toc-number">5.</span> <span class="post-toc-text">工具函数</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-regexp"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JavaScript 正则表达式知识点梳理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-20 20:22:00" datetime="2019-08-20T12:22:00.000Z"  itemprop="datePublished">2019-08-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JS/">JS</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="正则表达式简介"><a href="#正则表达式简介" class="headerlink" title="正则表达式简介"></a>正则表达式简介</h2><ul>
+<li><a href="http://www.w3school.com.cn/js/js_obj_regexp.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/js/js_obj_regexp.asp</a></li>
+<li><a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp</a></li>
+<li>JavaScript 正则表达式视频教程-慕课网：<a href="http://www.imooc.com/learn/706" target="_blank" rel="noopener">http://www.imooc.com/learn/706</a></li>
+<li>60 分钟正则从入门到深入：<a href="https://segmentfault.com/a/1190000013075245" target="_blank" rel="noopener">https://segmentfault.com/a/1190000013075245</a></li>
+<li>JS 正则表达式完整教程（略长）：<a href="https://juejin.im/post/5965943ff265da6c30653879" target="_blank" rel="noopener">https://juejin.im/post/5965943ff265da6c30653879</a></li>
+</ul>
+<p>正则表达式（Regular expression，RegExp）的作用是对字符串执行<strong>模式匹配</strong>（pattern）。我们通常使用正则表达式来解决下列问题：</p>
+<ol>
+<li>规则验证（例如：验证手机号、邮箱等）</li>
+<li>提取子串（从某个字符串中提取出符合某个条件的子串）</li>
+<li>检查一个字符串是否含有某种子串</li>
+<li>将匹配到的子串进行替换（例如：将敏感词汇替换为*）</li>
+</ol>
+<p>各种编程语言的正则表达式实现基本相同，不同的语言的实现可能会有一些细小的差别，本文着重讲解 JavaScript 中的正则表达式。</p>
+<p>JavaScript 示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> content = <span class="string">'上海头等仓网'</span></span><br><span class="line"><span class="keyword">const</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'头等仓'</span>)</span><br><span class="line">pattern.test(content)</span><br></pre></td></tr></table></figure>
+
+<p>Java 示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegexExample</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">      String content = <span class="string">"上海头等仓网"</span>;</span><br><span class="line">      String pattern = <span class="string">".*头等仓.*"</span>;</span><br><span class="line">      <span class="keyword">boolean</span> isMatch = Pattern.matches(pattern, content);</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">"字符串中是否包含了“头等仓”子串? "</span> + isMatch);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="JavaScript-RegExp-对象"><a href="#JavaScript-RegExp-对象" class="headerlink" title="JavaScript RegExp 对象"></a>JavaScript RegExp 对象</h2><p>在 JavaScript 中，RegExp 内置对象是对正则表达式的实现，它是对字符串执行模式匹配的强大工具。</p>
+<h3 id="创建-RegExp-对象的两种方式"><a href="#创建-RegExp-对象的两种方式" class="headerlink" title="创建 RegExp 对象的两种方式"></a>创建 RegExp 对象的两种方式</h3><p>1、构造函数语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>(pattern, attributes)</span><br></pre></td></tr></table></figure>
+
+<p>2、直接量语法（<strong>推荐</strong>）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;<span class="regexp">/pattern/</span>abeirstttu</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>参数 pattern 是一个字符串，指定了正则表达式的模式</li>
+<li>参数 attributes 是一个可选的字符串，表示修饰符</li>
+</ul>
+<p>返回值：</p>
+<ul>
+<li>一个新的 RegExp 对象，具有指定的模式和修饰符。</li>
+</ul>
+<h3 id="RegExp-对象方法"><a href="#RegExp-对象方法" class="headerlink" title="RegExp 对象方法"></a>RegExp 对象方法</h3><ul>
+<li><code>test(string)</code>：检索字符串中指定的子串。返回 true 或 false。</li>
+<li><code>exec(string)</code>：检索字符串中指定的子串。返回找到的子串，并返回其索引。</li>
+<li><code>compile(regexp, modifier)</code>：用于改变和重新编译正则表达式。</li>
+</ul>
+<h3 id="String-对象对正则表达式的支持"><a href="#String-对象对正则表达式的支持" class="headerlink" title="String 对象对正则表达式的支持"></a>String 对象对正则表达式的支持</h3><ul>
+<li><code>search(regexp)</code>：检索字符串中指定的子串，返回第一个匹配到的子串的起始位置索引。</li>
+<li><code>match(substr/regexp)</code>：检索字符串中指定的子串，返回存放匹配结果的数组。</li>
+<li><code>replace(regexp/substr, replacement)</code>：将匹配到的子串进行替换。</li>
+<li><code>split(separator,howmany)</code>：把字符串分割为字符串数组。</li>
+</ul>
+<h2 id="正则表达式语法"><a href="#正则表达式语法" class="headerlink" title="正则表达式语法"></a>正则表达式语法</h2><h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>修饰符用于指定正则表达式的匹配模式</p>
+<table>
+<thead>
+<tr>
+<th align="left">修饰符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">g</td>
+<td align="left">执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。（global）</td>
+</tr>
+<tr>
+<td align="left">i</td>
+<td align="left">执行对大小写不敏感的匹配。（ignoreCase）</td>
+</tr>
+<tr>
+<td align="left">m</td>
+<td align="left">执行多行匹配。（multiline）</td>
+</tr>
+</tbody></table>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>元字符是拥有特殊含义的字符</p>
+<table>
+<thead>
+<tr>
+<th align="left">元字符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">\</td>
+<td align="left">转义符</td>
+</tr>
+<tr>
+<td align="left">|</td>
+<td align="left">选择匹配符，可以匹配多个规则</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">查找单个字符，除了换行和行结束符。</td>
+</tr>
+<tr>
+<td align="left">\w</td>
+<td align="left">查找单词字符。（word）</td>
+</tr>
+<tr>
+<td align="left">\W</td>
+<td align="left">查找非单词字符。</td>
+</tr>
+<tr>
+<td align="left">\d</td>
+<td align="left">查找数字。（digit）</td>
+</tr>
+<tr>
+<td align="left">\D</td>
+<td align="left">查找非数字字符。</td>
+</tr>
+<tr>
+<td align="left">\s</td>
+<td align="left">查找空白字符。（space）</td>
+</tr>
+<tr>
+<td align="left">\S</td>
+<td align="left">查找非空白字符。</td>
+</tr>
+<tr>
+<td align="left">\b</td>
+<td align="left">匹配单词边界。（boundary）</td>
+</tr>
+<tr>
+<td align="left">\B</td>
+<td align="left">匹配非单词边界。</td>
+</tr>
+<tr>
+<td align="left">\0</td>
+<td align="left">查找 NUL 字符。</td>
+</tr>
+<tr>
+<td align="left">\n</td>
+<td align="left">查找换行符。（newline）</td>
+</tr>
+<tr>
+<td align="left">\f</td>
+<td align="left">查找换页符。</td>
+</tr>
+<tr>
+<td align="left">\r</td>
+<td align="left">查找回车符。</td>
+</tr>
+<tr>
+<td align="left">\t</td>
+<td align="left">查找制表符。</td>
+</tr>
+<tr>
+<td align="left">\v</td>
+<td align="left">查找垂直制表符。</td>
+</tr>
+<tr>
+<td align="left">\xxx</td>
+<td align="left">查找以八进制数 xxx 规定的字符。</td>
+</tr>
+<tr>
+<td align="left">\xdd</td>
+<td align="left">查找以十六进制数 dd 规定的字符。</td>
+</tr>
+<tr>
+<td align="left">\uxxxx</td>
+<td align="left">查找以十六进制数 xxxx 规定的 Unicode 字符。</td>
+</tr>
+</tbody></table>
+<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><table>
+<thead>
+<tr>
+<th align="left">量词</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">n+</td>
+<td align="left">匹配任何包含至少一个 n 的字符串。</td>
+</tr>
+<tr>
+<td align="left">n*</td>
+<td align="left">匹配任何包含零个或多个 n 的字符串。</td>
+</tr>
+<tr>
+<td align="left">n?</td>
+<td align="left">匹配任何包含零个或一个 n 的字符串。</td>
+</tr>
+<tr>
+<td align="left">n{X}</td>
+<td align="left">匹配包含 X 个 n 的序列的字符串。</td>
+</tr>
+<tr>
+<td align="left">n{X,Y}</td>
+<td align="left">匹配包含 X 至 Y 个 n 的序列的字符串。</td>
+</tr>
+<tr>
+<td align="left">n{X,}</td>
+<td align="left">匹配包含至少 X 个 n 的序列的字符串。</td>
+</tr>
+<tr>
+<td align="left">n$</td>
+<td align="left">匹配任何结尾为 n 的字符串。</td>
+</tr>
+<tr>
+<td align="left">^n</td>
+<td align="left">匹配任何开头为 n 的字符串。</td>
+</tr>
+<tr>
+<td align="left">(?=n)</td>
+<td align="left">匹配任何其后紧接指定字符串 n 的字符串。</td>
+</tr>
+<tr>
+<td align="left">(?!n)</td>
+<td align="left">匹配任何其后没有紧接指定字符串 n 的字符串。</td>
+</tr>
+</tbody></table>
+<h3 id="方括号（字符簇）"><a href="#方括号（字符簇）" class="headerlink" title="方括号（字符簇）"></a>方括号（字符簇）</h3><p>方括号用于查找某个范围内的字符</p>
+<table>
+<thead>
+<tr>
+<th align="left">表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">[abc]</td>
+<td align="left">查找方括号之间的任何字符。</td>
+</tr>
+<tr>
+<td align="left">[^abc]</td>
+<td align="left">查找任何不在方括号之间的字符。</td>
+</tr>
+<tr>
+<td align="left">[0-9]</td>
+<td align="left">查找任何从 0 至 9 的数字。</td>
+</tr>
+<tr>
+<td align="left">[a-z]</td>
+<td align="left">查找任何从小写 a 到小写 z 的字符。</td>
+</tr>
+<tr>
+<td align="left">[A-Z]</td>
+<td align="left">查找任何从大写 A 到大写 Z 的字符。</td>
+</tr>
+<tr>
+<td align="left">[A-z]</td>
+<td align="left">查找任何从大写 A 到小写 z 的字符。</td>
+</tr>
+</tbody></table>
+<h3 id="括号（子表达式）"><a href="#括号（子表达式）" class="headerlink" title="括号（子表达式）"></a>括号（子表达式）</h3><p>在正则表达式中，使用括号括起来的内容是一个子表达式。</p>
+<p>子表达式匹配到的内容会被系统捕获至缓冲区，使用<code>\n</code>（n 表示数字）来反向引用（Back reference）系统的第 n 号缓冲区的内容。</p>
+<h2 id="需求例题"><a href="#需求例题" class="headerlink" title="需求例题"></a>需求例题</h2><ol>
+<li>校验手机号</li>
+<li>校验身份证号</li>
+<li>校验 QQ 号</li>
+<li>校验邮箱</li>
+<li>校验日期</li>
+<li>对手机号、身份证号进行隐私保护</li>
+<li>把句子分割成单词，例句 <code>How are you doing today</code></li>
+<li>查找连续相同的四个数字 <code>1212ab45677778cd</code></li>
+</ol>
+<h2 id="工具函数"><a href="#工具函数" class="headerlink" title="工具函数"></a>工具函数</h2><p>将常用的正则表达式进行封装</p>
+<p><code>utils/regexp.js</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 正则表达式相关操作</span></span><br><span class="line"><span class="comment"> * @Author: xiaoming.bai</span></span><br><span class="line"><span class="comment"> * @Date: 2019-12-03 10:19:41</span></span><br><span class="line"><span class="comment"> * @Last Modified by: xiaoming.bai</span></span><br><span class="line"><span class="comment"> * @Last Modified time: 2019-12-04 15:55:05</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 规则校验</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param  <span class="type">&#123;String&#125;</span> </span>str  待校验字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param  <span class="type">&#123;String&#125;</span> </span>type 检测类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> regExpTest = <span class="function">(<span class="params">str, type</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> typeMap = &#123;</span><br><span class="line">    <span class="comment">// 手机号</span></span><br><span class="line">    mobile: <span class="regexp">/^(0|86|17951)?1[3-9]\d&#123;9&#125;$/</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// QQ号</span></span><br><span class="line">    qq: <span class="regexp">/[1-9][0-9]&#123;4,9&#125;/</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 邮箱</span></span><br><span class="line">    email: <span class="regexp">/^[a-zA-Z0-9\._-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 微信环境</span></span><br><span class="line">    wechat: <span class="regexp">/MicroMessenger/i</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 百度爬虫</span></span><br><span class="line">    baiduSpider: <span class="regexp">/Baiduspider/i</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> typeMap[type].test(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 手机号隐私处理</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;String&#125;</span> <span class="variable">phoneStr</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> secretPhone = <span class="function">(<span class="params">phoneStr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> regexp = <span class="regexp">/^(\d&#123;3&#125;)(\d&#123;4&#125;)(\d&#123;4&#125;)$/g</span></span><br><span class="line">  <span class="keyword">const</span> replacement = <span class="string">'$1****$3'</span></span><br><span class="line">  <span class="keyword">return</span> phoneStr.replace(regexp, replacement)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 身份证号隐私处理</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;String&#125;</span> </span>id 身份证号</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> secretIDCard = <span class="function">(<span class="params">id</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> regexp = <span class="regexp">/^(\d&#123;6&#125;)(\d&#123;8&#125;)(\d&#123;3&#125;[0-9xX])$/g</span></span><br><span class="line">  <span class="keyword">const</span> replacement = <span class="string">'$1********$3'</span></span><br><span class="line">  <span class="keyword">return</span> phoneStr.replace(regexp, replacement)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-03T06:29:50.000Z" itemprop="dateUpdated">2019-09-03 14:29:50</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2019/08/20/regexp/" target="_blank" rel="external">https://bxm0927.github.io/2019/08/20/regexp/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.png" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2019/08/20/regexp/&title=《JavaScript 正则表达式知识点梳理》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2019/08/20/regexp/&title=《JavaScript 正则表达式知识点梳理》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2019/08/20/regexp/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript 正则表达式知识点梳理》 — Xiaoming's Blog&url=https://bxm0927.github.io/2019/08/20/regexp/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2019/08/20/regexp/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/05/24/promise/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Promise 对象</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/19/array/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JavaScript 数组知识点梳理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2019/08/20/regexp/&title=《JavaScript 正则表达式知识点梳理》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2019/08/20/regexp/&title=《JavaScript 正则表达式知识点梳理》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2019/08/20/regexp/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript 正则表达式知识点梳理》 — Xiaoming's Blog&url=https://bxm0927.github.io/2019/08/20/regexp/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2019/08/20/regexp/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aUW7DQAhF0ex/0+4CqozuA7fSwJ2vynZsn0YiwPD54PX8Wvz68zX8+AtLhgwZ1zKe46oxCIzcn7ybDBky9jDOgY88/nxl+upxUJYhQ4aM4zXnQFxLK2XIkCGjz+Cfqh2RIUOGjFoRS9I73mKrFc8v1OIyZMi4kMGbZf//95/sb8iQIeMqxhOu8/bktyNpIhi/lQwZMkYzeIDjm5q11JCPaHy9UoYMGUMZPGiSx7xVcKZvJUOGjNmM2o14u612JE0iZciQsYdRG5Ug25wkBBMGOitDhoyhDD7axYMvb8xxGPoeZMiQMZTRfyRvtPFWGkkQZciQsYeRJmqdjYTi/5gkozJkyBjK6IS/dIQi7eEHQxsyZMhYwOBFLA/EPMVMhzZQo02GDBmDGJ2BCX62UzaniaMMGTLmMWJluPpjGagNJ0OGjNEMHnZJMdnZvExHXWXIkLGHkY588cSxtqmQDrbKkCFjA6PTCONhlxTJ/TvLkCFjJ6OYV+IpDzKKERS6MmTIWMDgwTEd9uo02vizZMiQsYFBxrn4WAYf7epsNsRxXYYMGRcynnCRF6212IqFqwwZMhYwauNi/AgP4rWiN4bJkCHjWkYnyNYC6FtbnsGvhwwZMkYw0uK2M4rR+QVAtbgMGTJk4FY+3/48t/bQU2TIkCEDt9L6m521ElqGDBkbGHwkojYwQZK/1j1lyJAxmlErHdMQyc/yEC9DhowFjB+cWJNhSCZbgQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

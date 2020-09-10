@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>分享一些有趣的 Web APIs | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="HTML,CSS,JS">
+    <meta name="description" content="Web API 简介 MDN 文档：https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web&#x2F;API  在使用 JavaScript 编写 Web 应用时，有许多 Web API 可供调用。 一些有趣的 Web APIsElement.scrollIntoView MDN 文档：https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享一些有趣的 Web APIs">
+<meta property="og:url" content="https://bxm0927.github.io/2020/08/20/web-apis/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="Web API 简介 MDN 文档：https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web&#x2F;API  在使用 JavaScript 编写 Web 应用时，有许多 Web API 可供调用。 一些有趣的 Web APIsElement.scrollIntoView MDN 文档：https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2020/7/8/1732d7af8e76e22e?w=397&h=103&f=png&s=5142">
+<meta property="article:published_time" content="2020-08-20T15:40:00.000Z">
+<meta property="article:modified_time" content="2020-08-21T06:29:50.000Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2020/7/8/1732d7af8e76e22e?w=397&h=103&f=png&s=5142">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">分享一些有趣的 Web APIs</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">分享一些有趣的 Web APIs</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-08-20T15:40:00.000Z" itemprop="datePublished" class="page-time">
+  2020-08-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JS/">JS</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Web-API-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Web API 简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些有趣的-Web-APIs"><span class="post-toc-number">2.</span> <span class="post-toc-text">一些有趣的 Web APIs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Element-scrollIntoView"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Element.scrollIntoView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Page-Visibility-API"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Page Visibility API</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Intersection-Observer-API"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Intersection Observer API</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FullScreen-API"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">FullScreen API</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Notification-API"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">Notification API</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-web-apis"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">分享一些有趣的 Web APIs</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-08-20 23:40:00" datetime="2020-08-20T15:40:00.000Z"  itemprop="datePublished">2020-08-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JS/">JS</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Web-API-简介"><a href="#Web-API-简介" class="headerlink" title="Web API 简介"></a>Web API 简介</h2><blockquote>
+<p>MDN 文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API</a></p>
+</blockquote>
+<p>在使用 JavaScript 编写 Web 应用时，有许多 Web API 可供调用。</p>
+<h2 id="一些有趣的-Web-APIs"><a href="#一些有趣的-Web-APIs" class="headerlink" title="一些有趣的 Web APIs"></a>一些有趣的 Web APIs</h2><h3 id="Element-scrollIntoView"><a href="#Element-scrollIntoView" class="headerlink" title="Element.scrollIntoView"></a>Element.scrollIntoView</h3><blockquote>
+<p>MDN 文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView</a></p>
+</blockquote>
+<p>定义：<code>Element.scrollIntoView()</code> 方法让当前的元素滚动到浏览器窗口的可视区域内。</p>
+<p>场景：锚点跳转、回到顶部、去到底部</p>
+<p>使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">element.scrollIntoView() <span class="comment">// 等同于 element.scrollIntoView(true)</span></span><br><span class="line">element.scrollIntoView(alignToTop) <span class="comment">// Boolean 型参数</span></span><br><span class="line">element.scrollIntoView(scrollIntoViewOptions) <span class="comment">// Object型参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数 alignToTop 是一个 Boolean 值，用来指定对齐方式</span></span><br><span class="line"><span class="comment">// 参数 scrollIntoViewOptions 是一个对象，用来定义动画过渡效果和对齐方式</span></span><br></pre></td></tr></table></figure>
+
+<p>补充：该 API 还有一个变体，<code>Element.scrollIntoViewIfNeeded()</code> 方法用来将不在浏览器窗口的可见区域内的元素滚动到浏览器窗口的可见区域。</p>
+<p>示例：回到顶部</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const rootEl &#x3D; document.getElementsByTagName(&#39;html&#39;)[0]</span><br><span class="line"></span><br><span class="line">if (rootEl.scrollIntoView) &#123;</span><br><span class="line">  rootEl.scrollIntoView(&#123; behavior: &#39;smooth&#39; &#125;)</span><br><span class="line">  return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Fix incompatible browser</span><br><span class="line">document.documentElement.scrollTop &#x3D; document.body.scrollTop &#x3D; 0</span><br></pre></td></tr></table></figure>
+
+<p>示例：去到底部</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const rootEl &#x3D; document.getElementsByTagName(&#39;html&#39;)[0]</span><br><span class="line"></span><br><span class="line">if (rootEl.scrollIntoView) &#123;</span><br><span class="line">  rootEl.scrollIntoView(&#123; behavior: &#39;smooth&#39;, block: &#39;end&#39; &#125;)</span><br><span class="line">  return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Fix incompatible browser</span><br><span class="line">const documentHeight &#x3D; document.body.offsetHeight || document.body.scrollHeight</span><br><span class="line">document.documentElement.scrollTop &#x3D; document.body.scrollTop &#x3D; documentHeight</span><br></pre></td></tr></table></figure>
+
+<p>示例：滚动到指定元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const targetBtn &#x3D; document.getElementById(&#39;target&#39;)</span><br><span class="line">const targetEl &#x3D; document.getElementById(&#39;targetEl&#39;)</span><br><span class="line"></span><br><span class="line">targetBtn.addEventListener(&#39;click&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  targetEl.scrollIntoViewIfNeeded(&#123; behavior: &#39;smooth&#39; &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Page-Visibility-API"><a href="#Page-Visibility-API" class="headerlink" title="Page Visibility API"></a>Page Visibility API</h3><blockquote>
+<p>MDN 文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Page_Visibility_API" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Page_Visibility_API</a></p>
+</blockquote>
+<p>定义：Page Visibility API 用来查看当前页面的可见性状态。</p>
+<p>场景：我们在很多地方都需要判断用户是不是在当前页面，如果离开了当前页面我们需要捕捉到并进行一些操作。例如：当视频处于播放状态时，我们需要判断用户是不是在当前页面以继续播放，如果离开了我们需要暂停播放。</p>
+<p>使用：当用户最小化窗口或切换到另一个选项卡时，浏览器会触发一个 <code>visibilitychange</code> 事件，让监听者知道页面状态已更改，你可以监听该事件并执行某些操作。使用 <code>document.hidden、document.visibilityState</code> 属性查看页面可见性状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 监听页面可见属性的改变</span><br><span class="line">&#x2F;&#x2F; 如果页面是隐藏状态，则暂停视频；如果页面是展示状态，则播放视频</span><br><span class="line">document.addEventListener(&#39;visibilitychange&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  if (document.hidden) &#123;</span><br><span class="line">    videoEl.pause()</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    videoEl.play()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>兼容性代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let hidden, visibilityChange</span><br><span class="line">if (typeof document.hidden !&#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">  hidden &#x3D; &#39;hidden&#39;</span><br><span class="line">  visibilityChange &#x3D; &#39;visibilitychange&#39;</span><br><span class="line">&#125; else if (typeof document.msHidden !&#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">  hidden &#x3D; &#39;msHidden&#39;</span><br><span class="line">  visibilityChange &#x3D; &#39;msvisibilitychange&#39;</span><br><span class="line">&#125; else if (typeof document.webkitHidden !&#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">  hidden &#x3D; &#39;webkitHidden&#39;</span><br><span class="line">  visibilityChange &#x3D; &#39;webkitvisibilitychange&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Intersection-Observer-API"><a href="#Intersection-Observer-API" class="headerlink" title="Intersection Observer API"></a>Intersection Observer API</h3><blockquote>
+<p>MDN 文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API</a></p>
+</blockquote>
+<p>定义：检测元素的可视状态或者两个元素的相对可视状态。</p>
+<p>这个 API 覆盖最广的场景是“如果两个元素发生的交集部分在 N% 左右，我需要做处理一些事情（执行回调）”</p>
+<p>场景：</p>
+<ul>
+<li>当页面滚动时，懒加载图片或请求接口。</li>
+<li>商品列表页，监听页面可视区域内的商品，然后记录商品曝光次数；</li>
+<li>为计算广告收益，检测其广告元素的曝光情况；</li>
+<li>根据用户是否能看见相应区域来开始执行任务或动画。</li>
+</ul>
+<p>使用：Intersection Observer API 允许你配置一个回调函数，每当目标元素（target）与设备视窗（root）或者其他指定元素发生交集的时候执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const options &#x3D; &#123;</span><br><span class="line">  root: document.querySelector(&#39;#scrollArea&#39;),</span><br><span class="line">  rootMargin: &#39;0px&#39;,</span><br><span class="line">  &#x2F;&#x2F; 阈值为 0   意味着目标元素 **开始出现** 在 root 选项指定的元素中时，回调函数将会被执行。</span><br><span class="line">  &#x2F;&#x2F; 阈值为 1.0 意味着目标元素 **完全出现** 在 root 选项指定的元素中时，回调函数将会被执行。</span><br><span class="line">  threshold: 0,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const callback &#x3D; (entries, observer) &#x3D;&gt; &#123;</span><br><span class="line">  entries.forEach((entry) &#x3D;&gt; &#123;</span><br><span class="line">    if (entry.isIntersecting) &#123;</span><br><span class="line">      console.log(&#39;元素可见&#39;)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      console.log(&#39;元素不可见&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建一个 IntersectionObserver对象，并传入相应参数和回调用函数，</span><br><span class="line">&#x2F;&#x2F; 该回调函数将会在目标(target)元素和根(root)元素的交集大小超过阈值(threshold)规定的大小时候被执行。</span><br><span class="line">const observer &#x3D; new IntersectionObserver(callback, options)</span><br><span class="line"></span><br><span class="line">let target &#x3D; document.querySelector(&#39;#listItem&#39;)</span><br><span class="line">observer.observe(target)</span><br></pre></td></tr></table></figure>
+
+<h3 id="FullScreen-API"><a href="#FullScreen-API" class="headerlink" title="FullScreen API"></a>FullScreen API</h3><blockquote>
+<p>MDN 文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fullscreen_API" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Fullscreen_API</a></p>
+</blockquote>
+<p>定义：FullScreen API 可以让一个元素与其子元素占据整个屏幕，并在此期间，从屏幕上隐藏所有的浏览器用户界面以及其他应用。</p>
+<p>场景：幻灯片演讲、网页游戏、信息流网站、视频等</p>
+<p>使用：</p>
+<ol>
+<li>浏览器是否支持全屏模式：<code>document.fullscreenEnabled</code></li>
+<li>进入全屏模式：<code>Element.requestFullscreen()</code></li>
+<li>退出全屏模式：<code>document.exitFullscreen()</code></li>
+<li>检查当前是否有节点处于全屏状态：<code>document.fullscreenElement</code></li>
+<li>进入/离开全屏时 触发事件：<code>fullscreenchange</code></li>
+<li>进入全屏失败时 触发事件: <code>fullscreenerror</code></li>
+</ol>
+<p>Chrome 下的全屏表现：</p>
+<ol>
+<li>隐藏标签栏、书签栏</li>
+<li>将要全屏的元素充满整个屏幕，并因此其他元素</li>
+<li>可以多层全屏，当出现多层全屏的情况，需要一层层的退出到页面最初始的情况</li>
+<li>进入全屏时，浏览器有一个默认的提示：按 ESC/F11 即可退出全屏模式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 这是 FullScreen API 的演示，在此例中，网页中显示了一个视频。</span><br><span class="line">&#x2F;&#x2F; 按下 Enter 键让用户在视频的窗口显示和全屏显示之间切换。</span><br><span class="line">function toggleFullScreen() &#123;</span><br><span class="line">  &#x2F;&#x2F; 检查当前是否有节点处于全屏状态</span><br><span class="line">  if (!document.fullscreenElement) &#123;</span><br><span class="line">    document.documentElement.requestFullscreen()</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    if (document.exitFullscreen) &#123;</span><br><span class="line">      document.exitFullscreen()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">document.addEventListener(&#39;keydown&#39;, (e) &#x3D;&gt; &#123;</span><br><span class="line">  if (e.keyCode &#x3D;&#x3D; 13) &#123;</span><br><span class="line">    toggleFullScreen()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>兼容性代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function toggleFullScreen() &#123;</span><br><span class="line">  if (!document.mozFullScreen &amp;&amp; !document.webkitFullScreen) &#123;</span><br><span class="line">    if (videoEl.mozRequestFullScreen) &#123;</span><br><span class="line">      videoEl.mozRequestFullScreen()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      videoEl.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    if (document.mozCancelFullScreen) &#123;</span><br><span class="line">      document.mozCancelFullScreen()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      document.webkitCancelFullScreen()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>多层全屏：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const outerBtn &#x3D; document.getElementById(&#39;outer&#39;)</span><br><span class="line">const innerBtn &#x3D; document.getElementById(&#39;inner&#39;)</span><br><span class="line">const outerBox &#x3D; document.querySelector(&#39;.outer-box&#39;)</span><br><span class="line">const innerBox &#x3D; document.querySelector(&#39;.inner-box&#39;)</span><br><span class="line"></span><br><span class="line">outerBtn.addEventListener(&#39;click&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  outerBox.requestFullscreen()</span><br><span class="line">&#125;)</span><br><span class="line">innerBtn.addEventListener(&#39;click&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">  innerBox.requestFullscreen()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Notification-API"><a href="#Notification-API" class="headerlink" title="Notification API"></a>Notification API</h3><blockquote>
+<p>MDN 文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/notification</a></p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2020/7/8/1732d7af8e76e22e?w=397&h=103&f=png&s=5142" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>定义：Notification API 是 HTML5 新增的桌面通知 API，用于向用户显示通知信息。该通知是脱离浏览器的，即使用户没有停留在当前标签页，甚至最小化了浏览器，该通知信息也一样会置顶显示出来。</p>
+<p>场景：发送用户订阅的消息，网站内容更新提醒等，提醒有人关注了。</p>
+<p>使用：实例化一个 <code>Notification</code> 对象即可。</p>
+<p>假定有如下 HTML：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick&#x3D;&quot;notifyMe()&quot;&gt;Notify me!&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接下来发送一条通知：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function notifyMe() &#123;</span><br><span class="line">  &#x2F;&#x2F; 先检查浏览器是否支持</span><br><span class="line">  if (!(&quot;Notification&quot; in window)) &#123;</span><br><span class="line">    alert(&quot;This browser does not support desktop notification&quot;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 检查用户是否同意接受通知</span><br><span class="line">  else if (Notification.permission &#x3D;&#x3D;&#x3D; &quot;granted&quot;) &#123;</span><br><span class="line">    &#x2F;&#x2F; If it&#39;s okay let&#39;s create a notification</span><br><span class="line">    var notification &#x3D; new Notification(&quot;Hi there!&quot;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 否则我们需要向用户获取权限</span><br><span class="line">  else if (Notification.permission !&#x3D;&#x3D; &#39;denied&#39;) &#123;</span><br><span class="line">    Notification.requestPermission(function (permission) &#123;</span><br><span class="line">      &#x2F;&#x2F; 如果用户同意，就可以向他们发送通知</span><br><span class="line">      if (permission &#x3D;&#x3D;&#x3D; &quot;granted&quot;) &#123;</span><br><span class="line">        var notification &#x3D; new Notification(&quot;Hi there!&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 最后，如果执行到这里，说明用户已经拒绝对相关通知进行授权</span><br><span class="line">  &#x2F;&#x2F; 出于尊重，我们不应该再打扰他们了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-08-21T06:29:50.000Z" itemprop="dateUpdated">2020-08-21 14:29:50</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2020/08/20/web-apis/" target="_blank" rel="external">https://bxm0927.github.io/2020/08/20/web-apis/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.png" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/" rel="tag">JS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2020/08/20/web-apis/&title=《分享一些有趣的 Web APIs》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2020/08/20/web-apis/&title=《分享一些有趣的 Web APIs》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2020/08/20/web-apis/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《分享一些有趣的 Web APIs》 — Xiaoming's Blog&url=https://bxm0927.github.io/2020/08/20/web-apis/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2020/08/20/web-apis/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/09/03/eslint/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/05/24/chrome-devtools/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Chrome DevTools 调试技巧</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2020/08/20/web-apis/&title=《分享一些有趣的 Web APIs》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2020/08/20/web-apis/&title=《分享一些有趣的 Web APIs》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2020/08/20/web-apis/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《分享一些有趣的 Web APIs》 — Xiaoming's Blog&url=https://bxm0927.github.io/2020/08/20/web-apis/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2020/08/20/web-apis/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3a0W7DIAyF4bz/S6e3nSrcc2yyDfvnqkozyscky2Bflzzut/H55P356n33t64nBgwYMI5l3OGIlxUvN57B/d1442DAgDGBoSxi9b4biCu/tXwOAwYMGEK6Fs+jBPHVExgwYMCoM3YtFAYMGDBihnKYVN5XwH98FocBA8aBDPey/jc/P1LfgAEDxlGM2xz6DG5q6Ab0H38FAwaM1gz3Kk0varqpoduiAQMGjMmMXcvSg7XyXFoVDBgwmjLcYBe3heXSPmXmL6uFAQPGGIZ+ueYGSiUEK4zltzBgwBjAcC/o3VaJeNHuYXh5fIUBA0ZTRi5oxs+NC7LURkgFThgwYDRiKJPqpNw7lau3ZYYLAwaMpozKtb67HW6R4EsghgEDxjCGkUUWio7KltlncRgwYLRm6OEy12xaOdZK2woDBozWDD0VyzVkKGDlW7v7CwYMGE0Zu4Jmbim7ygwwYMDozdjVYOEGcWUr7dlgwIAxjHHLozKbG743tIXBgAHjKIZ7gHQvwpTyg14qWGJgwIAxgKEnanrhs744o8gKAwaMAYxcqueG3Xp7h1HTgAEDRgvGbY5csXNXacH+P8CAAaMFI9dn5UZ0JX2sHHphwIAxgVE/rLoBdFfJc/OZGwYMGP+ekbvQ11PMeOZtZ3EYMGDAMIuUenIZb82G+gYMGDBGMtwwqrd/uekmDBgw5jD0loh6W6oejh+5boMBA8aBDPfoqKdxuTQxXnSpqAkDBozzGC/Sg2qY23lvCgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

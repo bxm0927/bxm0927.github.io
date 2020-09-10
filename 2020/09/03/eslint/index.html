@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验 | Xiaoming&#39;s Blog | Share with you IT technology, to achieve progress together.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ESLint,Stylelint,Prettier">
+    <meta name="description" content="ESLint 简介 https:&#x2F;&#x2F;github.com&#x2F;eslint&#x2F;eslint https:&#x2F;&#x2F;cn.eslint.org&#x2F; https:&#x2F;&#x2F;github.com&#x2F;dustinspecker&#x2F;awesome-eslint  不管是多人协作还是个人项目，代码规范都是很重要的。这样做不仅可以很大程度地避免基本语法错误，也保证了代码的可读性。具备基本工程素养的同学都会注重编码规范，而代码风格检查（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验">
+<meta property="og:url" content="https://bxm0927.github.io/2020/09/03/eslint/index.html">
+<meta property="og:site_name" content="Xiaoming&#39;s Blog">
+<meta property="og:description" content="ESLint 简介 https:&#x2F;&#x2F;github.com&#x2F;eslint&#x2F;eslint https:&#x2F;&#x2F;cn.eslint.org&#x2F; https:&#x2F;&#x2F;github.com&#x2F;dustinspecker&#x2F;awesome-eslint  不管是多人协作还是个人项目，代码规范都是很重要的。这样做不仅可以很大程度地避免基本语法错误，也保证了代码的可读性。具备基本工程素养的同学都会注重编码规范，而代码风格检查（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ffaefc9829945f4b119756cea86adb9~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/83ca58069c3844c3a88b8315aa92439e~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc7384b183f748218a79417e78764283~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="article:published_time" content="2020-09-03T15:22:00.000Z">
+<meta property="article:modified_time" content="2020-09-03T15:29:50.000Z">
+<meta property="article:author" content="白小明">
+<meta property="article:tag" content="ESLint">
+<meta property="article:tag" content="Stylelint">
+<meta property="article:tag" content="Prettier">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ffaefc9829945f4b119756cea86adb9~tplv-k3u1fbpfcp-zoom-1.image">
+    
+        <link rel="alternate" type="application/atom+xml" title="Xiaoming&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">白小明</h5>
+          <a href="mailto:80583600@qq.com" title="80583600@qq.com" class="mail">80583600@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于我
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bxm0927" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-09-03T15:22:00.000Z" itemprop="datePublished" class="page-time">
+  2020-09-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ESLint/">ESLint</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ESLint-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">ESLint 简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装和使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装和使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置（Configuration）"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置（Configuration）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置文件格式（Formats）"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">配置文件格式（Formats）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置忽略文件（Ignoring-Files）"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">配置忽略文件（Ignoring Files）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指定解析器（Parser）"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">指定解析器（Parser）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指定环境（Environments）"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">指定环境（Environments）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指定全局变量（Globals）"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">指定全局变量（Globals）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置注释（Comments）"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">配置注释（Comments）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#规则（rules）"><span class="post-toc-number">4.</span> <span class="post-toc-text">规则（rules）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#继承（extends）"><span class="post-toc-number">5.</span> <span class="post-toc-text">继承（extends）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#插件（plugins）"><span class="post-toc-number">6.</span> <span class="post-toc-text">插件（plugins）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#集成（Integrations）"><span class="post-toc-number">7.</span> <span class="post-toc-text">集成（Integrations）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在-VS-Code-中使用-ESLint"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">在 VS Code 中使用 ESLint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与-Webpack-集成"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">与 Webpack 集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与-Gulp-集成"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">与 Gulp 集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与-Prettier-集成"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">与 Prettier 集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与-Vue-集成"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">与 Vue 集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与-Nuxt-集成"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">与 Nuxt 集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与-React-集成"><span class="post-toc-number">7.7.</span> <span class="post-toc-text">与 React 集成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#与-TypeScript-集成"><span class="post-toc-number">7.8.</span> <span class="post-toc-text">与 TypeScript 集成</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Git-Hooks-强制校验"><span class="post-toc-number">8.</span> <span class="post-toc-text">Git Hooks 强制校验</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最佳实践（Best-Practices）"><span class="post-toc-number">9.</span> <span class="post-toc-text">最佳实践（Best Practices）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FAQs"><span class="post-toc-number">10.</span> <span class="post-toc-text">FAQs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#extend-与-plugin-的区别"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">extend 与 plugin 的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何通过环境变量来动态设置-rule"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">如何通过环境变量来动态设置 rule</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-eslint"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-09-03 23:22:00" datetime="2020-09-03T15:22:00.000Z"  itemprop="datePublished">2020-09-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ESLint/">ESLint</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="ESLint-简介"><a href="#ESLint-简介" class="headerlink" title="ESLint 简介"></a>ESLint 简介</h2><ul>
+<li><a href="https://github.com/eslint/eslint" target="_blank" rel="noopener">https://github.com/eslint/eslint</a></li>
+<li><a href="https://cn.eslint.org/" target="_blank" rel="noopener">https://cn.eslint.org/</a></li>
+<li><a href="https://github.com/dustinspecker/awesome-eslint" target="_blank" rel="noopener">https://github.com/dustinspecker/awesome-eslint</a></li>
+</ul>
+<p>不管是多人协作还是个人项目，代码规范都是很重要的。这样做不仅可以很大程度地避免基本语法错误，也保证了代码的可读性。具备基本工程素养的同学都会注重编码规范，而代码风格检查（Code Linting，简称 Lint）是保障代码规范一致性的重要手段。</p>
+<p>JavaScript 是一个动态的弱类型语言，在开发中比较容易出错。因为没有编译程序，为了寻找 JavaScript 代码错误通常需要在执行过程中不断调试。像 ESLint 这样的工具，可以让程序员在编码的过程中发现问题而不是在执行的过程中。</p>
+<p>==ESLint 是用于查找并修复 JavaScript 代码中的问题的代码检测工具==。它是由 Nicholas C. Zakas（“红宝书”《JavaScript 高级程序设计》的作者）于 2013 年 6 月创建的开源项目，ESLint 的所有规则都被设计成可插拔的，它的目标是提供一个插件化的 JavaScript 代码检测工具，进而保证代码风格的一致性和语法正确。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ffaefc9829945f4b119756cea86adb9~tplv-k3u1fbpfcp-zoom-1.image" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><p>先决条件：Node.js &gt;= 10.12</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Local Installation</span></span><br><span class="line">$ npm install eslint --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># set up a configuration file（.eslintrc）:</span></span><br><span class="line">$ ./node_modules/.bin/eslint --init</span><br><span class="line"></span><br><span class="line"><span class="comment"># After that, you can run ESLint on any file or directory like this:</span></span><br><span class="line">$ ./node_modules/.bin/eslint yourfile.js</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/83ca58069c3844c3a88b8315aa92439e~tplv-k3u1fbpfcp-zoom-1.image" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="配置（Configuration）"><a href="#配置（Configuration）" class="headerlink" title="配置（Configuration）"></a>配置（Configuration）</h2><h3 id="配置文件格式（Formats）"><a href="#配置文件格式（Formats）" class="headerlink" title="配置文件格式（Formats）"></a>配置文件格式（Formats）</h3><p>ESLint 支持几种格式的配置文件，如果同一个目录下有多个配置文件，ESLint 只会使用一个，优先级从上到下：</p>
+<ul>
+<li><code>eslintrc.js</code></li>
+<li><code>.eslintrc.yaml</code></li>
+<li><code>.eslintrc.yml</code></li>
+<li><code>.eslintrc.json</code></li>
+<li><code>.eslintrc</code></li>
+<li><code>package.json</code> 中的 <code>eslintConfig</code> 属性</li>
+</ul>
+<p>==在官方文档中，<code>.eslintrc</code> 已经被弃用，推荐使用 <code>.eslintrc.js</code>。==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  parser: &#123;&#125;,  &#x2F;&#x2F; 解析器</span><br><span class="line">  extends: [], &#x2F;&#x2F; 继承的规则 [扩展]</span><br><span class="line">  plugins: [], &#x2F;&#x2F; 插件</span><br><span class="line">  rules: &#123;&#125;    &#x2F;&#x2F; 规则</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置忽略文件（Ignoring-Files）"><a href="#配置忽略文件（Ignoring-Files）" class="headerlink" title="配置忽略文件（Ignoring Files）"></a>配置忽略文件（Ignoring Files）</h3><p>你可以通过在项目根目录创建一个 <code>.eslintignore</code> 文件告诉 ESLint 去忽略特定的文件和目录。</p>
+<p>ESLint 总是忽略 <code>/node_modules/*</code> 和 <code>/bower_components/*</code> 中的文件，你无需自己指定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;node_modules&#x2F;* and &#x2F;bower_components&#x2F;* in the project root are ignored by default</span><br><span class="line"></span><br><span class="line"># Ignore built files</span><br><span class="line">build&#x2F;*</span><br><span class="line"></span><br><span class="line"># Ignore Idea files</span><br><span class="line">.idea</span><br><span class="line"></span><br><span class="line"># Ignore Nuxt built files</span><br><span class="line">.nuxt</span><br><span class="line"></span><br><span class="line"># Ignore iconfont file</span><br><span class="line">assets&#x2F;fonts&#x2F;iconfont.js</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定解析器（Parser）"><a href="#指定解析器（Parser）" class="headerlink" title="指定解析器（Parser）"></a>指定解析器（Parser）</h3><p>ESLint 默认使用 Espree 作为其解析器，你可以在配置文件中指定一个不同的解析器，以便让 ESLint 在处理非 ECMAScript 5 特性时正常工作。</p>
+<ul>
+<li>babel-eslint：用于 ESLint 的 Babel 解析器的包装器<ul>
+<li><a href="https://github.com/babel/babel-eslint" target="_blank" rel="noopener">https://github.com/babel/babel-eslint</a></li>
+</ul>
+</li>
+<li>typescript-eslint-parser：用于 ESLint 的 TS 解析器<ul>
+<li><a href="https://github.com/eslint/typescript-eslint-parser" target="_blank" rel="noopener">https://github.com/eslint/typescript-eslint-parser</a></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;parser&quot;: &quot;babel-eslint&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定环境（Environments）"><a href="#指定环境（Environments）" class="headerlink" title="指定环境（Environments）"></a>指定环境（Environments）</h3><p>指定脚本的运行环境，每种环境都有一组特定的预定义全局变量。</p>
+<p>常见环境：<code>browser</code>、<code>node</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;env&quot;: &#123;</span><br><span class="line">        &quot;browser&quot;: true,</span><br><span class="line">        &quot;node&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定全局变量（Globals）"><a href="#指定全局变量（Globals）" class="headerlink" title="指定全局变量（Globals）"></a>指定全局变量（Globals）</h3><p>当你使用一些 ESLint 不能识别的全局变量，<code>no-undef</code> 规则将发出警告，你可以使用注释或在配置文件中定义这些全局变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;globals&quot;: &#123;</span><br><span class="line">        &quot;BMap&quot;: &quot;readonly&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置注释（Comments）"><a href="#配置注释（Comments）" class="headerlink" title="配置注释（Comments）"></a>配置注释（Comments）</h3><p>你也在文件中，对指定的规则启用或禁用规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* eslint-disable no-alert, no-console *&#x2F;</span><br><span class="line"></span><br><span class="line">alert(&#39;foo&#39;);</span><br><span class="line">console.log(&#39;bar&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;* eslint-enable no-alert, no-console *&#x2F;</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc7384b183f748218a79417e78764283~tplv-k3u1fbpfcp-zoom-1.image" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="规则（rules）"><a href="#规则（rules）" class="headerlink" title="规则（rules）"></a>规则（rules）</h2><p>ESLint 的核心就是其中包含的各种规则（rules），这些规则大多为众多开发者经验的结晶：</p>
+<ul>
+<li>有的可以帮我们避免错误；</li>
+<li>有的可以帮我们规范代码格式；</li>
+<li>有的可以帮我们规范变量的使用方式；</li>
+<li>有的可以帮我们写出最佳实践的代码；</li>
+<li>用的可以帮我们更合适的使用新的语法；</li>
+<li>…</li>
+</ul>
+<p>你可以在配置文件 <code>.eslintrc.{js,yml,json}</code> 中看到许多像这样的规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;rules&quot;: &#123;</span><br><span class="line">        &quot;semi&quot;: [&quot;error&quot;, &quot;always&quot;],</span><br><span class="line">        &quot;quotes&quot;: [&quot;error&quot;, &quot;double&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>&quot;semi&quot;</code> 和 <code>&quot;quotes&quot;</code> 是 ESLint 中规则的名称。第一个值是规则的错误级别，可以是以下值之一，这三个错误级别使您可以细粒度控制 ESLint 如何应用规则。</p>
+<ul>
+<li><code>&quot;off&quot;</code> 或 <code>0</code> - 关闭规则</li>
+<li><code>&quot;warn&quot;</code> 或 <code>1</code> - 将规则作为警告打开（不影响退出代码）</li>
+<li><code>&quot;error&quot;</code> 或 <code>2</code> - 将规则作为错误打开（退出代码将为 1）</li>
+</ul>
+<p>ESLint 附带有大量的规则，你可以根据需要启用额外的规则。常见规则：</p>
+<ul>
+<li>semi：末尾分号</li>
+<li>quotes：双引号或单引号</li>
+<li>indent：缩进</li>
+<li>no-console：禁用 <code>console</code></li>
+<li>no-alert：禁用 <code>alert</code></li>
+<li>no-empty：禁止空语句块</li>
+<li>no-var：要求使用 <code>let</code> 或 <code>const</code>，而不是 <code>var</code></li>
+<li>no-undef：禁止使用未声明的变量，除非它们在 global 中被提到</li>
+<li>no-unused-vars：定义了变量，却没有使用</li>
+<li>no-magic-numbers：禁用魔术数字</li>
+<li>eqeqeq：要求使用 <code>===</code> 和 <code>!==</code></li>
+<li>curly：当代码块只有一条语句时，是否省略大括号</li>
+<li>arrow-parens：要求箭头函数的参数使用圆括号</li>
+<li>linebreak-style：预期的换行符为 <code>LF</code>，但发现 <code>CRLF</code> 换行式</li>
+</ul>
+<h2 id="继承（extends）"><a href="#继承（extends）" class="headerlink" title="继承（extends）"></a>继承（extends）</h2><p>ESLint 默认不会去校验你的代码，所有的规则默认都是禁用的，只有在你的配置文件中继承了一个配置，或者明确开启一个规则，ESLint 才会去校验你的代码。</p>
+<p>==extends 提供的是 ESLint 现有规则的一系列预设==。</p>
+<p>extends 可以是一个字符串，也可以是一个数组。其中可以包含以下内容：</p>
+<ul>
+<li>以 <code>eslint:</code> 开头的字符串，如 <code>eslint:recommended</code>，这样写意味着使用 ESLint 的推荐配置；</li>
+<li>以 <code>plugin:</code> 开头的字符串，如 <code>plugin:react/recommended</code>，这些写意味着使用第三方插件；</li>
+<li>以 <code>eslint-config-</code> 开头的包，其实是第三方规则的集合，</li>
+<li>由于 ESLint 中添加了额外的处理，我们可以省略包名的前缀 <code>eslint-config-</code> 和 <code>eslint-plugin-</code>。</li>
+</ul>
+<p>您还可以在 npmjs.com 上搜索 <strong><code>eslint-config-</code></strong>，可以发现大量的 ESLint 拓展配置模块，我们可以直接通过这些模块在 ESLint 中使用上流行的风格，也可以把自己的配置结果封装为一个模块，供之后复用。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">extends: [</span><br><span class="line">  &#x2F;&#x2F; add more generic rulesets here</span><br><span class="line">  &#39;eslint:recommended&#39;,</span><br><span class="line">  &#39;plugin:vue&#x2F;recommended&#39;,</span><br><span class="line">  &#39;plugin:prettier&#x2F;recommended&#39;,</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h2 id="插件（plugins）"><a href="#插件（plugins）" class="headerlink" title="插件（plugins）"></a>插件（plugins）</h2><p>ESLint 支持使用第三方插件来扩展规则集。在使用插件之前，你必须使用 npm 安装它。</p>
+<p>==plugin 可以看作是 <strong>第三方规则</strong> 的集合==，ESLint 本身规则只会去支持 <strong>标准的 ECMAScript</strong> 语法，但是比如我们想在 React 中也使用 ESLint 则需要自己去定义一些规则，这就有了 eslint-plugin-react 。</p>
+<p>您还可以通过在 npmjs.com 上搜索 <strong><code>eslint-plugin-</code></strong> 来使用其他人创建的插件。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  parser: &#39;@typescript-eslint&#x2F;parser&#39;,</span><br><span class="line">  extends: [</span><br><span class="line">    &#39;plugin:@typescript-eslint&#x2F;recommended&#39;,</span><br><span class="line">    &#39;react-app&#39;,</span><br><span class="line">    &#39;plugin:prettier&#x2F;recommended&#39;,</span><br><span class="line">  ],</span><br><span class="line">  plugins: [</span><br><span class="line">    &#39;@typescript-eslint&#39;,</span><br><span class="line">    &#39;react&#39;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="集成（Integrations）"><a href="#集成（Integrations）" class="headerlink" title="集成（Integrations）"></a>集成（Integrations）</h2><h3 id="在-VS-Code-中使用-ESLint"><a href="#在-VS-Code-中使用-ESLint" class="headerlink" title="在 VS Code 中使用 ESLint"></a>在 VS Code 中使用 ESLint</h3><blockquote>
+<p>VSCode 中使用 ESlint 和 prettier 的正确姿势：<a href="https://zhuanlan.zhihu.com/p/159426292" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/159426292</a></p>
+</blockquote>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</a></p>
+<p>在 VS Code 插件市场中安装 ESLint 插件，安装即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 保存代码时，根据 ESLint 规则自动修复代码</span><br><span class="line">&quot;editor.codeActionsOnSave&quot;: &#123;</span><br><span class="line">  &quot;source.fixAll.eslint&quot;: true,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="与-Webpack-集成"><a href="#与-Webpack-集成" class="headerlink" title="与 Webpack 集成"></a>与 Webpack 集成</h3><p>eslint-loader：<a href="https://github.com/webpack-contrib/eslint-loader" target="_blank" rel="noopener">https://github.com/webpack-contrib/eslint-loader</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint</span><br><span class="line">npm install --save-dev eslint-loader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// Run ESLint on save</span></span><br><span class="line">        enforce: <span class="string">'pre'</span>,</span><br><span class="line">        test: <span class="regexp">/\.(js|vue)$/</span>,</span><br><span class="line">        loader: <span class="string">'eslint-loader'</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="与-Gulp-集成"><a href="#与-Gulp-集成" class="headerlink" title="与 Gulp 集成"></a>与 Gulp 集成</h3><p>gulp-eslint：<a href="https://github.com/adametry/gulp-eslint" target="_blank" rel="noopener">https://github.com/adametry/gulp-eslint</a></p>
+<h3 id="与-Prettier-集成"><a href="#与-Prettier-集成" class="headerlink" title="与 Prettier 集成"></a>与 Prettier 集成</h3><p>eslint-plugin-prettier：<a href="https://github.com/prettier/eslint-plugin-prettier" target="_blank" rel="noopener">https://github.com/prettier/eslint-plugin-prettier</a></p>
+<ul>
+<li><code>eslint-config-prettier</code> 关闭所有不必要的或可能与 Prettier 冲突的 ESLint 规则。</li>
+<li><code>eslint-plugin-prettier</code> 是一个 ESLint 插件，它添加了使用 Prettier 格式化内容的规则，并提供了一个推荐配置(recommend)。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint</span><br><span class="line">npm install --save-dev --save-exact prettier # 安装精确的版本</span><br><span class="line">npm install --save-dev eslint-config-prettier eslint-plugin-prettier</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;extends&quot;: [</span><br><span class="line">    &#39;eslint:recommended&#39;,</span><br><span class="line">    &#39;plugin:prettier&#x2F;recommended&#39;,</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h3 id="与-Vue-集成"><a href="#与-Vue-集成" class="headerlink" title="与 Vue 集成"></a>与 Vue 集成</h3><p>eslint-plugin-vue</p>
+<ul>
+<li>version 7：<a href="https://github.com/vuejs/eslint-plugin-vue" target="_blank" rel="noopener">https://github.com/vuejs/eslint-plugin-vue</a></li>
+<li>version 6.2.2：<a href="https://github.com/vuejs/eslint-plugin-vue/blob/v6.2.2/docs/user-guide/README.md" target="_blank" rel="noopener">https://github.com/vuejs/eslint-plugin-vue/blob/v6.2.2/docs/user-guide/README.md</a></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint</span><br><span class="line">npm install --save-dev babel-eslint</span><br><span class="line">npm install --save-dev eslint-plugin-vue <span class="comment"># 安装 6.2.2 版本</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isDev = process.env.NODE_ENV !== <span class="string">'production'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  root: <span class="literal">true</span>,</span><br><span class="line">  env: &#123;</span><br><span class="line">    browser: <span class="literal">true</span>,</span><br><span class="line">    node: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  parser: <span class="string">'vue-eslint-parser'</span>,</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    parser: <span class="string">'babel-eslint'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [<span class="string">'vue'</span>],</span><br><span class="line">  extends: [</span><br><span class="line">    <span class="comment">// add more generic rulesets here</span></span><br><span class="line">    <span class="string">'eslint:recommended'</span>,</span><br><span class="line">    <span class="string">'plugin:vue/recommended'</span>,</span><br><span class="line">    <span class="string">'plugin:prettier/recommended'</span>,</span><br><span class="line">  ],</span><br><span class="line">  rules: &#123;</span><br><span class="line">    <span class="comment">// override/add rules settings here</span></span><br><span class="line">    <span class="string">'no-console'</span>: isDev ? <span class="string">'warn'</span> : <span class="string">'error'</span>,</span><br><span class="line">    <span class="string">'no-debugger'</span>: isDev ? <span class="string">'warn'</span> : <span class="string">'error'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// vue rules</span></span><br><span class="line">    <span class="string">'vue/no-v-html'</span>: <span class="string">'off'</span>,</span><br><span class="line">    <span class="string">'vue/attributes-order'</span>: <span class="string">'off'</span>,</span><br><span class="line">    <span class="string">'vue/max-attributes-per-line'</span>: <span class="string">'off'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="与-Nuxt-集成"><a href="#与-Nuxt-集成" class="headerlink" title="与 Nuxt 集成"></a>与 Nuxt 集成</h3><p>eslint-plugin-nuxt：<a href="https://github.com/nuxt/eslint-plugin-nuxt" target="_blank" rel="noopener">https://github.com/nuxt/eslint-plugin-nuxt</a></p>
+<p>在 Nuxt.js 中集成 ESLint：<a href="https://zh.nuxtjs.org/guide/development-tools/#eslint" target="_blank" rel="noopener">https://zh.nuxtjs.org/guide/development-tools/#eslint</a></p>
+<h3 id="与-React-集成"><a href="#与-React-集成" class="headerlink" title="与 React 集成"></a>与 React 集成</h3><p>eslint-plugin-react：<a href="https://github.com/yannickcr/eslint-plugin-react" target="_blank" rel="noopener">https://github.com/yannickcr/eslint-plugin-react</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint</span><br><span class="line">npm install --save-dev eslint-loader</span><br><span class="line">npm install --save-dev babel-eslint</span><br><span class="line">npm install --save-dev eslint-plugin-react</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  root: <span class="literal">true</span>,</span><br><span class="line">  env: &#123;</span><br><span class="line">    browser: <span class="literal">true</span>,</span><br><span class="line">    node: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  parser: <span class="string">'babel-eslint'</span>,</span><br><span class="line">  extends: [<span class="string">'eslint:recommended'</span>, <span class="string">'plugin:react/recommended'</span>],</span><br><span class="line">  plugins: [<span class="string">'react'</span>],</span><br><span class="line">  settings: &#123;</span><br><span class="line">    react: &#123;</span><br><span class="line">      <span class="comment">// "detect" automatically picks the version you have installed.</span></span><br><span class="line">      version: <span class="string">'detect'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  rules: &#123;</span><br><span class="line">    <span class="string">'react/prop-types'</span>: <span class="string">'off'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="与-TypeScript-集成"><a href="#与-TypeScript-集成" class="headerlink" title="与 TypeScript 集成"></a>与 TypeScript 集成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint</span><br><span class="line">npm install --save-dev typescript @typescript-eslint&#x2F;parser @typescript-eslint&#x2F;eslint-plugin</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&quot;parserOptions&quot;: &#123;</span><br><span class="line">    &quot;parser&quot;: &quot;@typescript-eslint&#x2F;parser&quot;,</span><br><span class="line">&#125;,</span><br><span class="line">&quot;extends&quot;: [</span><br><span class="line">    &#39;plugin:@typescript-eslint&#x2F;recommended&#39;,</span><br><span class="line">    &#39;plugin:prettier&#x2F;recommended&#39;,</span><br><span class="line">],</span><br><span class="line">&quot;plugins&quot;: [</span><br><span class="line">    &quot;@typescript-eslint&quot;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-Hooks-强制校验"><a href="#Git-Hooks-强制校验" class="headerlink" title="Git Hooks 强制校验"></a>Git Hooks 强制校验</h2><p>上面这些静态校验都依赖于程序员个人的自觉性，并不是强制的，有些团队成员或者说刚来的实习生没有在编辑器中配置 ESLint 或者无视命令行中提示的错误，所以还是有可能将错误的代码提交到仓库中。</p>
+<p>如果要做到强制校验，最有效的解决方案就是搭配 Git <code>pre-commit</code> hooks 插件，来在 <code>git commit</code> 前强制校验，进而保证所有提交到远程仓库的内容都是符合团队规范的。</p>
+<ul>
+<li>husky：<a href="https://github.com/typicode/husky" target="_blank" rel="noopener">https://github.com/typicode/husky</a></li>
+<li>lint-staged：<a href="https://github.com/okonet/lint-staged" target="_blank" rel="noopener">https://github.com/okonet/lint-staged</a></li>
+<li>pre-commit：<a href="https://github.com/observing/pre-commit" target="_blank" rel="noopener">https://github.com/observing/pre-commit</a></li>
+</ul>
+<p>husky 可以在 <code>git commit</code> 和 <code>git push</code> 前执行静态校验，但是他会校验所有文件，当项目大了之后，检查速度会变得越来越慢。这时候就需要使用 lint-staged，它在 git 暂存文件上运行 linters，只会校验你将要提交的内容。</p>
+<p>pre-commit 与 husky 类似，也可以指定要运行的 scripts 以及运行的顺序，这里使用 <code>husky + lint-staged</code> 即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install husky lint-staged --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>然后修改 package.json，增加配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"husky"</span>: &#123;</span><br><span class="line">    <span class="attr">"hooks"</span>: &#123;</span><br><span class="line">      <span class="attr">"pre-commit"</span>: <span class="string">"lint-staged"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"lint-staged"</span>: &#123;</span><br><span class="line">    <span class="attr">"*.&#123;js,vue&#125;"</span>: <span class="string">"eslint"</span>,</span><br><span class="line">    <span class="attr">"*.&#123;css,vue&#125;"</span>: <span class="string">"stylelint"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上配置，每次当你执行 <code>git commit</code> 时，都会校验你提交的内容是否符合项目配置的 ESLint 规则，即对所有的 js 和 vue 文件运行 <code>eslint</code> 指令，如果符合规则，则会提交成功；如果不符合规则，则会提交失败，并且提示你错误原因。</p>
+<p>如果你希望在不符合规则时，让它尝试帮你自动修复，你可以将 <code>eslint</code> 指令替换成 <code>eslint --fix</code>，这样，如果修复成功则会帮你把修复好的代码提交，如果修复失败，则会提示你错误，让你修好这个错误之后才能允许你提交代码。</p>
+<h2 id="最佳实践（Best-Practices）"><a href="#最佳实践（Best-Practices）" class="headerlink" title="最佳实践（Best Practices）"></a>最佳实践（Best Practices）</h2><p>这里推荐使用 ESLint + Prettier + Airbnb</p>
+<ul>
+<li>Linters 注重于 Code-quality rules，我们使用 ESLint 以捕获可能的错误。</li>
+<li>Prettier 注重于 Formatting rules，我们可以使用 Prettier 对代码进行格式化。</li>
+<li>Airbnb 是前端最为流行的 JavaScript 规范。</li>
+</ul>
+<p>此外，</p>
+<ul>
+<li>如果您使用 Vue：eslint-plugin-vue</li>
+<li>如果您使用 Nuxt：eslint-plugin-nuxt</li>
+<li>如果您使用 React：eslint-plugin-react</li>
+</ul>
+<p>同时，在你的编辑器（通常是 VS Code）中配置 ESLint 这样平时写代码的时候，编辑器就能帮你修正一些简单的格式错误，同时提醒你有哪些不符合 lint 规范的的地方，并在命令行中提示你错误。</p>
+<p>最后，搭配 <code>husky + lint-staged</code>，💩 will never slip into your code base!</p>
+<h2 id="FAQs"><a href="#FAQs" class="headerlink" title="FAQs"></a>FAQs</h2><h3 id="extend-与-plugin-的区别"><a href="#extend-与-plugin-的区别" class="headerlink" title="extend 与 plugin 的区别"></a>extend 与 plugin 的区别</h3><ul>
+<li><code>extend</code> 提供的是 ESLint 现有规则的一系列预设</li>
+<li>而 <code>plugin</code> 则提供了除预设之外的自定义规则，当你在 ESLint 自带的规则里找不到合适的规则时，就可以使用插件来实现了。</li>
+</ul>
+<h3 id="如何通过环境变量来动态设置-rule"><a href="#如何通过环境变量来动态设置-rule" class="headerlink" title="如何通过环境变量来动态设置 rule"></a>如何通过环境变量来动态设置 rule</h3><p>你可以通过环境变量来动态设置 rule：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isDev = process.env.NODE_ENV !== <span class="string">'production'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  rules: &#123;</span><br><span class="line">    <span class="string">'no-console'</span>: isDev ? <span class="string">'warn'</span> : <span class="string">'error'</span>,</span><br><span class="line">    <span class="string">'no-debugger'</span>: isDev ? <span class="string">'warn'</span> : <span class="string">'error'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-03T15:29:50.000Z" itemprop="dateUpdated">2020-09-03 23:29:50</time>
+</span><br>
+
+
+        
+        原始文章链接：<a href="/2020/09/03/eslint/" target="_blank" rel="external">https://bxm0927.github.io/2020/09/03/eslint/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bxm0927.github.io">
+            <img src="/img/avatar.png" alt="白小明">
+            白小明
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ESLint/" rel="tag">ESLint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prettier/" rel="tag">Prettier</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stylelint/" rel="tag">Stylelint</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2020/09/03/eslint/&title=《🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2020/09/03/eslint/&title=《🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2020/09/03/eslint/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验》 — Xiaoming's Blog&url=https://bxm0927.github.io/2020/09/03/eslint/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2020/09/03/eslint/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/08/20/web-apis/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">分享一些有趣的 Web APIs</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ca68ad67306e8d870266',
+          clientSecret: 'd91f73a701064c977a363cc19dfac35a977e4d4d',
+          repo: 'bxm0927.github.io',
+          owner: 'bxm0927',
+          admin: ['bxm0927'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>白小明 &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bxm0927.github.io/2020/09/03/eslint/&title=《🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验》 — Xiaoming's Blog&pic=https://bxm0927.github.io/img/avatar.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bxm0927.github.io/2020/09/03/eslint/&title=《🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验》 — Xiaoming's Blog&source=这里是白小明的个人博客,是记录博主学习和成长的一个自媒体博客,关注于Web大前端技术的学习研究." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bxm0927.github.io/2020/09/03/eslint/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《🎉⛓️🛠️ 使用 ESLint + Stylelint + Prettier，打造舒适前端开发体验》 — Xiaoming's Blog&url=https://bxm0927.github.io/2020/09/03/eslint/&via=https://bxm0927.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bxm0927.github.io/2020/09/03/eslint/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aS5KDMAwFwNz/0sw2G+BJdqjBbq9ShApuFoo+/nzidXyt7yv5/Wf35NcnLAwMjNcyjst1va3r7V7/wtm319dPn4iBgbEBI9lE8u31w/Ktl4MyBgYGxkAieBMoW8/FwMDASEJqXuj2rmBgYGD0itgqIy9rH63FMTAwXsjIu+7Pf/7JfAMDA+NVjKO4eo2zkfFAtCsMDIylGXmAyw9b9FLDPLk8vRMDA2NLxjF19dLQ/AoGBsaqjPFDYLPGAL1DGKcZLgYGxqKMvJdVDYvVkricaGJgYGzASLZVHTQmgbsa3KPyFQMDYznGrGNeeXDMW2nVNh8GBsY+jCTM5aletdytDiRu/j0wMDCWY1QTwfFhZzURvHndGBgYizLycWNvzFktiXshGAMDY2dGLwjmJWs+JLgJ2RgYGBswZjXFks/VVxb10zAwMJZm9A5JzAqmk38fAwNjaUY11PbK115IzY+pYWBg7Maopnq96jI/zFE+coGBgbEcY2Q88Ey5Gz0dAwNjA0ZO6jXReuOEQrjHwMDYgNErX/PgW8hS4/A9rQrHwMD4x4yjuPI0caTFP6H+xsDAWIhRDXPVkjVp9+f3V5t9GBgYKzGqpWaSDlYL497IszxTxcDAeDmj19DvpYYj/wA3eS4GBgbGQJHZG44WXiUGBgZGqxCtjiqHQjkGBsYGjOrR0pFN54XrT9ptGBgYL2T0SseR0jSHTR5qYmBgvI/xBxMIslB1EZV+AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
