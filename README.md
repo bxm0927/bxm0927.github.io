@@ -4,9 +4,9 @@ It's my personal blog, share with you IT technology, to achieve progress togethe
 
 Welcome to visit it 👉 https://bxm0927.github.io/
 
-Deploy Branch：master
+Deploy Branch：`master`
 
-Writing Branch：workspace
+Writing Branch：`workspace`
 
 ## ✂️ Quick Start
 
@@ -26,4 +26,10 @@ $ hexo new "Hello Hexo"
 
 # Generate static files
 $ hexo generate
+```
+
+Deploy
+
+```
+npm run deploy
 ```
